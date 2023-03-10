@@ -1,0 +1,39 @@
+/* .skill {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+} */
+
+.skill {
+    z-index: 0 !important;
+}
+
+.skill::after {
+    background: linear-gradient(90deg, transparent, var(--color), transparent);
+    transition: 0.5s;
+    position: absolute;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    top: 0;
+    content: ' ';
+    border-radius: 1.75rem;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.skill:hover::after {
+    left: 10%;
+    opacity: 0.5;
+}
+
+
+.skillblock:hover {
+    background-blend-mode: overlay;
+    background: var(--icon) no-repeat 90% center/20%, linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, var(--color) 100%), var(--color);
+}
+
+.shortskill:hover {
+    background-blend-mode: overlay;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, var(--color) 100%), var(--color);
+}

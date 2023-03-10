@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Thinking Out Loud",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/tol3.mp3",
+    "art": "https://upload.wikimedia.org/wikipedia/en/3/3e/Thinking_Out_Loud_cover.png",
+    "artist": "Ed Sheeran",
+    "album": "Music Covers",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/9/9e/SiaEverydayIsChristmas.jpg",
+    "year": "2014"
+  },
+  {
+    "name": "Snowman",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/sm2.mp3",
+    "art": "https://upload.wikimedia.org/wikipedia/en/9/9e/SiaEverydayIsChristmas.jpg",
+    "artist": "Sia",
+    "album": "Music Covers",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg",
+    "year": "2017"
+  },
+  {
+    "name": "Let it be",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/lib-rs.mp3",
+    "art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg",
+    "artist": "The Beatles",
+    "album": "Beatles",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg",
+    "year": "1970"
+  },
+  {
+    "name": "Help",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/help-rs.mp3",
+    "art": "https://www.thebeatles.com/sites/default/files/styles/max_1300x1300/public/2021-06/Help.jpg?itok=sQBcoIcm",
+    "artist": "The Beatles",
+    "album": "Beatles",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg",
+    "year": "1965"
+  },
+  {
+    "name": "Eleanor Rigby",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/er-rs.mp3",
+    "art": "https://cdns-images.dzcdn.net/images/cover/6e1e24a3e4311371abd2c888b1f0e13e/500x500.jpg",
+    "artist": "The Beatles",
+    "album": "Beatles",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg",
+    "year": "1966"
+  },
+  {
+    "name": "Nadaan Parindey",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/np3.mp3",
+    "art": "https://i.pinimg.com/736x/bc/c5/cf/bcc5cfed0a970ae0bde5297cfdf5ef13.jpg",
+    "artist": "Mohit Chauhan",
+    "album": "Unplugged",
+    "album_art": "https://a10.gaanacdn.com/images/albums/14/225814/crop_480x480_225814.jpg",
+    "year": "2011"
+  },
+  {
+    "name": "Inn Dinon",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/id.mp3",
+    "art": "https://a10.gaanacdn.com/images/albums/14/225814/crop_480x480_225814.jpg",
+    "artist": "Pritam",
+    "album": "Unplugged",
+    "album_art": "https://a10.gaanacdn.com/images/albums/14/225814/crop_480x480_225814.jpg",
+    "year": "2011"
+  },
+  {
+    "name": "Sound of Silence",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/sos-rs.mp3",
+    "art": "https://upload.wikimedia.org/wikipedia/en/1/1c/SoundsSilence.jpg",
+    "artist": "Simon & Garfunkel",
+    "album": "Music Covers",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/9/9e/SiaEverydayIsChristmas.jpg",
+    "year": "1964"
+  },
+  {
+    "name": "The Man Who Sold The World",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/tmwstw-rs.mp3",
+    "art": "https://images.squarespace-cdn.com/content/v1/5a70fa14e45a7c7dd2fadad0/1519496593574-MO64XOA8273CN366YMT5/1971_themanwhosoldtheworld_uk.jpg",
+    "artist": "David Bowie",
+    "album": "Music Covers",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/9/9e/SiaEverydayIsChristmas.jpg",
+    "year": "1970"
+  },
+  {
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/memories.mp3",
+    "name": "Memories",
+    "artist": "Maroon 5",
+    "year": "2020",
+    "album": "Unplugged",
+    "art": "https://thisis-images.scdn.co/37i9dQZF1DZ06evNZY5NHq-default.jpg",
+    "album_art": "https://a10.gaanacdn.com/images/albums/14/225814/crop_480x480_225814.jpg"
+  },
+  {
+    "name": "Love of my life",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/loml.mp3",
+    "art": "https://upload.wikimedia.org/wikipedia/en/4/4d/Queen_A_Night_At_The_Opera.png",
+    "artist": "Queen",
+    "year": "1974",
+    "album": "Queen",
+    "album_art": "https://www.rockarchive.com/media/1603/queen-qn002mr.jpg"
+  },
+  {
+    "name": "Michelle",
+    "src": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/michelle.mp3",
+    "art": "https://m.media-amazon.com/images/I/91ym3sMcvRL._SL1500_.jpg",
+    "artist": "The Beatles",
+    "year": "1965",
+    "album": "Beatles",
+    "album_art": "https://upload.wikimedia.org/wikipedia/en/2/25/LetItBe.jpg"
+  }
+]

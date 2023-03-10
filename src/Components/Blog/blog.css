@@ -1,0 +1,15 @@
+#blog-post>* {
+    color: white !important;
+}
+
+#blog-post {
+    color: white !important;
+}
+
+.white {
+    color: white !important;
+}
+
+.white>p>span {
+    color: white !important;
+}

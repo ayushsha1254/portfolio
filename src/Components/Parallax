@@ -1,0 +1,9 @@
+import { ParallaxHover } from "react-parallax-hover";
+import image from "../Assets/Images/apple.jpg";
+<div className="p-4">
+    <ParallaxHover borderRadius={5} height={300} rotation={3} scale={1} shadow={3} shine={1} width={500}>
+        <div>
+            <img alt="Demo image" height="300" src={image} width="500" />
+        </div>
+    </ParallaxHover>
+</div>

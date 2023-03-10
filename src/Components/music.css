@@ -1,0 +1,65 @@
+/* .bg {
+
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg,
+            rgba(59, 173, 227, 0.2) 0%,
+            rgba(87, 111, 230, 0.2) 25%,
+            rgba(152, 68, 183, 0.2) 51%,
+            rgba(255, 53, 127, 0.3) 100%);
+    animation: AnimateBG 15s ease infinite;
+} */
+.screen {
+    width: 18%;
+}
+
+@media screen and (min-width: 1260px) {
+    .screen {
+        width: 31%;
+    }
+}
+
+
+.bg {
+
+    background-size: 300% 300%;
+    backdrop-filter: blur(10px), brightness(0.1);
+    background-image: linear-gradient(-25deg,
+            var(--one) 0%,
+            var(--four) 25%,
+            var(--three) 51%,
+            var(--two) 100%);
+    animation: AnimateBG 25s ease infinite;
+}
+
+@keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%
+    }
+
+    10% {
+        background-position: 100% 50%
+    }
+
+    20% {
+        background-position: 0% 50%
+    }
+
+    30% {
+        background-position: 70% 40%;
+        background-size: 500% 500%;
+    }
+
+    50% {
+        background-position: 20% 80%;
+        background-size: 400% 400%;
+    }
+
+    70% {
+        background-position: 90% 10%;
+        background-size: 300% 300%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,2346 @@
+{
+  "name": "Ayush Sharma",
+  "lock_screen": "lockscreen.svg",
+  "lockprofile": "lockprofile.svg",
+  "logo": "AS",
+  "globe": "https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/globe-mars-24ae6c6e.webp",
+  "oldglobe": "https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/globe-mars-24ae6c6e.webp",
+  "home": {
+    "name": "Ayush Sharma",
+    "description": "Sure, there are grays... But when you come right down to it, at its core, beneath every choice, there’s either a one or a zero. You either do something or you don’t.",
+    "description_by": "Mr. Robot"
+  },
+  "youtube_id": "UCT6mPrLT-HS1LOJD27fVKSw",
+  "explorer": {
+    "about": {
+      "name": "Ayush Sharma",
+      "description": "Hola, I'm Ayush Sharma! I'm a coding enthusiast who loves exploring new technologies and building cool stuff. When I'm not coding, you can usually find me jamming on my keyboard or guitar, or singing my heart out. I also enjoy reading and expanding my knowledge in various fields. I'm a curious, creative, and passionate person who loves to learn and explore. I'm always up for a good conversation or collaboration, so feel free to reach out and say hi!",
+      "about_project": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "education": [
+        {
+          "name": "SRM Institute of Science and Technology",
+          "degree": "B.Tech in Computer Science and Engineering",
+          "year": "2020 - 2024"
+        },
+        {
+          "name": "Delhi Public School, R.K. Puram",
+          "degree": "Senior Secondary in PCM with CS",
+          "year": "2018 - 2020"
+        }
+      ],
+      "image": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/Rishit+Shivesh+3.png",
+      "about": "The UI/UX designer and Full stack developer duo brought joy and creativity to the project, crafting a delightful user experience with a solid and efficient backend. High-fives all around for a job well done!"
+    },
+    "skills": [
+      {
+        "name": "ReactJs",
+        "icon": "react.svg",
+        "color": "#74defc",
+        "link": "https://reactjs.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/react.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "ExpressJs",
+        "icon": "express.svg",
+        "color": "#000000",
+        "link": "https://expressjs.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/express.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "C++",
+        "icon": "cpp.svg",
+        "color": "#9c033a",
+        "link": "https://cplusplus.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/cpp.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "Python",
+        "icon": "python.svg",
+        "color": "#3975a6",
+        "link": "https://www.python.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/python.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "C",
+        "icon": "c.svg",
+        "color": "#03599c",
+        "link": "https://www.learn-c.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/c.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "JavaScript",
+        "icon": "js.svg",
+        "color": "#f0db4f",
+        "link": "https://www.javascript.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/js.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "TypeScript",
+        "icon": "typescript.svg",
+        "color": "#3f7ac6",
+        "link": "https://www.typescriptlang.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/typescript.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "HTML5",
+        "icon": "html.svg",
+        "color": "#f16529",
+        "link": "https://html.spec.whatwg.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/html.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "CSS",
+        "icon": "css.svg",
+        "color": "#33a9dc",
+        "link": "https://www.w3.org/TR/CSS/#css",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/css.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "Django",
+        "icon": "django.svg",
+        "color": "#092e20",
+        "link": "https://www.djangoproject.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/django.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "GraphQL",
+        "icon": "graphql.svg",
+        "color": "#c92d94",
+        "link": "https://graphql.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/graphql.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "ThreeJS",
+        "icon": "threejs.svg",
+        "color": "#539eed",
+        "link": "https://threejs.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/threejs.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "TailwindCSS",
+        "icon": "tailwind.svg",
+        "color": "#5db4d0",
+        "link": "https://tailwindcss.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/tailwind.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "postgresql.svg",
+        "color": "#44678d",
+        "link": "https://www.postgresql.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/postgresql.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "Cassandra",
+        "icon": "cassandra.svg",
+        "color": "#cbe3f4",
+        "link": "https://cassandra.apache.org/_/index.html",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/cassandra.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "Angular",
+        "icon": "angular.svg",
+        "color": "#c63226",
+        "link": "https://angular.io/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/angular.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "Bootstrap",
+        "icon": "bootstrap.svg",
+        "color": "#57437e",
+        "link": "https://getbootstrap.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/bootstrap.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "Git",
+        "icon": "git.svg",
+        "color": "#dc5a3a",
+        "link": "https://git-scm.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/git.svg",
+        "category": ["VCS"]
+      },
+      {
+        "name": "Docker",
+        "icon": "docker.svg",
+        "color": "#4f9ac2",
+        "link": "https://www.docker.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/docker.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "Github",
+        "icon": "github.svg",
+        "color": "#171515",
+
+        "link": "https://github.com",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/github.svg",
+        "category": ["VCS"]
+      },
+      {
+        "name": "Amazon Web Services",
+        "icon": "aws.svg",
+        "color": "#e8aa3d",
+        "link": "https://aws.amazon.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/aws.svg",
+        "category": ["Cloud"]
+      },
+      {
+        "name": "Google Cloud Platform",
+        "icon": "gcp.svg",
+        "color": "#c74e70",
+        "link": "https://cloud.google.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/gcp.svg",
+        "category": ["Cloud"]
+      },
+      {
+        "name": "Java",
+        "icon": "java.svg",
+        "color": "#d53e38",
+        "link": "https://www.java.com/en/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/java.svg",
+        "category": ["Programming"]
+      },
+      {
+        "name": "Postman",
+        "icon": "postman.svg",
+        "color": "#e87445",
+        "link": "https://www.postman.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/postman.svg",
+        "category": ["Services"]
+      },
+      {
+        "name": "Redux",
+        "icon": "redux.svg",
+        "color": "#7050b4",
+        "link": "https://redux.js.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/redux.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "NextJS",
+        "icon": "next.svg",
+        "color": "#d2d7fa",
+        "link": "https://nextjs.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/next.svg",
+        "category": ["Frontend"]
+      },
+      {
+        "name": "Markdown",
+        "icon": "markdown.svg",
+        "color": "#649de2",
+        "link": "https://www.markdownguide.org/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/markdown.svg",
+        "category": ["Utility"]
+      },
+      {
+        "name": "Heroku",
+        "icon": "heroku.svg",
+        "color": "#604c83",
+        "link": "https://herokuapp.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/heroku.svg",
+        "category": ["Hosting"]
+      },
+      {
+        "name": "NodeJS",
+        "icon": "node.svg",
+        "color": "#98c94a",
+        "link": "https://nodejs.org/en/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/node.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "My SQL",
+        "icon": "mysql.svg",
+        "color": "#2c6288",
+        "link": "https://www.mysql.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/mysql.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "FL Studio",
+        "icon": "flstudio.svg",
+        "color": "#ec9538",
+        "link": "https://www.image-line.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/flstudio.svg",
+        "category": ["Soft Skills"]
+      },
+      {
+        "name": "Adobe Audition",
+        "icon": "audition.svg",
+        "color": "#80ddda",
+        "link": "https://www.adobe.com/in/products/audition.html",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/audition.svg",
+        "category": ["Soft Skills"]
+      },
+      {
+        "name": "Adobe Photoshop",
+        "icon": "photoshop.svg",
+        "color": "#97bcf1",
+        "link": "https://www.adobe.com/in/products/photoshop.html",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/photoshop.svg",
+        "category": ["Soft Skills"]
+      },
+      {
+        "name": "Adobe Lightroom",
+        "icon": "lightroom.svg",
+        "color": "#252750",
+        "link": "https://www.adobe.com/in/products/lightroom.html",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/lightroom.svg",
+        "category": ["Soft Skills"]
+      },
+      {
+        "name": "AWS S3",
+        "icon": "s3.svg",
+        "color": "#cb5a4a",
+        "link": "https://aws.amazon.com/s3/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/s3.svg",
+        "category": ["Utility"]
+      },
+      {
+        "name": "AWS DynamoDB",
+        "icon": "dynamodb.svg",
+        "color": "#4773b4",
+        "link": "https://aws.amazon.com/dynamodb/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/dynamodb.svg",
+        "category": ["Backend"]
+      },
+      {
+        "name": "MongoDB",
+        "icon": "mongodb.svg",
+        "color": "#75e975",
+        "link": "https://www.mongodb.com/",
+        "img": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/icons/mongodb.svg",
+        "category": ["Backend"]
+      }
+    ],
+    "social": {
+      "whatsapp": "https://wa.me/+919667516345",
+      "instagram": "https://www.instagram.com/mysongs.space/",
+      "linkedin": "https://www.linkedin.com/in/rishitshivesh/",
+      "spotify": "https://open.spotify.com/user/hvsv9k9b9pdvqhd6s0ntlf0o6",
+      "github": "https://github.com/rishitshivesh",
+      "youtube": "https://www.youtube.com/@rishitshivesh",
+      "dribbble": "https://dribbble.com/rishitshivesh",
+      "behance": "https://www.behance.net/rishitshivesh"
+    },
+    "projects": [
+      {
+        "name": "Aaruush",
+        "tagline": "Main Website",
+        "description": "The main website for Aaruush 22 aimed to create a single portal for an entire user experience. The portal used ThreeJS and other libraries to enhance the user experience. An interactive model of Aaruush Tower can be seen on the landing page. The entire webapp is based on a dark theme and it also uses the shade of Aaruush Orange. .The backend for the project is a scalable serverless lambda function that can be integrated with every other Aaruush project(s). The project is a building block to creating a one-stop webapp for all of Aaruush.",
+        "link": "https://aaruush.org",
+        "color": "#ef6522",
+        "logo": "aaruush.svg",
+        "github": "https://github.com/team-envision/aaruushorgreact",
+        "font": "Xirod",
+        "timeline": {
+          "start": "2021-12-28",
+          "end": "2022-05-31"
+        },
+        "stack": [
+          "js",
+          "react",
+          "node",
+          "dynamodb",
+          "s3",
+          "threejs",
+          "express",
+          "tailwind",
+          "aws"
+        ],
+        "gallery": [
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/aaruush.org/1.png",
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/aaruush.org/2.png",
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/aaruush.org/3.png",
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/aaruush.org/4.png"
+        ]
+      },
+      {
+        "name": "Team Envision",
+        "tagline": "Main Website",
+        "github": "https://github.com/team-envision/envision-website-react",
+        "description": "The Envision website for the 16th edition of Aaruush was designed to implement a simple yet beautiful User Interface. The UI saw the usage of glass morph to make it look modern. The webapp aimed to concatenate the history and work profile of Team Envision. The number of team members, project details, work collaborations and team details were displayed.",
+        "link": "https://envision.aaruush.org",
+        "color": "#eaf02f",
+        "logo": "envision.svg",
+        "font": "Montserrat",
+        "timeline": {
+          "start": "2022-06-10",
+          "end": "2022-07-10"
+        },
+        "stack": ["js", "react", "tailwind", "aws"],
+        "gallery": [
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/envision.aaruush.org/1.png",
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/envision.aaruush.org/2.png",
+          "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/projects/envision.aaruush.org/3.png"
+        ]
+      },
+      {
+        "name": "Buzz",
+        "tagline": "The Social Network",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "color": "#f2c243",
+        "logo": "sun.svg",
+        "logourl": "https://imgur.com/7TRhuju.png",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["python", "bootstrap", "heroku", "django"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/211/1920/1080.jpg?hmac=8xfV4VJdZ6IFikr0O2VQce9DX8jR1S0vQLnICuFZi-I",
+          "https://fastly.picsum.photos/id/836/1920/1080.jpg?hmac=u4GAAqAWDWHOUtQzis29bEe-5qXj-VIqZZn5pYrg55w",
+          "https://fastly.picsum.photos/id/756/1920/1080.jpg?hmac=v1_TkiiLfq6skzl7UAL4oYeJTaYVhUxjmrS3C0DMQug"
+        ]
+      },
+      {
+        "name": "Auctions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "color": "#cf2f2f",
+        "logourl": "https://i.imgur.com/BCTdTtt.png",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["python", "bootstrap", "heroku", "django"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/74/1920/1080.jpg?hmac=5ZdfVzyyjLBbQh89zQiR6_w_VRlVxVTCr7vEsYWtxR8",
+          "https://fastly.picsum.photos/id/923/1920/1080.jpg?hmac=MwOKEdNuAIrsVLy9tYMgFYYoFyJbKahYScv6cX7UHd8",
+          "https://fastly.picsum.photos/id/717/1920/1080.jpg?hmac=g8kYa6lQ4Zw1-uSjPCIZTUj3WpabxnD8N2_YRkXW80M"
+        ]
+      },
+      {
+        "name": "Aaruush Links",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://links.aaruush.org",
+        "color": "#5328aa",
+        "logo": "aaruush.svg",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["js", "react", "bootstrap"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/1/1920/1080.jpg?hmac=F3y4Fj0qI8heo51givSFTbNc8P5g1eR8ztnE7zDiVDg",
+          "https://fastly.picsum.photos/id/391/1920/1080.jpg?hmac=RQgmh8kVVE0PtQn42kE3mUzeU7FMpOKu2AncSm0PyaI",
+          "https://fastly.picsum.photos/id/74/1920/1080.jpg?hmac=5ZdfVzyyjLBbQh89zQiR6_w_VRlVxVTCr7vEsYWtxR8"
+        ]
+      },
+      {
+        "name": "SIH '22",
+        "tagline": "AICTE Event Management Portal",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "color": "#098c38",
+        "logo": "sih.svg",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": [
+          "react",
+          "express",
+          "cassandra",
+          "node",
+          "graphql",
+          "aws",
+          "docker"
+        ],
+        "gallery": [
+          "https://fastly.picsum.photos/id/1/1920/1080.jpg?hmac=F3y4Fj0qI8heo51givSFTbNc8P5g1eR8ztnE7zDiVDg",
+          "https://fastly.picsum.photos/id/292/1920/1080.jpg?hmac=nRJPlN1JN7ro8X0ui2VTgD41MCxFUtpXgKS2YTPt9Ac",
+          "https://fastly.picsum.photos/id/986/1920/1080.jpg?hmac=K8F3Ux1GOhYlykBW_J53VEuQdjQHZIwbTlrBdF3EMpM",
+          "https://fastly.picsum.photos/id/923/1920/1080.jpg?hmac=MwOKEdNuAIrsVLy9tYMgFYYoFyJbKahYScv6cX7UHd8"
+        ]
+      },
+      {
+        "name": "Movietime",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "color": "#f53894",
+        "logourl": "https://imgur.com/YpdkEY7.png",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["python", "bootstrap", "heroku", "django"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/74/1920/1080.jpg?hmac=5ZdfVzyyjLBbQh89zQiR6_w_VRlVxVTCr7vEsYWtxR8",
+          "https://fastly.picsum.photos/id/923/1920/1080.jpg?hmac=MwOKEdNuAIrsVLy9tYMgFYYoFyJbKahYScv6cX7UHd8",
+          "https://fastly.picsum.photos/id/717/1920/1080.jpg?hmac=g8kYa6lQ4Zw1-uSjPCIZTUj3WpabxnD8N2_YRkXW80M"
+        ]
+      },
+      {
+        "name": "Old Portfolio",
+
+        "tagline": "Vanilla Project",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "logourl": "https://portfolio.rishitshivesh.co.in/assets/img/favicon.png",
+        "color": "#663399",
+        "logo": "sun.svg",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["js", "css", "html"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/74/1920/1080.jpg?hmac=5ZdfVzyyjLBbQh89zQiR6_w_VRlVxVTCr7vEsYWtxR8",
+          "https://fastly.picsum.photos/id/923/1920/1080.jpg?hmac=MwOKEdNuAIrsVLy9tYMgFYYoFyJbKahYScv6cX7UHd8",
+          "https://fastly.picsum.photos/id/717/1920/1080.jpg?hmac=g8kYa6lQ4Zw1-uSjPCIZTUj3WpabxnD8N2_YRkXW80M"
+        ]
+      },
+      {
+        "name": "Links Keeper",
+
+        "tagline": "Aaruush",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "link": "https://www.google.com",
+        "color": "#e2762e",
+        "logo": "linkskeeper.svg",
+        "timeline": {
+          "start": "2019-07-01",
+          "end": "2019-07-31"
+        },
+        "stack": ["js", "css", "html", "react"],
+        "gallery": [
+          "https://fastly.picsum.photos/id/74/1920/1080.jpg?hmac=5ZdfVzyyjLBbQh89zQiR6_w_VRlVxVTCr7vEsYWtxR8",
+          "https://fastly.picsum.photos/id/923/1920/1080.jpg?hmac=MwOKEdNuAIrsVLy9tYMgFYYoFyJbKahYScv6cX7UHd8",
+          "https://fastly.picsum.photos/id/717/1920/1080.jpg?hmac=g8kYa6lQ4Zw1-uSjPCIZTUj3WpabxnD8N2_YRkXW80M"
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "name": "HTML and CSS in Depth",
+        "date": "September 17, 2022",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/cfe0f25a-meta.jpeg",
+        "link": "https://coursera.org/verify/MXW879U6B5QF",
+        "issuer": {
+          "name": "Meta",
+          "image": "https://1000logos.net/wp-content/uploads/2021/10/logo-Meta.png"
+        }
+      },
+      {
+        "name": "CS50 Web Programming with Python and JavaScript",
+        "date": "November 10, 2020",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/45926dc9-cs50.png",
+        "link": "https://cs50.harvard.edu/certificates/a4687bb9-f573-4d20-9372-e9066f7f689f",
+        "issuer": {
+          "name": "CS50",
+          "image": "https://1000logos.net/wp-content/uploads/2017/02/Harvard-Logo.png"
+        }
+      },
+      {
+        "name": "IT Automation using Python",
+        "date": "September 25, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/1a9b282c-itap.jpeg",
+        "link": "https://www.coursera.org/account/accomplishments/professional-cert/78YFN8H3QN8L",
+        "issuer": {
+          "name": "Google (Coursera)",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"
+        }
+      },
+      {
+        "name": "Problem Solving (Intermediate)",
+        "date": "August 23, 2022",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/7145f027-ps-hr.png",
+        "link": "https://www.hackerrank.com/certificates/b3b21a12fbfe",
+        "issuer": {
+          "name": "Hackerrank",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png"
+        }
+      },
+      {
+        "name": "Using Python to Interact with the Operating System",
+        "date": "May 25, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/bb0a1ad8-pos.jpeg",
+        "link": "https://www.coursera.org/account/accomplishments/verify/3QNQB23GM89N",
+        "issuer": {
+          "name": "Coursera",
+          "image": "https://149396518.v2.pressablecdn.com/wp-content/uploads/2020/12/cropped-android-chrome-512x512-1.png"
+        }
+      },
+      {
+        "name": "Introduction to Git and GitHub",
+        "date": "June 23, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/bbab70b5-ggh.jpeg",
+        "link": "https://www.coursera.org/account/accomplishments/verify/ZLQ2UDS5QYVZ",
+        "issuer": {
+          "name": "Coursera",
+          "image": "https://149396518.v2.pressablecdn.com/wp-content/uploads/2020/12/cropped-android-chrome-512x512-1.png"
+        }
+      },
+      {
+        "name": "Automating Real-World Tasks with Python",
+        "date": "September 25, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/df19d2a7-arwtp.jpeg",
+        "link": "https://www.coursera.org/account/accomplishments/verify/RVYM6ADYD3C5",
+        "issuer": {
+          "name": "Coursera",
+          "image": "https://149396518.v2.pressablecdn.com/wp-content/uploads/2020/12/cropped-android-chrome-512x512-1.png"
+        }
+      },
+      {
+        "name": "Configuration Management and the Cloud",
+        "date": "September 24, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/2b31288d-cmc.jpeg",
+        "link": "https://www.coursera.org/account/accomplishments/verify/2ZYMQ9AD3R7Y",
+        "issuer": {
+          "name": "Coursera",
+          "image": "https://149396518.v2.pressablecdn.com/wp-content/uploads/2020/12/cropped-android-chrome-512x512-1.png"
+        }
+      },
+      {
+        "name": "Introduction to Data Structures",
+        "date": "December 1, 2021",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/1a719ebe-ds-nyu.png",
+        "link": "https://courses.edx.org/certificates/667304235fce424ab1b8cc44ecd2aeb8",
+        "issuer": {
+          "name": "NYUx",
+          "image": "https://yt3.ggpht.com/-RZYi5isxH_M/AAAAAAAAAAI/AAAAAAAAAAA/rmWpoe2qZzI/s900-c-k-no/photo.jpg"
+        }
+      },
+      {
+        "name": "Introduction to Programming in C",
+        "date": "July 27, 2013",
+        "image": "https://rs-bucket-s3.s3.amazonaws.com/6ea0bb5c-pic.png",
+        "link": "https://drive.google.com/file/d/1-5WBf1casOqZb2KLFVJ9tH5Pw2sbKh1y/view",
+        "issuer": {
+          "name": "NIIT",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/NIIT_logo.svg/1280px-NIIT_logo.svg.png"
+        }
+      }
+    ]
+  },
+  "notifications": [],
+  "resume": {
+    "name": "Ayush Sharma",
+    "subheading": "Full Stack Developer",
+    "email": "rishitshivesh@gmail.com",
+    "phone": "+91-9667516345",
+    "website": "https://me.rishitshivesh.co.in",
+    "github": "https://github.com/rishitshivesh",
+    "linkedin": "https://linkedin.com/in/rishitshivesh/",
+    "location": "Chennai, Tamil Nadu",
+    "description": "Highly skilled software developer with experience in web development and technologies such as MERN, AWS, Django, and NextJS. Proven track record in delivering large-scale projects, including scraping large user sets. Winner of the Smart India Hackathon 2022 in the software category. Strong desire to continuously learn, work and improve coding abilities. Possessing quick-thinking abilities and a problem-solving mindset.",
+    "skills": [
+      "Web Development ",
+      "Software Development",
+      "IT Automation",
+      "MERN Stack",
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Python",
+      "C++ ",
+      "C",
+      "Java",
+      "AWS",
+      "Time management",
+      "Communication skills",
+      "Leadership"
+    ],
+    "education": [
+      {
+        "degree": "Computer Science and Engineering",
+        "school": "SRM Institute of Science and Technology",
+        "location": "Chennai, Tamil Nadu",
+        "duration": "06/2024",
+        "description": "Presently in the 6th semester of my college with an overall CGPA of 9.49"
+      },
+      {
+        "degree": "Senior Secondary in PCM with CS",
+        "school": "Delhi Public School, R.K. Puram",
+        "location": "New Delhi",
+        "duration": "04/2020",
+        "description": "Completed my senior secondary with an overall score of 79.49%. Subjects included - Physics, Chemistry, Mathematics, English, Computer Science and Hindustani Music (Vocals)."
+      },
+      {
+        "degree": "Matriculation",
+        "school": "St. Xavier's School",
+        "location": "Hazaribagh, Jharkhand",
+        "duration": "04/2018",
+        "description": "Completed my matriculation with an overall score of 90%"
+      }
+    ],
+    "softskills": ["Music", "Cooking ", "Photography", "Reading Books"],
+    "experience": [
+      {
+        "name": "Aaruush, SRMIST",
+        "position": "Committee Head, Quality Assurance",
+        "duration": "08/2021 - Present",
+        "description": "As part of Quality Assurance Committee, ensured the well happening of several events under the umbrella of Aaruush. Looked into the well functioning of the team, whilst building a good working professional relationship with those working under me and with several domains and committees across the organization."
+      },
+      {
+        "name": "Team Envision, Aaruush",
+        "position": "Envision Head - Web Developer",
+        "duration": "08/2021 - Present",
+        "description": "As part of Team Envision, worked on several scalable Web Development projects. These projects catered to the needs of Aaruush. Implemented the solution using various techstack involving MERN, ReactJS, NextJS, DynamoDB, CassandraDB, Serverless, etc."
+      }
+    ],
+    "awards": ["Winner - Smart India Hackathon 2022 (Software)"],
+    "languages": ["English", "Hindi"],
+    "thisresume": "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/Resume+-+rs.pdf"
+  },
+  "blog": [
+    {
+      "title": "Hey Jude",
+      "id": 1,
+      "date": "2021-09-01",
+      "author": "Ayush Sharma",
+      "body": {
+        "blocks": [
+          {
+            "key": "as1j8",
+            "text": "Hey Jude",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 8,
+                "style": "BOLD"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3dt12",
+            "text": "Hey, Jude, don't make it bad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "20vjn",
+            "text": "Take a sad song and make it better",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "b0mue",
+            "text": "Remember to let her into your heart",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "cirp6",
+            "text": "Then you can start to make it better",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5dsss",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8gl0k",
+            "text": "Hey, Jude, don't be afraid",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "deb2c",
+            "text": "You were made to go out and get her",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "evq4p",
+            "text": "The minute you let her under your skin",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "aqmal",
+            "text": "Then you begin to make it better",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "d3u5r",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "d4uon",
+            "text": "And anytime you feel the pain,",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "eimht",
+            "text": "Hey, Jude, refrain",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "f3pih",
+            "text": "Don't carry the world upon your shoulders",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "57jud",
+            "text": "For well you know that it's a fool",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3r5iv",
+            "text": "Who plays it cool",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "c97vt",
+            "text": "By making his world a little colder",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "ajf2s",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "dcaql",
+            "text": "Nah, nah nah, nah nah, nah nah, nah nah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "35amm",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "1u7r1",
+            "text": "Hey, Jude, don't let me down",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "95m2h",
+            "text": "You have found her, now go and get her",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2ppmf",
+            "text": "Remember to let her into your heart",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2ener",
+            "text": "Then you can start to make it better",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "7lsf0",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "6qtu4",
+            "text": "So let it out and let it in,",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8t911",
+            "text": "Hey, Jude, begin",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "c7t9",
+            "text": "You're waiting for someone to perform with",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "6pt93",
+            "text": "And don't you know that it's just you,",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "57bui",
+            "text": "Hey, Jude, you'll do",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "53bqm",
+            "text": "The movement you need is on your shoulder",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3na4k",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "53r4",
+            "text": "Nah, nah nah, nah nah, nah nah, nah nah yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "16tce",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "c43jt",
+            "text": "Hey, Jude, don't make it bad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "amnvm",
+            "text": "Take a sad song and make it better",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "f68g7",
+            "text": "Remember to let her under your skin",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2pj7o",
+            "text": "Then you'll begin to make it better, better, better, better, better... oh!",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9i5sq",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "60rmf",
+            "text": "Nah, nah nah, nah nah, nah, nah, nah nah,",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "580nd",
+            "text": "Hey, Jude",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          }
+        ],
+        "entityMap": {}
+      },
+      "raw": "Hey, Jude, don't make it bad Take a sad song and make it better Remember to let her into your heart Then you can start to make it better Hey, Jude, don't be afraid You were made to go out and get her The minute you let her under your skin Then you begin to make it better And anytime you feel the pain, Hey, Jude, refrain Don't carry the world upon your shoulders For well you know that it's a fool Who plays it cool By making his world a little colder Nah, nah nah, nah nah, nah nah, nah nah Hey, Jude, don't let me down You have found her, now go and get her Remember to let her into your heart Then you can start to make it better"
+    },
+    {
+      "id": 2,
+      "title": "Yesterday",
+      "date": "2021-09-01",
+      "author": "Ayush Sharma",
+      "body": {
+        "blocks": [
+          {
+            "key": "as1j8",
+            "text": "YESTERDAY",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 9,
+                "style": "BOLD"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3dr0h",
+            "text": "Yesterday all my troubles seemed so far away.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "dqcv7",
+            "text": "Now it looks as though they're here to stay.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "81bav",
+            "text": "Oh, I believe in yesterday.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "4i74o",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "btuoe",
+            "text": "Suddenly, I'm not half the man I used to be.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2s3p9",
+            "text": "There's a shadow hanging over me.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "b8u78",
+            "text": "Oh, yesterday came suddenly.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "o1t9",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "fkhms",
+            "text": "Why she had to go?",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "bm6ks",
+            "text": "I don't know, she wouldn't say.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "fif07",
+            "text": "I said something wrong.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5mi9u",
+            "text": "Now I long for yesterday.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "39ttn",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "1flh0",
+            "text": "Yesterday love was such an easy game to play.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "am4mh",
+            "text": "Now I need a place to hide away.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "cve0m",
+            "text": "Oh, I believe in yesterday.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "56n2s",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "c448e",
+            "text": "Why she had to go?",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8dbo4",
+            "text": "I don't know, she wouldn't say.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8ajrl",
+            "text": "I said something wrong.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "7qj02",
+            "text": "Now I long for yesterday.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "989ps",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5bak5",
+            "text": "Yesterday love was such an easy game to play.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5p0td",
+            "text": "Now I need a place to hide away.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "7r56i",
+            "text": "Oh, I believe in yesterday.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "6kqve",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9v9oj",
+            "text": "Mm mm mm mm mm mm mm.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          }
+        ],
+        "entityMap": {}
+      },
+      "raw": "Yesterday, all my troubles seemed so far away.\nNow it looks as though they're here to stay.\nOh, I believe in yesterday.\n\nSuddenly, I'm not half the man I used to be, there's a shadow hanging over me, oh yesterday came suddenly. Why she had to go I don't know she wouldn't say. I said something wrong now I long for yesterday."
+    },
+    {
+      "id": 3,
+      "title": "She loves you",
+      "date": "2018-01-01",
+      "author": "Ayush Sharma",
+      "body": {
+        "blocks": [
+          {
+            "key": "as1j8",
+            "text": "She loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 13,
+                "style": "BOLD"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "ev7j",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3sk99",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "94i78",
+            "text": "She loves you, yeah, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "aor3u",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "dlqh3",
+            "text": "You think you lost your love",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2b4ge",
+            "text": "Well, I saw her yesterday",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5rb97",
+            "text": "It's you she's thinking of",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5epgm",
+            "text": "And she told me what to say",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "299sq",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "93o6h",
+            "text": "She says she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "cfvo6",
+            "text": "And you know that can't be bad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3ml58",
+            "text": "Yes, she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "4fguv",
+            "text": "And you know you should be glad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5isqk",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "59fn0",
+            "text": "She said you hurt her so",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "3ndks",
+            "text": "She almost lost her mind",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "eo0e",
+            "text": "But now she says she knows",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9p0oj",
+            "text": "You're not the hurting kind",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "4h2np",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "1spal",
+            "text": "She says she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "adeg1",
+            "text": "And you know that can't be bad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "1f8in",
+            "text": "Yes, she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "cvgug",
+            "text": "And you know you should be glad, ooh",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "drjvo",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "31ot2",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "24clt",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8s6bt",
+            "text": "And with a love like that",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "6ub37",
+            "text": "You know you should be glad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "11jjj",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "fefh9",
+            "text": "You know it's up to you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "b3fdq",
+            "text": "I think it's only fair",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "1nc32",
+            "text": "Pride can hurt you too",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2hv05",
+            "text": "Apologize to her",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2d970",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "63ola",
+            "text": "Because she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "cc53p",
+            "text": "And you know that can't be bad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "942oi",
+            "text": "Yes, she loves you",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "89ovh",
+            "text": "And you know you should be glad, ooh",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "eaesj",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "bp3qf",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "d9oel",
+            "text": "She loves you, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "6gb44",
+            "text": "With a love like that",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "17jk9",
+            "text": "You know you should be glad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9n1l7",
+            "text": "With a love like that",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "914o8",
+            "text": "You know you should be glad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "ba3v9",
+            "text": "With a love like that",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "7a184",
+            "text": "You know you should be glad",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "dt618",
+            "text": "Yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "417dn",
+            "text": "Yeah, yeah, yeah, yeah",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          }
+        ],
+        "entityMap": {}
+      },
+      "raw": "She loves you, yeah, yeah, yeah She loves you, yeah, yeah, yeah She loves you, yeah, yeah, yeah, yeah You think you lost your love Well, I saw her yesterday It's you she's thinking of And she told me what to say She says she loves you And you know that can't be bad Yes, she loves you And you know you should be glad She said you hurt her so She almost lost her mind But now she says she knows You're not the hurting kind She says she loves you And you know that can't be bad Yes, she loves you And you know you should be glad, ooh She loves you, yeah, yeah, yeah She loves you, yeah, yeah, yeah And with a love like that You know you should be glad You know it's up to you I think it's only fair Pride can hurt you too Apologize to her Because she loves you And you know that can't be bad Yes, she loves you And you know you should be glad, ooh She loves you, yeah, yeah, yeah She loves you, yeah, yeah, yeah With a love like that You know you should be glad With a love like that You know you should be glad With a love like that You know you should be glad Yeah, yeah, yeah Yeah, yeah, yeah, yeah"
+    },
+    {
+      "id": 4,
+      "title": "Memories",
+      "date": "2023-01-18",
+      "author": "Ayush Sharma",
+      "raw": "A few days ago I was organising my cupboard and I found my old personal diary stacked in the middle of a lot of other diaries and books. It was a medium size blue coloured diary with the episodes and musings from my high school time. I often used to write about anything and everything, like, the classroom tales and the little anecdotes from tuition classes and the several fun incidents with friends. With the books and gifts and all the other stationery items spilled around me on the floor, I sat down to read through the pages of this newly found treasure. It was full of lively and vivid descriptions of the several incidents that took place back in that time. A few of them made me wonder how I did handle so much every single day while a few of them really cracked me up. I realised how I had forgotten about so much and I started missing those fun days and a lot of thoughts and feelings started floating around in my head as I walked down the memory lane. So, this beautiful leisurely happening inspired me to write about this pristine stroll in the garden of memories. Well, memories are the most alive form of emotions. No matter where you are or what’s happening in your life you just settle down somewhere, close your eyes and somehow the space and time around you bends to take you to make you feel what you once felt. It’s like this magical ability of reliving. What happens when we think of the endless memories? Well, everything around us slowly starts getting dark and all the current thoughts start fading away. And very aesthetically, at the back of our heads a bright light starts emerging as if it’s the bright opening into the garden of memories. The voices of people, the details of the faces around us, the picture of the surroundings start getting clearer and clearer. The incident becomes real in our heads as we get transported back to that time. Once again, we become an active participant of that incident. We start feeling what we once felt. A few things make us weep a little while a few other things actually make us laugh. In the midst of all of this, suddenly we realise that we are smiling ear to ear and a few tears spring up at the back of our eyes when we open them and feel lost in a trance. After staying still in this trance for a while, we take yet another dive in the ocean of heartfelt memories. It’s wonderful how such life changing memories live in small spaces and pockets like in the middle of a book, in a hidden corner of your closet, in your coat pocket, in your piggy bank or maybe in a lost crazy nook of your brain. It could be a movie ticket from your first date, it could be a pen someone gifted you who lives far, far away across the oceans, it could be a souvenir from a lovely vacation, it could be a book from your school friend who works miles away now, it could be a newspaper you bought one morning, by the lake, from a small kid who wasn’t able to sell a single copy the entire morning or it could be an old childish letter from your best friend which you now tease him with but also feel nostalgic about. It could be practically anything and everything that reminds you of warm feelings that any person, place or incident glittered your insides with. But we humans have this tendency to incessantly make things complicated as circumstances around us start changing. In the process of growing up with change being the only constant we start getting restless and negative. We start missing the “the good old past ”and then the present starts to seem gloomy compared to it. We try going back to the places of our fond memories and try reaching out to the people who once inspired us or made us laugh. Basically, we try to fly back to the setup of the sweet stories from the past. We might try to go back to our old school, college, club or visit our old teachers, seniors, colleagues or friends. Once again being in these places, talking to these people sure comforts us with a lot of old happenings rushing in. But at some level it pricks our hearts to see how everything has changed and how it was better to live with those old pictures in our heads rather than seeing how those people have become old, places have been transformed, the streets have become devoid of eucalyptus trees to their sides, the old temple courtyard has been filled up with mud idolatories and shrubs. We start to feel robbed of our happy images in our heads. This is the dazed point where self-realisation comes to the rescue. If we sit down and peacefully think about it from a bigger perspective, we will realise that these bits and pieces of the several memories spread across our heads, with the passage of time, have come together to look like a big jigsaw puzzle taking its shape. As we retrospect, we begin to see how everything happens to make way for something worthy through multiple changes, just like a thoughtful modern art by a budding artist. As greater wisdom sets in through a lot of thinking and talking to people about it and observing the subtleness of life minutely, we start becoming more acceptant of the idea. It’s like watching the leaves changing colours in autumns and falling off the branches and missing the previously complete and green trees but when one of those fluttering leaves holds on to the wind and lands beside you on the bench or gently hits against your face, you realise that this is a necessary part of the process. The positive way to go about it is to consider yourself fortunate to have once lived something which is now a very fond memory, that you were able to experience something so wonderful in life and that today you are able to cherish those and feel warm. Sometimes when everything seems to be upside down, these memories come in the form of hope, the hope that beautiful things do happen and that the springs are really close. On one of the rainy days when you have nothing to do, take out some time to sit beside the window with feet on the window sill, listening to the pitter-patter of raindrops over the roof, watching the pearl shaped raindrops dripping from the window shed and gently float in the calm pool of memories. Don’t think about the present, don’t worry about what someone said or did before or after something happened, just be calm and enjoy the moment. This is a healing practice that could wash away your negativity just like the rain outside washing away the dust on the leaves and the fresh supple greenery emerging from underneath. Memories could make you realise who you have been, who you are now and how you do feel about things and trust me getting any closer to knowing oneself is sheer beauty. The biggest trove of memories around us are our funny old folks. There are some days when they open their big trunks and with childish spark in their eyes they show their grandchildren their old stuff. Talk about bald, spectacled old folks tirelessly praising their gorgeous wives from their olden days and showing off with their bravery stories set in the villages. They laugh after every anecdote and we laugh along with them, but if you look closely, you would find tears just below the wrinkles under their eyes because ultimately those memories can’t be captured or recorded, it’s the unrecorded part that stays vivid and creates a hurricane of the deepest human emotions. Our old people know that having close people to share these memories with and laugh heartily with them by the end chapters of their lives is the ultimate joy of having lived these memories. So, if you feel the present is not treating you well or making you anxious and that life has come to a standstill, just take a little time out for yourself today - keep aside your gadgets, take out all your old letters, your high school yearbooks, your old photo albums, get your favourite childhood candies and while you hum your favourite songs just let yourself loose and experience this wonderful walk in the paradise of memories. P.S. - We'd love to hear your crazy memories, feel free to share.",
+      "body": {
+        "blocks": [
+          {
+            "key": "bnv9",
+            "text": "Memories",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 8,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 8,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 8,
+                "style": "fontsize-16pt"
+              },
+              {
+                "offset": 0,
+                "length": 8,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {
+              "text-align": "center"
+            }
+          },
+          {
+            "key": "d3q6g",
+            "text": "A few days ago I was organising my cupboard and I found my old personal diary stacked in the middle of a lot of other diaries and books. It was a medium size blue coloured diary with the episodes and musings from my high school time. I often used to write about anything and everything, like, the classroom tales and the little anecdotes from tuition classes and the several fun incidents with friends. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 403,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 403,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 403,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 403,
+                "style": "fontfamily-Arial"
+              },
+              {
+                "offset": 0,
+                "length": 403,
+                "style": "ITALIC"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "fles0",
+            "text": "With the books and gifts and all the other stationery items spilled around me on the floor, I sat down to read through the pages of this newly found treasure. It was full of lively and vivid descriptions of the several incidents that took place back in that time. A few of them made me wonder how I did handle so much every single day while a few of them really cracked me up. I realised how I had forgotten about so much and I started missing those fun days and a lot of thoughts and feelings started floating around in my head as I walked down the memory lane. So, this beautiful leisurely happening inspired me to write about this pristine stroll in the garden of memories.\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 676,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 676,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 676,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 676,
+                "style": "fontfamily-Arial"
+              },
+              {
+                "offset": 0,
+                "length": 676,
+                "style": "ITALIC"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "d6at1",
+            "text": "Well, memories are the most alive form of emotions. No matter where you are or what’s happening in your life you just settle down somewhere, close your eyes and somehow the space and time around you bends to take you to make you feel what you once felt. It’s like this magical ability of reliving. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 298,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 298,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 298,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 298,
+                "style": "fontfamily-Arial"
+              },
+              {
+                "offset": 0,
+                "length": 298,
+                "style": "ITALIC"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "f9kj1",
+            "text": "What happens when we think of the endless memories? Well, everything around us slowly starts getting dark and all the current thoughts start fading away. And very aesthetically, at the back of our heads a bright light starts emerging as if it’s the bright opening into the garden of memories. The voices of people, the details of the faces around us, the picture of the surroundings start getting clearer and clearer. The incident becomes real in our heads as we get transported back to that time. Once again, we become an active participant of that incident. We start feeling what we once felt. A few things make us weep a little while a few other things actually make us laugh. In the midst of all of this, suddenly we realise that we are smiling ear to ear and a few tears spring up at the back of our eyes when we open them and feel lost in a trance. After staying still in this trance for a while, we take yet another dive in the ocean of heartfelt memories.\n\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 963,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 963,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 963,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 963,
+                "style": "fontfamily-Arial"
+              },
+              {
+                "offset": 0,
+                "length": 963,
+                "style": "ITALIC"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "8paqd",
+            "text": "It’s wonderful how such life changing memories live in small spaces and pockets like in the middle of a book, in a hidden corner of your closet, in your coat pocket, in your piggy bank or maybe in a lost crazy nook of your brain. It could be a movie ticket from your first date, it could be a pen someone gifted you who lives far, far away across the oceans, it could be a souvenir from a lovely vacation, it could be a book from your school friend who works miles away now, it could be a newspaper you bought one morning, by the lake, from a small kid who wasn’t able to sell a single copy the entire morning or it could be an old childish letter from your best friend which you now tease him with but also feel nostalgic about. It could be practically anything and everything that reminds you of warm feelings that any person, place or incident glittered your insides with. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 876,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 876,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 876,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 876,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "ds8uf",
+            "text": "But we humans have this tendency to incessantly make things complicated as circumstances around us start changing. In the process of growing up with change being the only constant we start getting restless and negative. We start missing the “the good old past ”and then the present starts to seem gloomy compared to it. We try going back to the places of our fond memories and try reaching out to the people who once inspired us or made us laugh. Basically, we try to fly back to the setup of the sweet stories from the past.\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 525,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 525,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 525,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 525,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9k029",
+            "text": "We might try to go back to our old school, college, club or visit our old teachers, seniors, colleagues or friends. Once again being in these places, talking to these people sure comforts us with a lot of old happenings rushing in. But at some level it pricks our hearts to see how everything has changed and how it was better to live with those old pictures in our heads rather than seeing how those people have become old, places have been transformed, the streets have become devoid of eucalyptus trees to their sides, the old temple courtyard has been filled up with mud idolatories and shrubs. We start to feel robbed of our happy images in our heads. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 657,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 657,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 657,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 657,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "5avra",
+            "text": "This is the dazed point where self-realisation comes to the rescue. If we sit down and peacefully think about it from a bigger perspective, we will realise that these bits and pieces of the several memories spread across our heads, with the passage of time, have come together to look like a big jigsaw puzzle taking its shape. As we retrospect, we begin to see how everything happens to make way for something worthy through multiple changes, just like a thoughtful modern art by a budding artist. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 499,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 499,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 499,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 499,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "561g3",
+            "text": "As greater wisdom sets in through a lot of thinking and talking to people about it and observing the subtleness of life minutely, we start becoming more acceptant of the idea. It’s like watching the leaves changing colours in autumns and falling off the branches and missing the previously complete and green trees but when one of those fluttering leaves holds on to the wind and lands beside you on the bench or gently hits against your face, you realise that this is a necessary part of the process. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 502,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 502,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 502,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 502,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "9vr5f",
+            "text": "The positive way to go about it is to consider yourself fortunate to have once lived something which is now a very fond memory, that you were able to experience something so wonderful in life and that today you are able to cherish those and feel warm. Sometimes when everything seems to be upside down, these memories come in the form of hope, the hope that beautiful things do happen and that the springs are really close. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 424,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 424,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 424,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 424,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2nggb",
+            "text": "On one of the rainy days when you have nothing to do, take out some time to sit beside the window with feet on the window sill, listening to the pitter-patter of raindrops over the roof, watching the pearl shaped raindrops dripping from the window shed and gently float in the calm pool of memories. Don’t think about the present, don’t worry about what someone said or did before or after something happened, just be calm and enjoy the moment. This is a healing practice that could wash away your negativity just like the rain outside washing away the dust on the leaves and the fresh supple greenery emerging from underneath. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 628,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 628,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 628,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 628,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "2q3o3",
+            "text": "Memories could make you realise who you have been, who you are now and how you do feel about things and trust me getting any closer to knowing oneself is sheer beauty. \n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 168,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 168,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 168,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 168,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "eanbj",
+            "text": "The biggest trove of memories around us are our funny old folks. There are some days when they open their big trunks and with childish spark in their eyes they show their grandchildren their old stuff. Talk about bald, spectacled old folks tirelessly praising their gorgeous wives from their olden days and showing off with their bravery stories set in the villages. They laugh after every anecdote and we laugh along with them, but if you look closely, you would find tears just below the wrinkles under their eyes because ultimately those memories can’t be captured or recorded, it’s the unrecorded part that stays vivid and creates a hurricane of the deepest human emotions. Our old people know that having close people to share these memories with and laugh heartily with them by the end chapters of their lives is the ultimate joy of having lived these memories.\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 867,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 867,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 867,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 867,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "e6mm6",
+            "text": "So, if you feel the present is not treating you well or making you anxious and that life has come to a standstill, just take a little time out for yourself today - keep aside your gadgets, take out all your old letters, your high school yearbooks, your old photo albums, get your favourite childhood candies and while you hum your favourite songs just let yourself loose and experience this wonderful walk in the paradise of memories.\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 434,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 434,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 434,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 434,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          },
+          {
+            "key": "60re",
+            "text": "P.S. - We'd love to hear your crazy memories, feel free to share.\n\n\n\n\n\n ",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+              {
+                "offset": 0,
+                "length": 65,
+                "style": "color-rgb(0,0,0)"
+              },
+              {
+                "offset": 0,
+                "length": 65,
+                "style": "bgcolor-transparent"
+              },
+              {
+                "offset": 0,
+                "length": 65,
+                "style": "fontsize-11pt"
+              },
+              {
+                "offset": 0,
+                "length": 65,
+                "style": "fontfamily-Arial"
+              }
+            ],
+            "entityRanges": [],
+            "data": {}
+          }
+        ],
+        "entityMap": {}
+      }
+    }
+  ]
+}

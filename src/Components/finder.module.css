@@ -1,0 +1,92 @@
+.modal {
+    position: fixed;
+    margin-left: auto !important;
+    top: 7.5vh;
+    left: 10vw;
+    animation: in 0.3s ease-in-out 1;
+}
+
+.modalClose {
+    position: fixed;
+    top: 7.5vh;
+    left: 10vw;
+    animation: out 0.5s ease-in-out 1;
+}
+
+@keyframes in {
+    0% {
+        /* transform: translate3d(50%, 200%, -50%); */
+        transform: translateY(100%);
+        /* scale: 0.4; */
+        opacity: 0.1;
+        /* width: 0%;
+        height: 0%; */
+    }
+
+    100% {
+        /* transform: translate3d(0, 0, 0); */
+        transform: translateY(0);
+        /* scale: 1; */
+        opacity: 1;
+
+    }
+}
+
+@keyframes out {
+    0% {
+        /* transform: translate3d(0, 0, 0); */
+        transform: translateY(0);
+
+        scale: 1;
+        opacity: 1;
+    }
+
+    100% {
+        /* transform: translate3d(-50%, -200%, -500%); */
+        transform: translateY(100%);
+
+        /* scale: 0.3; */
+        opacity: 0.1;
+        /* 
+        width: 0%;
+        height: 0%; */
+    }
+
+}
+
+.task {
+    animation: taskin 1s ease-in-out 1;
+}
+
+.taskitems {
+    animation: items 0.6s ease-in-out 1;
+    scale: 1;
+}
+
+
+@keyframes taskin {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes items {
+    0% {
+        transform: translateY(50%);
+        scale: 0.5;
+        /* opacity: 0.5; */
+    }
+
+    100% {
+        transform: translateY(0);
+        scale: 1;
+        /* opacity: 1; */
+    }
+
+}
