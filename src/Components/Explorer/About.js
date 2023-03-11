@@ -14,7 +14,7 @@ const About = ({ data }) => {
         </div>
         <div className="flex flex-row mt-3 gap-x-5 place-items-center">
           <div className="basis-[24%]">
-            <img src={data.image} className="object-fit " />
+            <img src={data.image} className="object-contain w-full" />
           </div>
           <div className="basis-[75%] text-justify text-md pb-2">
             {data.description}

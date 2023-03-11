@@ -217,18 +217,19 @@ const DisplayPanel = ({
               >
                 <img src={gal} className="object-contain" />
               </div>
-              <a href={data.link} target="_blank">
-                <div
-                  className={` text-white rounded-3xl cursor-pointer py-2 px-6 w-max text-center peer mx-auto`}
-                  style={{
-                    background: data.color,
-                    "--color": data.color,
-                  }}
-                  // ref={currRef}
-                >
-                  Visit Project
-                </div>
-                {/* <div
+              {data.link ? (
+                <a href={data.link} target="_blank">
+                  <div
+                    className={` text-white rounded-3xl cursor-pointer py-2 px-6 w-max text-center peer mx-auto`}
+                    style={{
+                      background: data.color,
+                      "--color": data.color,
+                    }}
+                    // ref={currRef}
+                  >
+                    Visit Project
+                  </div>
+                  {/* <div
                   className="button flex flex-col justify-center items-center peer-hover:translate-x-1 hover:translate-x-1 hover:opacity-100 -translate-x-9 -z-10 peer-hover:z-10 duration-500 transition-all absolute top-0 left-[50%] h-10 w-10"
                   style={{
                     "--color": data.color,
@@ -236,17 +237,63 @@ const DisplayPanel = ({
                 >
                   {">"}
                 </div> */}
-              </a>
-              <div
-                className={`button flex flex-col justify-center items-center transition-all h-10 w-10 ${
-                  scrolled ? "slide-in-left" : ""
-                }`}
-                style={{
-                  "--color": data.color,
-                }}
-              >
-                <img src={gh} className="object-contain" />
-              </div>
+                </a>
+              ) : (
+                <div
+                  onClick={() => {
+                    window.alert("Project is not Hosted Live at the moment!");
+                  }}
+                  target="_blank"
+                  onE
+                >
+                  <div
+                    className={` text-white rounded-3xl cursor-pointer py-2 px-6 w-max text-center peer mx-auto`}
+                    style={{
+                      background: data.color,
+                      "--color": data.color,
+                    }}
+                    // ref={currRef}
+                  >
+                    Visit Project
+                  </div>
+                  {/* <div
+                  className="button flex flex-col justify-center items-center peer-hover:translate-x-1 hover:translate-x-1 hover:opacity-100 -translate-x-9 -z-10 peer-hover:z-10 duration-500 transition-all absolute top-0 left-[50%] h-10 w-10"
+                  style={{
+                    "--color": data.color,
+                  }}
+                >
+                  {">"}
+                </div> */}
+                </div>
+              )}
+              {data.github ? (
+                <a
+                  href={data.github}
+                  target="_blank"
+                  className={`button flex flex-col justify-center items-center transition-all h-10 w-10 ${
+                    scrolled ? "slide-in-left" : ""
+                  }`}
+                  style={{
+                    "--color": data.color,
+                  }}
+                >
+                  <img src={gh} className="object-contain" />
+                </a>
+              ) : (
+                <div
+                  onClick={() => {
+                    window.alert("Project Github Repository Unavailable");
+                  }}
+                  className={`button flex flex-col justify-center items-center transition-all h-10 w-10 ${
+                    scrolled ? "slide-in-left" : ""
+                  }`}
+                  style={{
+                    "--color": data.color,
+                  }}
+                >
+                  <img src={gh} className="object-contain" />
+                </div>
+              )}
             </div>
             {/* <div className="relative transition-all ">
               <a href={data.link} target="_blank">

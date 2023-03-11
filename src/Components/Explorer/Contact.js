@@ -40,12 +40,12 @@ const Contact = () => {
             >
               <div className="flex flex-row ">
                 <div className="font-[Helvetica] text-4xl basis-2/3">
-                  Rishit Shivesh
+                  Ayush Sharma
                 </div>
                 <div className=""></div>
               </div>
-              <div className="mt-2">rishitshivesh@gmail.com</div>
-              <div className="mt-2">+91 96675 16345</div>
+              <div className="mt-2">ayushsha1254@gmail.com</div>
+              <div className="mt-2">+91 97921 20998</div>
               <div className="mt-4 text-[0.8rem] italic w-[85%]">
                 “When the son of the deposed king of Nigeria emails you
                 directly, asking for help, you help! His father ran the freaking

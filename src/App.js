@@ -386,7 +386,10 @@ function App() {
   } else {
     const pathname = window.location.pathname;
     console.log(pathname);
-    window.location.href = "https://m.rishitshivesh.co.in" + pathname;
+    // window.location.href = "https://m.rishitshivesh.co.in" + pathname;
+    window.alert(
+      "Mobile version is under development. Please visit on desktop for now. Thank you!"
+    );
   }
 }
 

@@ -16,7 +16,9 @@ root.render(
       <App />
       {/* </Suspense> */}
     </div>
-    <div className="lg:hidden block">Redirecting to mobile website...</div>
+    <div className="lg:hidden block">
+      Mobile Website is under development...
+    </div>
   </React.StrictMode>
 );
 
