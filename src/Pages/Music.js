@@ -136,7 +136,7 @@ const Music = React.forwardRef((props, ref) => {
         "--four": GetColors(props.nowPlaying?.art)?.muted + "20",
       }}
     >
-      <Helmet>
+      {/* <Helmet>
         <title>{`Music | Rishit Shivesh | ${props?.nowPlaying?.name}`}</title>
         <meta name="description" content="Rishit's Music Player" />
         <meta name="theme-color" content="#008f68" />
@@ -161,7 +161,7 @@ const Music = React.forwardRef((props, ref) => {
           content={`${props?.nowPlaying?.name} on Rishit Shivesh's Music Player`}
         />
         <meta name="og:image" content={props?.nowPlaying?.art} />
-      </Helmet>
+      </Helmet> */}
       {/* <div className="w-[100vw] h-[5vh] fixed top-0 left-0 bg-black z-[100] px-5 py-1 text-white flex-row justify-between place-items-center">
         <span>Music Player</span>
         <div className="float-right mt-2 p-2 w-[20px] h-[20px] flex flex-row justify-center place-items-center bg-red-500 text-white rounded-full">

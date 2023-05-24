@@ -150,7 +150,7 @@ const Taskbar = ({ theme, nowPlaying, playing, setPlayStatus, musicStop }) => {
             backgroundColor: !theme ? "#0d0d0d20" : "#ffffff20",
           }}
         ></div>
-        <Tooltip
+        {/* <Tooltip
           title={"Blog"}
           disableFocusListener
           arrow
@@ -170,7 +170,7 @@ const Taskbar = ({ theme, nowPlaying, playing, setPlayStatus, musicStop }) => {
               animationDelay: `${6 * 0.01}s`,
             }}
           ></img>
-        </Tooltip>
+        </Tooltip> */}
         <Tooltip
           title={"Resume"}
           disableFocusListener

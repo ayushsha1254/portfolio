@@ -7,32 +7,27 @@ const Apps = () => {
     {
       name: "Phone",
       icon: "phone.png",
-      link: "tel:+919667516345",
+      link: "tel:+919792120998",
     },
     {
       name: "Mail",
       icon: "mail.png",
-      link: "mailto:rishitshivesh@gmail.com",
+      link: "mailto:ayushsha1254@gmail.com",
     },
     {
       name: "Whatsapp",
       icon: "whatsapp.png",
-      link: "https://wa.me/919667516345",
+      link: "https://wa.me/919792120998",
     },
     {
       name: "Github",
       icon: "github.png",
-      link: "https://www.github.com/rishitshivesh",
+      link: "https://github.com/ayushsha1254",
     },
     {
       name: "Linkedin",
       icon: "linkedin.png",
-      link: "https://www.linkedin.com/in/rishit-shivesh",
-    },
-    {
-      name: "Resume",
-      icon: "doc.png",
-      link: "https://resume.rishitshivesh.co.in",
+      link: "https://www.linkedin.com/in/ayushconnect/",
     },
   ];
   const [list, setList] = React.useState(apps);

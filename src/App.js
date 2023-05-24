@@ -357,7 +357,7 @@ function App() {
                 <Route path="/loader" element={<Loader />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/resume" element={<Resume />} />
-                <Route
+                {/* <Route
                   path="/blog"
                   element={
                     <Suspense fallback={<LoadingAnimation />}>
@@ -373,9 +373,9 @@ function App() {
                       <SingleBlog />
                     </Suspense>
                   }
-                />
+                /> */}
 
-                <Route path="/blogeditor" element={<BlogEditor />} />
+                {/* <Route path="/blogeditor" element={<BlogEditor />} /> */}
               </Routes>
             </ParallaxProvider>
           </TerminalContextProvider>
