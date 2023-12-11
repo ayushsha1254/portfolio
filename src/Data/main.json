@@ -256,7 +256,7 @@
         "name": "Krane Apps",
 
         "tagline": "Online Solutions",
-        "description": "Theydeliver affordable and ready-to-use mobile applications to solve some of toughest business problems.",
+        "description": "They deliver affordable and ready-to-use mobile applications to solve some of toughest business problems.",
         "link": "https://www.kraneapps.com/",
         "color": "#e2762e",
         "logourl": "https://lh3.googleusercontent.com/Gfl0L7eLdvLSAXoNUjRDfrjsh9HfA-eX6hnxzXo1clQBeqrQMoIRSKLZsIO0nXefOzLImZfe8rkx4h53-3Mm0u4=w16383",
@@ -309,7 +309,7 @@
       },
       {
         "name": "Aaruush Links",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "description": "To provide users with all the events happening at aaruush with seamless registration and booking an event.",
         "link": "https://links.aaruush.org",
         "color": "#5328aa",
         "logo": "aaruush.svg",
@@ -327,8 +327,8 @@
       {
         "name": "SIH '22",
         "tagline": "AICTE Event Management Portal",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "link": "https://www.google.com",
+        "description": "The AICTE Event/Activity Management System offers an integrated solution to streamline event processes. Through a centralized portal, it aims to alleviate manual efforts by providing features like venue booking, communication channels, canteen management, and social media integration. Built on an optimized tech stack with React, Material UI, ExpressJS, Cassandra, and GraphQL, the system boasts a user-friendly interface, role-based authentication, and AI-driven functionalities. Supported by a comprehensive Figma prototype and detailed PPT, it promises to revolutionize event management during SIH from 25th to 27th August.",
+        "link": "https://envisionalphasih22.aaruush.org/",
         "color": "#098c38",
         "logo": "sih.svg",
         "timeline": {
@@ -355,8 +355,8 @@
         "name": "Links Keeper",
 
         "tagline": "Aaruush",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "link": "https://www.google.com",
+        "description": "A session of fullstack on an event called Teachbot where an hands-on session was taken to teach and practice full stack development.",
+        "link": "https://www.figma.com/file/Sxa3Ledoajhk1GVlfiux4G/Linksaver?type=design&node-id=0%3A1&mode=design&t=jUOOIZ15A2hxZNx3-1",
         "color": "#e2762e",
         "logo": "linkskeeper.svg",
         "timeline": {
@@ -501,9 +501,33 @@
     "experience": [
       {
         "name": "Team Envision, Aaruush",
-        "position": "Envision Head - UI/UX Designer",
+        "position": "Organiser",
         "duration": "08/2021 - Present",
-        "description": "As part of Team Envision, worked on several scalable Web Development projects. These projects catered to the needs of Aaruush. Implemented the solution using various techstack involving MERN, ReactJS, NextJS, DynamoDB, CassandraDB, Serverless, etc."
+        "description": "Contributed to scalable web projects for Aaruush through Team Envision, employing diverse tech stacks like MERN, ReactJS, NextJS, DynamoDB, CassandraDB, and Serverless."
+      },
+      {
+        "name": "Qalara",
+        "position": "UI designer",
+        "duration": "02/2022 - 07/2022",
+        "description": "During my internship, I significantly shaped the company's website design, enhancing user experience and boosting sales."
+      },
+      {
+        "name": "BN productions",
+        "position": "Product Designer",
+        "duration": "10/2021 - 05/2022",
+        "description": "During my internship, I significantly shaped the company's website design, enhancing user experience and boosting sales."
+      },
+      {
+        "name": "Krane apps",
+        "position": "UI/UX Designer",
+        "duration": "10/2021 - 05/2022",
+        "description": "I spearheaded a team to craft impactful websites, aligning design with client vision, resulting in tangible business growth."
+      },
+      {
+        "name": "Finmo",
+        "position": "UI designer",
+        "duration": "10/2021 - 05/2022",
+        "description": "During my internship, I built websites, focused on global payment flexibility, and crafted engaging email templates for users."
       }
     ],
     "awards": ["Winner - Smart India Hackathon 2022 (Software)"],
