@@ -38,7 +38,7 @@ function App(props) {
     return `Connecting to ${name} at ${email} for ${subj}...`;
   };
   const commands = {
-    whoami: "Rishit Shivesh",
+    whoami: "Ayush Sharma",
     cd: (directory) => {
       setDirectory(directory + "/");
       return `changed path to ${directory}`;
