@@ -69,7 +69,7 @@ const Menu = ({ theme, setTheme }) => {
           </div>
         </div>
         <div className="text-white mt-5 text-justify">
-          Welcome To The Portfolio Website by Rishit and Ayush! We hope you're
+          Welcome To The Portfolio Website by Ayush Sharma! We hope you're
           enjoying the experience. Feel free to reach out to us and say Hello!
         </div>
       </ul>

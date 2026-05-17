@@ -2,91 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Architects+Daughter&family=Caveat+Brush&family=Jost&family=Monoton&family=Poppins:wght@300&display=swap');
-
-/* @import url('https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/Modeseven-L3n5.ttf'); */
-
-@font-face {
-  font-family: 'Modeseven';
-  src: url('https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/Modeseven-L3n5.ttf');
-}
-
-@font-face {
-  font-family: matrix;
-  src: url('https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/matrix+code+nfi.ttf');
-}
-
-@font-face {
-  font-family: hackbot;
-  src: url('https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/hackbot.ttf');
-}
-
-@font-face {
-  font-family: Xirod;
-  src: url('https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/xirod.ttf');
-}
-
 html {
-  cursor: url(./Assets/Cursor/main.svg), auto !important;
-  font-family: Helvetica, sans-serif;
+  font-family: var(--font-display);
+  background-color: var(--bg-void);
+  color: var(--text-primary);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-void);
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* CRT scanlines */
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+/* Hide scrollbars globally */
 ::-webkit-scrollbar {
   display: none;
 }
 
-div and :not(ToolTip) {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-}
-
-
+/* Scrollable areas opt-in */
 .scrollbar::-webkit-scrollbar {
   display: block;
   width: 2px;
 }
 
-
 .scrollbar::-webkit-scrollbar-track {
-  display: block;
-  background: #f5f5f530;
+  background: var(--border-hairline);
 }
-
 
 .scrollbar::-webkit-scrollbar-thumb {
-  display: block;
   width: 2px;
-  background: #F5F5F580;
+  background: var(--border-default);
 }
 
+/* OS behavior: prevent text selection */
 * {
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10 and IE 11 */
   user-select: none;
   -webkit-user-drag: none;
-  user-zoom: fixed;
-
-  /* Standard syntax */
 }
 
-/* * {
-  cursor: url("./Assets/Images/cursor.png"), auto;
-} */
+/* Allow selection in text-heavy areas */
+.selectable {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

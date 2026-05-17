@@ -89,7 +89,7 @@ const Viewer = ({
             <input
               className="w-[90%] h-[5vh] rounded-lg px-3 pl-[9rem] text-gray-300 lowercase"
               disabled
-              value={`//photo//drive:/user/rishitshivesh/${project?.name
+              value={`//photo//drive:/user/ayushsharma/${project?.name
                 ?.split(" ")
                 .join("-")}/${index + 1}.bmp `}
               style={{

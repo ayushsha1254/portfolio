@@ -42,7 +42,7 @@ const Resume = () => {
   const [downloadOpen, setDownloadOpen] = React.useState(false);
   const [shareOpen, setShareOpen] = React.useState(false);
   const link = window.location.href;
-  const text = "Hey! Check out Rishit Shivesh's Resume at " + link;
+  const text = "Hey! Check out Ayush Sharma's Resume at " + link;
 
   async function downloadUsingFetch(data) {
     const image = await fetch(data);
@@ -51,7 +51,7 @@ const Resume = () => {
 
     const anchor = document.createElement("a");
     anchor.href = imageURL;
-    anchor.download = "Rishit";
+    anchor.download = "Ayush";
 
     document.body.appendChild(anchor);
     anchor.click();
@@ -131,7 +131,7 @@ const Resume = () => {
             className="cursor-pointer hover:text-[#0077b5] transition-all"
             onClick={() => {
               window.open(
-                `https://www.linkedin.com/shareArticle?url=h${link}&title=Rishit Shivesh's Resume&summary=Check out Rishit Shivesh's Resume&source=LinkedIn`
+                `https://www.linkedin.com/shareArticle?url=h${link}&title=Ayush Sharma's Resume&summary=Check out Ayush Sharma's Resume&source=LinkedIn`
               );
             }}
           >
@@ -142,7 +142,7 @@ const Resume = () => {
             className="cursor-pointer hover:text-[#afcbff] transition-all"
             onClick={() => {
               window.open(
-                `mailto:?subject=Rishit Shivesh's Resume&body=${text}`
+                `mailto:?subject=Ayush Sharma's Resume&body=${text}`
               );
             }}
           >

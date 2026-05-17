@@ -47,7 +47,7 @@ const SIH = ({ show, setShow }) => {
 
   const arr = [
     {
-      name: "Rishit Shivesh",
+      name: "Ayush Sharma",
       img: rishit,
     },
     {

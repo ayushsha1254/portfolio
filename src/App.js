@@ -1,24 +1,16 @@
 import React, { useState, useEffect, useCallback, Suspense } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Draggable from "react-draggable";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Desktop from "./Pages/Desktop";
 import Menu from "./Components/Menu";
 import Globe from "./Pages/Globe";
-import Lock from "./Pages/Lock";
 import Matrix from "./Components/Matrix";
 import Particles from "./Pages/Particles";
-// import Matrix from "react-matrix-effect";
 import CircularProgress from "@mui/material/CircularProgress";
 import ReactHowler from "react-howler";
-
-import { TerminalContextProvider } from "react-terminal";
 import { Provider } from "react-redux";
 import store from "./Utility/state/store";
 import Browser from "./Pages/Browser";
 import Global from "./Pages/Global";
-import Triangle from "./Pages/Triangle";
 import Tetris from "./Pages/Tetris";
 import Terminal from "./Pages/Terminal";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -26,16 +18,8 @@ import Loader from "./Pages/Loader";
 import Loading from "./Pages/Loading";
 import Resume from "./Pages/Resume";
 import axios from "./Utility/Axios/axios";
-// import Menu from "./Components/Menu";
-// import Blog from "./Pages/Blog";
-// import SingleBlog from "./Pages/SingleBlog";
 
-import BlogEditor from "./Pages/BlogEditor";
-import LoadingAnimation from "./Pages/LoadingAnimation";
-// import Music from "./Pages/Music";
 const Music = React.lazy(() => import("./Pages/Music"));
-const Blog = React.lazy(() => import("./Pages/Blog"));
-const SingleBlog = React.lazy(() => import("./Pages/SingleBlog"));
 
 function App() {
   const [theme, setTheme] = React.useState(true);
@@ -46,7 +30,7 @@ function App() {
   const [playing, setPlaying] = React.useState(false);
   const [nowPlaying, setNowPlaying] = React.useState(null);
   const [duration, setDuration] = React.useState(0);
-  const ref = React.createRef();
+  const ref = React.useRef();
   const [progress, setProgress] = React.useState(0);
   const [seek, setSeek] = React.useState(0);
   const [playStatus, setPlayStatus] = React.useState("play");
@@ -62,7 +46,6 @@ function App() {
     setTheme(themedata);
   }, [themedata]);
 
-  console.log("m", musicStop);
   useEffect(() => {
     // if (playing) {
     const refreshTime = () => {
@@ -118,7 +101,6 @@ function App() {
       e.metaKey + e.key.toLowerCase() === "trueS"
     ) {
       e.preventDefault();
-      console.log(finder ? "Open" : "Close");
       document.getElementById("finderIcon").click();
     } else if (
       e.altKey + e.key.toLowerCase() === "truee" ||
@@ -130,7 +112,6 @@ function App() {
       document.getElementById("explorerIcon").click();
     }
 
-    console.log(e.altKey + e.key, e.key);
   };
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
@@ -162,7 +143,6 @@ function App() {
       .get("/static/certifications")
       .then((res) => setCertifications(res.data));
   }, []);
-  console.log(nowPlaying);
   // console.log(skills, certifications);
   const [loadingNow, setLoadingNow] = useState(true);
   // useEffect(() => {
@@ -197,8 +177,7 @@ function App() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <TerminalContextProvider>
-            <ParallaxProvider>
+          <ParallaxProvider>
               <Menu theme={theme} setTheme={setTheme} />
               <div
                 id="music-stop"
@@ -305,7 +284,6 @@ function App() {
                 <Route path="/particles" element={<Particles />} />
 
                 <Route path="/browser" element={<Browser />} />
-                <Route path="/triangles" element={<Triangle />} />
                 <Route path="/tetris" element={<Tetris />} />
 
                 <Route path="/terminal" element={<Terminal />} />
@@ -378,18 +356,11 @@ function App() {
                 {/* <Route path="/blogeditor" element={<BlogEditor />} /> */}
               </Routes>
             </ParallaxProvider>
-          </TerminalContextProvider>
-          {/* <App /> */}
         </BrowserRouter>
       </Provider>
     );
   } else {
-    const pathname = window.location.pathname;
-    console.log(pathname);
-    // window.location.href = "https://m.rishitshivesh.co.in" + pathname;
-    window.alert(
-      "Mobile version is under development. Please visit on desktop for now. Thank you!"
-    );
+    return null;
   }
 }
 

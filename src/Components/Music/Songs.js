@@ -56,12 +56,12 @@ const Songs = ({ setNowPlaying, nowAlbum, setPlaying, nowPlaying, music }) => {
       lottie.destroy();
     };
   }, []);
-  const [songName, setSongName] = React.useState("Rishit's Mixtape");
+  const [songName, setSongName] = React.useState("Ayush's Mixtape");
   useEffect(() => {
     if (nowPlaying?.name?.length > 10)
       setSongName(nowPlaying?.name.substring(0, 10) + "...");
     else setSongName(nowPlaying?.name);
-    if (!nowPlaying) setSongName("Rishit's Mixtape");
+    if (!nowPlaying) setSongName("Ayush's Mixtape");
   }, [nowPlaying]);
   // useEffect(() => {
   //   fitty("#song-casette");

@@ -137,28 +137,28 @@ const Music = React.forwardRef((props, ref) => {
       }}
     >
       {/* <Helmet>
-        <title>{`Music | Rishit Shivesh | ${props?.nowPlaying?.name}`}</title>
-        <meta name="description" content="Rishit's Music Player" />
+        <title>{`Music | Ayush Sharma | ${props?.nowPlaying?.name}`}</title>
+        <meta name="description" content="Ayush's Music Player" />
         <meta name="theme-color" content="#008f68" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#008f68" />
         <meta name="msapplication-navbutton-color" content="#008f68" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="Rishit Shivesh" />
-        <meta name="application-name" content="Rishit Shivesh" />
+        <meta name="apple-mobile-web-app-title" content="Ayush Sharma" />
+        <meta name="application-name" content="Ayush Sharma" />
         <meta name="msapplication-starturl" content="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="keywords"
-          content="Rishit Shivesh, Rishit, Shivesh, Music Player"
+          content="Ayush Sharma, NOCTURNE_OS, Music"
         />
-        <meta name="author" content="Rishit Shivesh" />
+        <meta name="author" content="Ayush Sharma" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
-        <meta name="og:title" content="Rishit Shivesh | Music Player" />
+        <meta name="og:title" content="Ayush Sharma | Music Player" />
         <meta
           name="og:description"
-          content={`${props?.nowPlaying?.name} on Rishit Shivesh's Music Player`}
+          content={`${props?.nowPlaying?.name} on Ayush Sharma's Music Player`}
         />
         <meta name="og:image" content={props?.nowPlaying?.art} />
       </Helmet> */}

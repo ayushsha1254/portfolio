@@ -1,36 +1,53 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      darkMode: ["class", '[data-mode="dark"]'],
-      lightMode: ["class", '[data-mode="light"]'],
       colors: {
-        btn: {
-          darkNormal: "#ffffff50",
-          darkHover: "#ffffff60",
-          // darkActive : "#2f2f2f",
-          lightNormal: "#0f0f0f60",
-          lightHover: "#0f0f0f70",
-          // lightActive : "#c6c6c6",
-        },
+        // NOCTURNE_OS background hierarchy
+        void: "#050505",
+        "bg-base": "#090909",
+        surface: "#0e0e0e",
+        elevated: "#141414",
+        overlay: "#1a1a1a",
+        "bg-input": "#111111",
+        // Accents
+        "accent-red": "#ff3b30",
+        "accent-purple": "#7a5cff",
+        "accent-green": "#3eff8b",
+        "accent-amber": "#f5a623",
+        "accent-blue": "#0a84ff",
+        // Text
+        "text-primary": "#f0f0f0",
+        "text-secondary": "#8a8a8a",
+        "text-muted": "#3d3d3d",
       },
       fontFamily: {
-        caveat: ["Caveat Brush", "cursive"],
-        mistrydibeti: ["Architects Daughter", "cursive"],
-        fatface: ["Abril Fatface", "cursive"],
-        montserrat: ["Montserrat", "sans-serif"],
+        display: ["Geist", "Inter", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "IBM Plex Mono", "monospace"],
+        data: ["IBM Plex Mono", "JetBrains Mono", "monospace"],
       },
-      keyframes: {
-        darken: {
-          "0%": { backgroundColor: "", opacity: 1 },
-          "50%": { backgroundColor: "#000", opacity: 0.5 },
-          "100%": { backgroundColor: "", opacity: 1 },
-        },
+      boxShadow: {
+        "glow-red":
+          "0 0 20px rgba(255, 59, 48, 0.15), 0 0 60px rgba(255, 59, 48, 0.05)",
+        "glow-purple":
+          "0 0 20px rgba(122, 92, 255, 0.15), 0 0 60px rgba(122, 92, 255, 0.05)",
+        "glow-green":
+          "0 0 20px rgba(62, 255, 139, 0.15), 0 0 60px rgba(62, 255, 139, 0.05)",
+        "glow-white": "0 0 20px rgba(255, 255, 255, 0.06)",
       },
-      cursor: {
-        pointer: `url('https://aaruush22-bucket.s3.ap-south-1.amazonaws.com/misc/hand-img-fd6a03da.webp'), pointer`,
+      zIndex: {
+        desktop: "0",
+        windows: "10",
+        focused: "20",
+        dock: "30",
+        overlay: "40",
+        alert: "50",
+        cursor: "90",
+        lock: "100",
+        boot: "200",
       },
     },
   },

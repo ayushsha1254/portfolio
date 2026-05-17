@@ -70,7 +70,7 @@ const Casette = ({ song, setNowAlbum, nowAlbum, nowPlaying, playing }) => {
             {" "}
             {song.album}
           </span>
-          <span className="text-md">Rishit Shivesh</span>
+          <span className="text-md">Ayush Sharma</span>
         </div>
       </div>
     </div>

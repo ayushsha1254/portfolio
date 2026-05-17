@@ -36,7 +36,7 @@ const Explorer = ({ data, show, setShow, setKeepExplorer }) => {
             <input
               className="w-[90%] h-[5vh] rounded-lg px-3 pl-[9rem] text-gray-300"
               disabled
-              value={`//file//drive:/user/rishitshivesh/${data.name
+              value={`//file//drive:/user/ayushsharma/${data.name
                 .split(" ")
                 .join("-")
                 .toLowerCase()}`}

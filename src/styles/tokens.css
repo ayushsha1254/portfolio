@@ -1,0 +1,54 @@
+:root {
+  /* ── Background hierarchy ── */
+  --bg-void: #050505;
+  --bg-base: #090909;
+  --bg-surface: #0e0e0e;
+  --bg-elevated: #141414;
+  --bg-overlay: #1a1a1a;
+  --bg-input: #111111;
+
+  /* ── Accent colors ── */
+  --accent-red: #ff3b30;
+  --accent-purple: #7a5cff;
+  --accent-green: #3eff8b;
+  --accent-amber: #f5a623;
+  --accent-blue: #0a84ff;
+
+  /* ── Text ── */
+  --text-primary: #f0f0f0;
+  --text-secondary: #8a8a8a;
+  --text-muted: #3d3d3d;
+  --text-inverse: #090909;
+
+  /* ── Borders ── */
+  --border-hairline: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-accent: rgba(255, 59, 48, 0.4);
+
+  /* ── Glow (use as box-shadow values) ── */
+  --glow-red: 0 0 20px rgba(255, 59, 48, 0.15), 0 0 60px rgba(255, 59, 48, 0.05);
+  --glow-purple: 0 0 20px rgba(122, 92, 255, 0.15),
+    0 0 60px rgba(122, 92, 255, 0.05);
+  --glow-green: 0 0 20px rgba(62, 255, 139, 0.15),
+    0 0 60px rgba(62, 255, 139, 0.05);
+  --glow-white: 0 0 20px rgba(255, 255, 255, 0.06);
+
+  /* ── Z-index system ── */
+  --z-desktop: 0;
+  --z-windows: 10;
+  --z-focused: 20;
+  --z-dock: 30;
+  --z-overlay: 40;
+  --z-alert: 50;
+  --z-cursor: 90;
+  --z-lock: 100;
+  --z-boot: 200;
+
+  /* ── Typography ── */
+  --font-display: "Geist", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+  --font-data: "IBM Plex Mono", "JetBrains Mono", monospace;
+}
