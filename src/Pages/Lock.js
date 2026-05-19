@@ -1,134 +1,209 @@
-import React, { useEffect, useState } from "react";
-import data from "../Data/main.json";
-import { Link } from "react-router-dom";
-import DateTime from "../Components/datetime";
-import wallpaper from "../Assets/Images/lock.svg";
-import MusicTaskbar from "../Components/MusicTaskbar";
-// import "../Utility/handleMouse";
-const Lock = ({ lock, setLock, playing, nowPlaying }) => {
-  // Import Lockscreen Background
-  console.log(data.name);
-  const bg = require(`../Assets/Theme/${data.lock_screen}`);
-  const profile = require(`../Assets/Theme/${data.lockprofile}`);
-  console.log(bg);
-  // The datetime methods
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
-  // Mouse Function
-  //   let myDiv = document.getElementById("mouse");
-  //   // console.log(myDiv);
-  //   //Detect touch device
+const DAYS   = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
-  //   const move = (e) => {
-  //     //Try, catch to avoid any errors for touch screens (Error thrown when user doesn't move his finger)
-  //     try {
-  //       //PageX and PageY return the position of client's cursor from top left of screen
-  //       var x = e.pageX;
-  //       var y = e.pageY;
-  //     } catch (e) {}
-  //     //set left and top of div based on mouse position
-  //     // console.log(myDiv);
-  //     myDiv.style.left = x - 50 + "px";
-  //     myDiv.style.top = y - 50 + "px";
-  //   };
-  //   //For mouse
-  //   document.addEventListener("mousemove", (e) => {
-  //     move(e);
-  //   });
-  const handleOut = () => {
-    if (lock) {
-      const doc = document.querySelector("#main-lock");
-      localStorage.setItem("lastlogin", new Date().getTime());
+const SKIP_KEYS = new Set([
+  "Meta","Control","Alt","Shift","CapsLock","Tab",
+  "F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12",
+]);
 
-      doc.style.transform = "translateY(-100vh)";
-      const main = document.querySelector("#main-div-lock");
-      console.log(doc);
-      setTimeout(() => {
-        setLock(false);
-        main.style.display = "none";
-        // localStorage.setItem("lastlogin", new Date().getTime());
-      }, 1000);
-    } else {
-      return;
-    }
+export default function Lock({ lock, setLock }) {
+  const [hhmm, setHhmm] = useState("");
+  const [ss,   setSs]   = useState("");
+  const [date, setDate] = useState("");
+  const [unlocking, setUnlocking] = useState(false);
+  const unlockingRef = useRef(false);
+
+  // ── Clock ──────────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const tick = () => {
+      const n = new Date();
+      const h = n.getHours().toString().padStart(2,"0");
+      const m = n.getMinutes().toString().padStart(2,"0");
+      const s = n.getSeconds().toString().padStart(2,"0");
+      setHhmm(`${h}:${m}`);
+      setSs(s);
+      setDate(`${DAYS[n.getDay()]} · ${n.getDate()} ${MONTHS[n.getMonth()]} ${n.getFullYear()}`);
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  // ── Unlock ─────────────────────────────────────────────────────────────────
+  const unlock = () => {
+    if (unlockingRef.current) return;
+    unlockingRef.current = true;
+    setUnlocking(true);
+    localStorage.setItem("lastlogin", new Date().getTime());
   };
 
-  document.body.onkeyup = function (e) {
-    if (lock) {
-      if (e.keyCode == 32 && e.target == document.body) {
-        e.preventDefault();
-        localStorage.setItem("lastlogin", new Date().getTime());
-
-        //   console.log(e.keyCode);
-        handleOut();
-      }
-    } else return;
-  };
+  useEffect(() => {
+    const handler = (e) => {
+      if (SKIP_KEYS.has(e.key)) return;
+      unlock();
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
 
   return (
-    <div id="main-div-lock overflow-hidden">
-      {lock ? (
-        <div
-          className=" w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat backdrop-filter z-[100] backdrop-blur-lg transition duration-1000"
-          id="main-lock"
-          style={{
-            backgroundImage: `url(${bg})`,
-            backgroundColor: "black",
-          }}
-        >
-          <div className="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat bg-[#ffffff10] backdrop-blur-xl pt-8 backdrop-brightness-75">
-            <div className="w-screen flex-row justify-center flex">
-              <DateTime />
-            </div>
-            <div
-              className={`
-        rounded-full
-        bg-[#ff000050]
-        
-        absolute
-        blur-xl
-        -translate-x-1/2
-        -translate-y-1/2
-        shadow-lg
-        ease-in-out
-        
-        `}
-              id="mouse"
-              style={{
-                width: "8em",
-                height: "8em",
-                //   onMouseOver={(e) => {
-                //     console.log(e.target);
-              }}
-            ></div>
-            <div className="flex flex-col justify-center align-middle place-items-center mt-20 gap-y-10">
-              <img
-                src={profile}
-                className="w-[10vw] mx-auto rounded-full border-2 border-white  "
-              />
-              <div className="font-[Monoton] text-[4rem] text-white">
-                {data.name}
-              </div>
-              <Link onClick={handleOut}>
-                <div className="flex flex-row gap-x-2">
-                  <div className="px-6 py-2 text-lg bg-white rounded-3xl font-[Helvetica] cursor-pointer">
-                    Unlock Device
-                  </div>
-                  <div className="px-4 aspect-square py-2 my-auto text-lg bg-white rounded-[50%] font-[Helvetica] cursor-pointer">
-                    &gt;
-                  </div>
-                </div>
-              </Link>
-              <div>
-                {playing && nowPlaying ? (
-                  <MusicTaskbar playing={playing} nowPlaying={nowPlaying} />
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </div>
-  );
-};
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={unlocking ? { y: "-100vh", opacity: 0 } : { opacity: 1, y: 0 }}
+      transition={unlocking
+        ? { duration: 0.52, ease: [0.4, 0, 1, 1] }
+        : { duration: 0.5, ease: "easeOut" }
+      }
+      onAnimationComplete={() => { if (unlocking) setLock(false); }}
+      onClick={unlock}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "var(--bg-void)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "default",
+        userSelect: "none",
+        overflow: "hidden",
+      }}
+    >
+      {/* Atmospheric radial glow */}
+      <div aria-hidden="true" style={{
+        position: "absolute",
+        inset: 0,
+        background: "radial-gradient(ellipse 75% 55% at 50% 42%, rgba(122,92,255,0.08) 0%, transparent 68%)",
+        pointerEvents: "none",
+      }} />
 
-export default Lock;
+      {/* Red corner accent — bottom left */}
+      <div aria-hidden="true" style={{
+        position: "absolute",
+        inset: 0,
+        background: "radial-gradient(ellipse 55% 40% at -4% 105%, rgba(255,59,48,0.10) 0%, transparent 55%)",
+        pointerEvents: "none",
+      }} />
+
+      {/* Grain */}
+      <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.028, pointerEvents: "none" }}>
+        <filter id="lock-grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#lock-grain)" />
+      </svg>
+
+      {/* Scanlines */}
+      <div aria-hidden="true" style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
+        pointerEvents: "none",
+      }} />
+
+      {/* Content block */}
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        position: "relative",
+        marginTop: "-48px",
+      }}>
+
+        {/* System label */}
+        <div style={{
+          fontFamily: "var(--font-data)",
+          fontSize: "9px",
+          color: "var(--accent-red)",
+          letterSpacing: "0.22em",
+          marginBottom: "52px",
+          opacity: 0.72,
+        }}>
+          NOCTURNE_OS
+        </div>
+
+        {/* HH:MM */}
+        <div style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "clamp(60px, 9.5vw, 92px)",
+          fontWeight: 400,
+          color: "rgba(255,255,255,0.92)",
+          letterSpacing: "-0.025em",
+          lineHeight: 1,
+          fontVariantNumeric: "tabular-nums",
+        }}>
+          {hhmm}
+        </div>
+
+        {/* SS */}
+        <div style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "clamp(18px, 2.8vw, 30px)",
+          fontWeight: 400,
+          color: "rgba(255,255,255,0.22)",
+          letterSpacing: "0.04em",
+          lineHeight: 1,
+          marginTop: "8px",
+          fontVariantNumeric: "tabular-nums",
+        }}>
+          {ss}
+        </div>
+
+        {/* Date */}
+        <div style={{
+          fontFamily: "var(--font-data)",
+          fontSize: "12px",
+          color: "rgba(255,255,255,0.26)",
+          letterSpacing: "0.10em",
+          marginTop: "22px",
+        }}>
+          {date}
+        </div>
+
+        {/* Divider */}
+        <div style={{
+          width: "128px",
+          height: "1px",
+          background: "rgba(255,255,255,0.07)",
+          margin: "30px auto",
+        }} />
+
+        {/* Press any key */}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "7px",
+          fontFamily: "var(--font-data)",
+          fontSize: "10px",
+          color: "rgba(255,255,255,0.18)",
+          letterSpacing: "0.16em",
+        }}>
+          PRESS ANY KEY
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
+            style={{ color: "rgba(255,255,255,0.38)" }}
+          >
+            ·
+          </motion.span>
+        </div>
+      </div>
+
+      {/* Version tag — bottom */}
+      <div style={{
+        position: "absolute",
+        bottom: "20px",
+        fontFamily: "var(--font-data)",
+        fontSize: "9px",
+        color: "rgba(255,255,255,0.10)",
+        letterSpacing: "0.10em",
+      }}>
+        v0.2.0 · nocturne
+      </div>
+    </motion.div>
+  );
+}

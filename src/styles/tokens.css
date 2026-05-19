@@ -37,6 +37,7 @@
 
   /* ── Z-index system ── */
   --z-desktop: 0;
+  --z-widget:  4;   /* desktop widgets — always below windows */
   --z-windows: 10;
   --z-focused: 20;
   --z-dock: 30;

@@ -59,7 +59,7 @@ const World = ({ device, theme }) => {
   const globeEl = useRef();
 
   useEffect(() => {
-    // const globe = globeEl.current;
+    if (!globeEl.current || typeof globeEl.current.controls !== "function") return;
     globeEl.current.controls().enableZoom = false;
     globeEl.current.controls().autoRotate = true;
     globeEl.current.controls().autoRotateSpeed = 0.7;
@@ -105,7 +105,9 @@ const World = ({ device, theme }) => {
         arcDashLength={ARC_REL_LEN}
         arcDashGap={2}
         onGlobeReady={() => {
-          Globe.controls().enableZoom = false;
+          if (globeEl.current && typeof globeEl.current.controls === "function") {
+            globeEl.current.controls().enableZoom = false;
+          }
         }}
         arcDashInitialGap={1}
         arcDashAnimateTime={FLIGHT_TIME}

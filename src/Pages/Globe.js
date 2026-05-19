@@ -1,176 +1,487 @@
-import React, { useRef, useEffect, Suspense } from "react";
-import Handler from "./Handler";
-import star from "../Assets/Theme/star.svg";
-import day from "../Assets/Theme/day.jpg";
-import data from "../Data/main.json";
-import Nav from "../Components/Nav";
-import bg from "../Assets/Images/globebg.svg";
-import Skeleton from "@mui/material/Skeleton";
-// import Explorer from "../Components/ExpandedExplorer";
-import Taskbar from "../Components/Taskbar";
-import Finder from "../Components/Finder";
-import styles from "../Components/desk.module.css";
-import Lock from "./Lock";
-import wallpaper from "../Assets/Images/wallpaper.svg";
-import CircularProgress from "@mui/material/CircularProgress";
-
-import Particles from "./Particles";
-
+import React, { useEffect, useState, useRef, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleExplorer, setExplorer } from "../Utility/state/action";
+import { useNavigate } from "react-router-dom";
+import {
+  setExplorer,
+  toggleExplorer,
+  toggleTerminal,
+  toggleReadme,
+  toggleVoid,
+  toggleBlackbox,
+  toggleBrowser,
+  toggleDoom,
+  toggleStudio,
+  toggleArena,
+  setFocusedWindow,
+} from "../Utility/state/action";
+import Music from "../Pages/Music";
+import Arena from "../Components/Arena/Arena";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import MenuBar from "../Components/MenuBar";
+import Dock from "../Components/Dock";
+import AmbientCanvas from "../Components/AmbientCanvas";
+import DesktopIcon from "../Components/Desktop/DesktopIcon";
+import Window from "../Components/Window/Window";
+import ReadmeWindow from "../Components/Desktop/ReadmeWindow";
+import VoidWindow from "../Components/Desktop/VoidWindow";
+import BlackboxWindow from "../Components/Desktop/BlackboxWindow";
+import NoteWidget from "../Components/Desktop/NoteWidget";
+import SocialLinks from "../Components/Desktop/SocialLinks";
+import ProfileStat from "../Components/Desktop/ProfileStat";
+import ClockWidget from "../Components/Desktop/ClockWidget";
+import ContextMenu from "../Components/Desktop/ContextMenu";
+import Browser from "../Components/Browser/Browser";
+import Terminal from "../Components/Terminal/Terminal";
+import Lock from "./Lock";
+import WelcomeDoc from "../Components/Desktop/WelcomeDoc";
+import DoomWindow from "../Components/Desktop/DoomWindow";
+import Archive from "../Components/Archive/Archive";
+import {
+  GlassProfile,
+  GlassReadme,
+  GlassArchive,
+  GlassTerminal,
+  GlassBlackbox,
+  GlassVoid,
+  GlassSignal,
+  GlassArena,
+  GlassStudio,
+  GlassDoom,
+} from "../Components/Desktop/GlassIcons";
+
+// ─── Desktop entity layout ───────────────────────────────────────────────────
+
+// All icons stacked in a single right column — left edge at (100vw - 96px)
+// Icon width 68px → right edge at (100vw - 28px) — 28px dock-rail margin
+const DESKTOP_ICONS = [
+  // SYSTEM group
+  { id: "profile",  label: "profile.doc",   Icon: GlassProfile,  left: "calc(100% - 96px)", top: "9%",  action: "welcome"  },
+  { id: "readme",   label: "readme.txt",    Icon: GlassReadme,   left: "calc(100% - 96px)", top: "18%", action: "readme"   },
+  { id: "archive",  label: "archive.sys",   Icon: GlassArchive,  left: "calc(100% - 96px)", top: "27%", action: "explorer" },
+  { id: "terminal", label: "terminal://",   Icon: GlassTerminal, left: "calc(100% - 96px)", top: "36%", action: "terminal" },
+  // SIGNAL group
+  { id: "blackbox", label: "blackbox//",    Icon: GlassBlackbox, left: "calc(100% - 96px)", top: "48%", action: "blackbox" },
+  { id: "void",     label: "void.archive",  Icon: GlassVoid,     left: "calc(100% - 96px)", top: "57%", action: "void"     },
+  { id: "signal",   label: "signal.link",   Icon: GlassSignal,   left: "calc(100% - 96px)", top: "66%", action: "signal"   },
+  { id: "arena",    label: "arena.projects",Icon: GlassArena,    left: "calc(100% - 96px)", top: "75%", action: "arena"    },
+  // STUDIO + ARCADE group (same row, two columns)
+  { id: "doom",     label: "doom.exe",      Icon: GlassDoom,     left: "calc(100% - 192px)", top: "83%", action: "doom"    },
+  { id: "studio",   label: "studio.jack",   Icon: GlassStudio,   left: "calc(100% - 96px)",  top: "83%", action: "studio"  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 const Globe = ({
   theme,
-  setTheme,
   lock,
   setLock,
-  finder,
-  setFinder,
-  journey,
-  setJourney,
-  help,
-  setHelp,
   nowPlaying,
   playing,
   setPlayStatus,
   musicStop,
-  notifications,
+  // music control props for Studio window
+  setPlaying,
+  setNowPlaying,
+  progress,
+  setProgress,
+  seek,
+  setSeek,
+  songs,
+  duration,
+  setDuration,
+  howlerRef,
 }) => {
-  const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(state);
+  const navigate = useNavigate();
+  const state = useSelector((s) => s);
+  const [ctxMenu, setCtxMenu] = useState({ open: false, x: 0, y: 0 });
+  const [showWelcome, setShowWelcome] = useState(false);
+  const prevLock = useRef(true);
+
+  // Show welcome doc once per session, after the first lock dismiss
   useEffect(() => {
-    if (lock) {
-      dispatch(setExplorer(false));
+    if (prevLock.current === true && lock === false) {
+      if (!sessionStorage.getItem("nocturne_welcome_shown")) {
+        sessionStorage.setItem("nocturne_welcome_shown", "1");
+        setTimeout(() => setShowWelcome(true), 350);
+      }
     }
+    prevLock.current = lock;
   }, [lock]);
-  const [ready, setReady] = React.useState(false);
+
+  useEffect(() => {
+    if (lock) dispatch(setExplorer(false));
+  }, [lock]);
+
+  // Mouse tracking
+  const rawMx = useMotionValue(0.5);
+  const rawMy = useMotionValue(0.5);
+
+  useEffect(() => {
+    const handler = (e) => {
+      rawMx.set(e.clientX / window.innerWidth);
+      rawMy.set(e.clientY / window.innerHeight);
+    };
+    window.addEventListener("mousemove", handler, { passive: true });
+    return () => window.removeEventListener("mousemove", handler);
+  }, [rawMx, rawMy]);
+
+  // Gradient spring — heavy liquid
+  const gradMx = useSpring(rawMx, { stiffness: 50, damping: 18 });
+
+  // Cursor-driven gradient — center brought onto screen for visibility
+  const gradientBg = useTransform(
+    gradMx,
+    (x) =>
+      `radial-gradient(ellipse 130% 75% at ${50 + (x - 0.5) * 18}% 0%, rgba(122,92,255,0.26) 0%, transparent 60%),
+       radial-gradient(ellipse 65% 75% at -2% 102%, rgba(255,59,48,0.16) 0%, transparent 52%),
+       radial-gradient(ellipse 45% 55% at 102% 100%, rgba(62,255,139,0.05) 0%, transparent 48%)`
+  );
+
+  // Context menu
+  const handleDesktopContextMenu = (e) => {
+    e.preventDefault();
+    setCtxMenu({ open: true, x: e.clientX, y: e.clientY });
+  };
+
+  const handleCtxAction = (key) => {
+    if (key === "terminal") dispatch(toggleTerminal());
+    if (key === "void") {
+      if (!state.void) dispatch(setFocusedWindow("void"));
+      dispatch(toggleVoid());
+    }
+  };
+
+  // Icon double-click handlers
+  const handleIconAction = (action) => {
+    switch (action) {
+      case "welcome":
+        setShowWelcome(true);
+        break;
+      case "readme":
+        if (!state.readme) dispatch(setFocusedWindow("readme"));
+        dispatch(toggleReadme());
+        break;
+      case "explorer":
+        dispatch(toggleExplorer());
+        break;
+      case "terminal":
+        dispatch(toggleTerminal());
+        break;
+      case "studio":
+        if (!state.studio) dispatch(setFocusedWindow("studio"));
+        dispatch(toggleStudio());
+        break;
+      case "void":
+        if (!state.void) dispatch(setFocusedWindow("void"));
+        dispatch(toggleVoid());
+        break;
+      case "blackbox":
+        if (!state.blackbox) dispatch(setFocusedWindow("blackbox"));
+        dispatch(toggleBlackbox());
+        break;
+      case "doom":
+        if (!state.doom) dispatch(setFocusedWindow("doom"));
+        dispatch(toggleDoom());
+        break;
+      case "arena":
+        if (!state.arena) dispatch(setFocusedWindow("arena"));
+        dispatch(toggleArena());
+        break;
+      case "signal":
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
-      {lock ? (
-        <Suspense
-          fallback={
-            <div className="w-full h-full flex flex-row justify-center place-items-center">
-              {" "}
-              <CircularProgress />
-            </div>
-          }
-        >
-          <div className="z-[100] absolute top-0" style={{}}>
-            <Lock
-              lock={lock}
-              setLock={setLock}
-              playing={playing}
-              nowPlaying={nowPlaying}
-            />
+      {lock && (
+        <Suspense fallback={<div style={{ position: "fixed", inset: 0, background: "var(--bg-void)" }} />}>
+          <div style={{ position: "fixed", inset: 0, zIndex: "var(--z-lock)" }}>
+            <Lock lock={lock} setLock={setLock} playing={playing} nowPlaying={nowPlaying} />
           </div>
         </Suspense>
-      ) : null}
+      )}
 
       <div
-        className="py-3 px-2  bg-[#e6e6e6] dark:bg-[#0f0f0f]  transition-all duration-500 w-screen max-h-screen overflow-x-hidden"
         style={{
-          backgroundImage: state.theme ? `url(${star})` : `url(${day})`,
-          // backgroundColor: theme ? "#0f0f0f" : "#e6e6e6",
-          backgroundRepeat: "no repeat",
-          backgroundSize: "cover",
+          position: "relative",
           width: "100vw",
           height: "100vh",
-          maxHeight: "100vh",
           overflow: "hidden",
+          background: "var(--bg-base)",
         }}
+        onContextMenu={handleDesktopContextMenu}
       >
-        <div
-          className="min-w-[100vw] min-h-[100vh] transition-all dark:backdrop-blur-0 backdrop-blur-md"
+
+        {/* Breathing atmospheric depth gradient — cursor-driven */}
+        <motion.div
+          aria-hidden="true"
+          animate={{ opacity: [1, 0.65, 1] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            width: "100vw",
-            height: "100vh",
-            maxHeight: "100vh",
+            position: "absolute",
+            inset: 0,
+            background: gradientBg,
+            pointerEvents: "none",
+            zIndex: 0,
           }}
-        >
-          <Nav
-            theme={state.theme}
-            setTheme={setTheme}
-            lock={lock}
-            setLock={setLock}
-            help={help}
-            setHelp={setHelp}
-            playing={playing}
-            nowPlaying={nowPlaying}
-            musicStop={musicStop}
-            notifications={notifications}
-          />
+        />
 
-          <Particles />
-          <div className="flex flex-col lg:flex-row justify-around">
-            {/* <div id="globeViz"
-      ></div> */}
-            <div className="text-white font-[hackbot] text-[6rem] basis-full lg:basis-1/3 flex flex-wrap flex-col align-middle place-items-center justify-center px-8">
-              {data.home.name}
-            </div>
-            <div
-              className="basis-full lg:basis-1/3 lg:block hidden transition-all"
-              style={{
-                backgroundImage: `url(${bg})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "bottom",
-              }}
-            >
-              <div id="globeViz"></div>
 
-              <Handler
-                device={false}
-                theme={theme}
-                ready={ready}
-                onReady={setReady}
-              />
-            </div>
-            {/* <div
-            className="basis-full lg:basis-1/3 lg:block dark:hidden block"
-            style={{
-              backgroundImage: `url(${bg})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "contain",
-              backgroundPosition: "bottom",
-            }}
-          >
-            <div id="globeViz"></div>
-            <Handler device={false} theme={theme} />
-          </div> */}
-            {/* <div className="basis-full lg:basis-1/3 lg:hidden block">
-              <div id="globeViz"></div>
+        {/* Subtle grid — technical DAW aesthetic */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
+            `,
+            backgroundSize: "44px 44px",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
 
-              <Handler device={true} ready={ready} onReady={setReady} />
-            </div> */}
-            <div className="text-white font-[hackbot] lg:basis-[34%] flex flex-wrap flex-row align-middle place-items-center justify-center pr-8 text-lg">
-              {data.home.description}
-              <br />~ {data.home.description_by}
-            </div>
-          </div>
-
-          <div
-            className={
-              `${
-                lock ? "hidden" : "fixed"
-              } bottom-3 flex  flex-row justify-center w-[100vw] z-[160]` +
-              styles.task
-            }
-          >
-            {!lock ? (
-              <Taskbar
-                theme={state.theme}
-                setTheme={setTheme}
-                open={finder}
-                setFinder={setFinder}
-                nowPlaying={nowPlaying}
-                playing={playing}
-                setPlayStatus={setPlayStatus}
-                musicStop={musicStop}
-              />
-            ) : null}
-          </div>
+        {/* Ambient particle layer */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
+          <AmbientCanvas />
         </div>
+
+
+        {/* ── Desktop entity layer ── */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 3, pointerEvents: "none" }}>
+          {/* Cluster labels — right column, aligned with icon strip */}
+          <div style={{ position: "absolute", left: "calc(100% - 100px)", top: "7%",  fontFamily: "var(--font-data)", fontSize: "8px", color: "rgba(255,255,255,0.10)", letterSpacing: "0.16em", pointerEvents: "none" }}>SYSTEM</div>
+          <div style={{ position: "absolute", left: "calc(100% - 100px)", top: "45%", fontFamily: "var(--font-data)", fontSize: "8px", color: "rgba(255,255,255,0.10)", letterSpacing: "0.16em", pointerEvents: "none" }}>SIGNAL</div>
+          <div style={{ position: "absolute", left: "calc(100% - 196px)", top: "81%", fontFamily: "var(--font-data)", fontSize: "8px", color: "rgba(255,255,255,0.10)", letterSpacing: "0.16em", pointerEvents: "none" }}>ARCADE</div>
+          <div style={{ position: "absolute", left: "calc(100% - 100px)", top: "81%", fontFamily: "var(--font-data)", fontSize: "8px", color: "rgba(255,255,255,0.10)", letterSpacing: "0.16em", pointerEvents: "none" }}>STUDIO</div>
+
+          {DESKTOP_ICONS.map(({ id, label, Icon, left, top, action }) => (
+            <div key={id} style={{ pointerEvents: "all" }}>
+              <DesktopIcon
+                icon={<Icon />}
+                label={label}
+                left={left}
+                top={top}
+                active={
+                  (id === "profile"  && showWelcome)    ||
+                  (id === "readme"   && state.readme)   ||
+                  (id === "archive"  && state.explorer) ||
+                  (id === "terminal" && state.terminal) ||
+                  (id === "void"     && state.void)     ||
+                  (id === "blackbox" && state.blackbox) ||
+                  (id === "doom"     && state.doom)     ||
+                  (id === "studio"   && state.studio)   ||
+                  (id === "arena"    && state.arena)
+                }
+                onDoubleClick={() => handleIconAction(action)}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* ── Windows layer ── */}
+        <Window
+          id="readme"
+          type="readme"
+          title="readme.txt"
+          open={state.readme}
+          onClose={() => dispatch(toggleReadme())}
+          initialX={140}
+          initialY={52}
+          width={500}
+        >
+          <ReadmeWindow open={state.readme} />
+        </Window>
+
+        <Window
+          id="void"
+          type="void"
+          title="0x"
+          open={state.void}
+          onClose={() => dispatch(toggleVoid())}
+          initialX={620}
+          initialY={80}
+          width={440}
+        >
+          <VoidWindow open={state.void} />
+        </Window>
+
+        <Window
+          id="blackbox"
+          type="void"
+          title="blackbox//"
+          open={state.blackbox}
+          onClose={() => dispatch(toggleBlackbox())}
+          initialX={320}
+          initialY={110}
+          width={460}
+        >
+          <BlackboxWindow open={state.blackbox} />
+        </Window>
+
+        <Window
+          id="archive"
+          type="archive"
+          title="archive.sys"
+          open={state.explorer}
+          onClose={() => dispatch(toggleExplorer())}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(920, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(580, window.innerHeight - 120)) / 2))}
+          width={Math.min(920, window.innerWidth  - 80)}
+          height={Math.min(580, window.innerHeight - 120)}
+        >
+          <Archive />
+        </Window>
+
+        <Window
+          id="terminal"
+          type="terminal"
+          title="terminal://"
+          open={state.terminal}
+          onClose={() => dispatch(toggleTerminal())}
+          initialX={160}
+          initialY={70}
+          width={640}
+          height={474}
+        >
+          <Terminal />
+        </Window>
+
+        <Window
+          id="browser"
+          type="signal"
+          title="browser//"
+          open={state.browser}
+          onClose={() => dispatch(toggleBrowser())}
+          initialX={80}
+          initialY={52}
+          width={860}
+          height={554}
+        >
+          <Browser />
+        </Window>
+
+        <Window
+          id="doom"
+          type="void"
+          title="doom.exe"
+          open={state.doom}
+          onClose={() => dispatch(toggleDoom())}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(960, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(660, window.innerHeight - 120)) / 2))}
+          width={Math.min(960, window.innerWidth  - 80)}
+          height={Math.min(660, window.innerHeight - 120)}
+        >
+          <DoomWindow />
+        </Window>
+
+        <Window
+          id="studio"
+          type="studio"
+          title="studio.jack"
+          open={state.studio}
+          onClose={() => {
+            dispatch(toggleStudio());
+            howlerRef.current?.stop();
+            setPlaying(false);
+            setProgress(0);
+          }}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(1080, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(620, window.innerHeight - 120)) / 2))}
+          width={Math.min(1080, window.innerWidth  - 80)}
+          height={Math.min(620, window.innerHeight - 120)}
+        >
+          <Music
+            ref={howlerRef}
+            windowed
+            playing={playing}
+            setPlaying={setPlaying}
+            nowPlaying={nowPlaying}
+            setNowPlaying={setNowPlaying}
+            progress={progress}
+            setProgress={setProgress}
+            seek={seek}
+            setSeek={setSeek}
+            songs={songs}
+            duration={duration}
+            setDuration={setDuration}
+          />
+        </Window>
+
+        <Window
+          id="arena"
+          type="arena"
+          title="arena.projects"
+          open={state.arena}
+          onClose={() => dispatch(toggleArena())}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(960, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(580, window.innerHeight - 120)) / 2))}
+          width={Math.min(960, window.innerWidth  - 80)}
+          height={Math.min(580, window.innerHeight - 120)}
+        >
+          <Arena />
+        </Window>
+
+        {/* MenuBar */}
+        <MenuBar setLock={setLock} />
+
+        {/* Window zone marker */}
+        <div
+          id="window-zone"
+          style={{
+            position: "absolute",
+            top: "36px",
+            bottom: "48px",
+            left: 0,
+            right: 0,
+            zIndex: "var(--z-windows)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Desktop widgets — left column */}
+        <ClockWidget />
+        <NoteWidget />
+        <SocialLinks />
+        <ProfileStat />
+
+        {/* Dock */}
+        <Dock
+          nowPlaying={nowPlaying}
+          playing={playing}
+          setPlayStatus={setPlayStatus}
+          musicStop={musicStop}
+        />
+
+        {/* Context menu */}
+        <ContextMenu
+          x={ctxMenu.x}
+          y={ctxMenu.y}
+          open={ctxMenu.open}
+          onClose={() => setCtxMenu((m) => ({ ...m, open: false }))}
+          onAction={handleCtxAction}
+        />
+
+        <Window
+          id="welcome"
+          type="readme"
+          title="profile.doc"
+          open={showWelcome}
+          onClose={() => setShowWelcome(false)}
+          initialX={Math.max(40, Math.round((window.innerWidth  - 960) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - 580) / 2))}
+          width={960}
+          height={580}
+        >
+          <WelcomeDoc />
+        </Window>
+
       </div>
     </>
   );

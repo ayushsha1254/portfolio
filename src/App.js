@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Menu from "./Components/Menu";
 import Globe from "./Pages/Globe";
+import Grain from "./Components/Grain";
 import Matrix from "./Components/Matrix";
 import Particles from "./Pages/Particles";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -18,6 +19,7 @@ import Loader from "./Pages/Loader";
 import Loading from "./Pages/Loading";
 import Resume from "./Pages/Resume";
 import axios from "./Utility/Axios/axios";
+import { ActivityProvider } from "./Utility/ActivityContext";
 
 const Music = React.lazy(() => import("./Pages/Music"));
 
@@ -113,6 +115,7 @@ function App() {
     }
 
   };
+  const [booted, setBooted] = useState(() => !!sessionStorage.getItem("nocturne_booted"));
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth <= 1000) {
@@ -178,7 +181,15 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <ParallaxProvider>
-              <Menu theme={theme} setTheme={setTheme} />
+          <ActivityProvider>
+              <Grain />
+              {!booted && (
+                <Loader onDone={() => {
+                  sessionStorage.setItem("nocturne_booted", "1");
+                  setBooted(true);
+                }} />
+              )}
+              <Menu setLock={setLock} />
               <div
                 id="music-stop"
                 className="hidden"
@@ -259,8 +270,6 @@ function App() {
                       <Global
                         help={help}
                         setHelp={setHelp}
-                        certifications={certifications}
-                        skills={skills}
                       >
                         <Globe
                           theme={theme}
@@ -273,9 +282,19 @@ function App() {
                           setHelp={setHelp}
                           nowPlaying={nowPlaying}
                           playing={playing}
+                          setPlaying={setPlaying}
+                          setNowPlaying={setNowPlaying}
                           setPlayStatus={setPlayStatus}
                           musicStop={musicStop}
                           notifications={notifications}
+                          progress={progress}
+                          setProgress={setProgress}
+                          seek={seek}
+                          setSeek={setSeek}
+                          songs={songs}
+                          duration={duration}
+                          setDuration={setDuration}
+                          howlerRef={ref}
                         />
                       </Global>
                     </Suspense>
@@ -355,6 +374,7 @@ function App() {
 
                 {/* <Route path="/blogeditor" element={<BlogEditor />} /> */}
               </Routes>
+          </ActivityProvider>
             </ParallaxProvider>
         </BrowserRouter>
       </Provider>
