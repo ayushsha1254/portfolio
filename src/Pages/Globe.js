@@ -12,30 +12,35 @@ import {
   toggleDoom,
   toggleStudio,
   toggleArena,
+  toggleSignal,
+  toggleResumeWin,
   setFocusedWindow,
 } from "../Utility/state/action";
-import Music from "../Pages/Music";
-import Arena from "../Components/Arena/Arena";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import MenuBar from "../Components/MenuBar";
 import Dock from "../Components/Dock";
 import AmbientCanvas from "../Components/AmbientCanvas";
 import DesktopIcon from "../Components/Desktop/DesktopIcon";
 import Window from "../Components/Window/Window";
-import ReadmeWindow from "../Components/Desktop/ReadmeWindow";
-import VoidWindow from "../Components/Desktop/VoidWindow";
-import BlackboxWindow from "../Components/Desktop/BlackboxWindow";
 import NoteWidget from "../Components/Desktop/NoteWidget";
 import SocialLinks from "../Components/Desktop/SocialLinks";
 import ProfileStat from "../Components/Desktop/ProfileStat";
 import ClockWidget from "../Components/Desktop/ClockWidget";
 import ContextMenu from "../Components/Desktop/ContextMenu";
-import Browser from "../Components/Browser/Browser";
-import Terminal from "../Components/Terminal/Terminal";
 import Lock from "./Lock";
 import WelcomeDoc from "../Components/Desktop/WelcomeDoc";
-import DoomWindow from "../Components/Desktop/DoomWindow";
-import Archive from "../Components/Archive/Archive";
+
+const Music        = React.lazy(() => import("../Pages/Music"));
+const Arena        = React.lazy(() => import("../Components/Arena/Arena"));
+const Signal       = React.lazy(() => import("../Components/Signal/Signal"));
+const Resume       = React.lazy(() => import("../Pages/Resume"));
+const Archive      = React.lazy(() => import("../Components/Archive/Archive"));
+const Terminal     = React.lazy(() => import("../Components/Terminal/Terminal"));
+const Browser      = React.lazy(() => import("../Components/Browser/Browser"));
+const DoomWindow   = React.lazy(() => import("../Components/Desktop/DoomWindow"));
+const ReadmeWindow = React.lazy(() => import("../Components/Desktop/ReadmeWindow"));
+const VoidWindow   = React.lazy(() => import("../Components/Desktop/VoidWindow"));
+const BlackboxWindow = React.lazy(() => import("../Components/Desktop/BlackboxWindow"));
 import {
   GlassProfile,
   GlassReadme,
@@ -90,6 +95,7 @@ const Globe = ({
   duration,
   setDuration,
   howlerRef,
+  onShortcuts,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -189,6 +195,8 @@ const Globe = ({
         dispatch(toggleArena());
         break;
       case "signal":
+        if (!state.signal) dispatch(setFocusedWindow("signal"));
+        dispatch(toggleSignal());
         break;
       default:
         break;
@@ -428,8 +436,36 @@ const Globe = ({
           <Arena />
         </Window>
 
+        <Window
+          id="resumeWin"
+          type="archive"
+          title="resume.pdf"
+          open={state.resumeWin}
+          onClose={() => dispatch(toggleResumeWin())}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(820, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(600, window.innerHeight - 120)) / 2))}
+          width={Math.min(820, window.innerWidth  - 80)}
+          height={Math.min(600, window.innerHeight - 120)}
+        >
+          <Resume windowed />
+        </Window>
+
+        <Window
+          id="signal"
+          type="signal"
+          title="signal.link"
+          open={state.signal}
+          onClose={() => dispatch(toggleSignal())}
+          initialX={Math.max(40, Math.round((window.innerWidth  - Math.min(720, window.innerWidth  - 80)) / 2))}
+          initialY={Math.max(52, Math.round((window.innerHeight - Math.min(520, window.innerHeight - 120)) / 2))}
+          width={Math.min(720, window.innerWidth  - 80)}
+          height={Math.min(520, window.innerHeight - 120)}
+        >
+          <Signal />
+        </Window>
+
         {/* MenuBar */}
-        <MenuBar setLock={setLock} />
+        <MenuBar setLock={setLock} onShortcuts={onShortcuts} />
 
         {/* Window zone marker */}
         <div

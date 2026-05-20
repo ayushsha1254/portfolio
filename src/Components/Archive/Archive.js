@@ -2,6 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mainData from "../../Data/main.json";
 
+import sihMain  from "../../Assets/sih/main.svg";
+import sihEA    from "../../Assets/sih/envisionalpha.svg";
+import sihTeam  from "../../Assets/sih/team.svg";
+import sihMedia1 from "../../Assets/sih/media1.svg";
+import sihMedia2 from "../../Assets/sih/media2.svg";
+import sihCert  from "../../Assets/sih/cert.png";
+import sihAyush from "../../Assets/sih/ayush.svg";
+import sihDivyanshu from "../../Assets/sih/divyanshu.svg";
+import sihAbhishek  from "../../Assets/sih/abhishek.svg";
+import sihShrishti  from "../../Assets/sih/shrishti.svg";
+import sihChull     from "../../Assets/sih/chull.svg";
+
 const exp    = mainData.explorer;
 const resume = mainData.resume;
 
@@ -51,6 +63,7 @@ const TREE = [
   { id: "work", label: "work/", children: [
     { id: "projects",   label: "projects/"     },
     { id: "certs",      label: "certs.md"      },
+    { id: "sih",        label: "sih.exe"       },
   ]},
   { id: "reach", label: "reach/", children: [
     { id: "contact",    label: "contact.md"    },
@@ -59,7 +72,7 @@ const TREE = [
 ];
 
 const FOLDER_OF   = TREE.reduce((a, g) => { g.children.forEach(c => { a[c.id] = g.id; }); return a; }, {});
-const ITEM_LABEL  = { about: "about.md", skills: "skills.json", experience: "experience.md", projects: "projects/", certs: "certs.md", contact: "contact.md", social: "social.md" };
+const ITEM_LABEL  = { about: "about.md", skills: "skills.json", experience: "experience.md", projects: "projects/", certs: "certs.md", sih: "sih.exe", contact: "contact.md", social: "social.md" };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function useCountUp(target, duration = 900) {
@@ -835,10 +848,150 @@ function SocialPanel() {
   );
 }
 
+// ── SIH panel ────────────────────────────────────────────────────────────────
+const SIH_TEAM = [
+  { name: "Ayush Sharma",      img: sihAyush     },
+  { name: "Divyanshu Kaushik", img: sihDivyanshu },
+  { name: "Abhishek Dubey",    img: sihAbhishek  },
+  { name: "Shrishti Gupta",    img: sihShrishti  },
+  { name: "Sahaj Ghatiya",     img: sihChull     },
+];
+
+function SIHPanel() {
+  return (
+    <div style={{ padding: "22px 26px", overflowY: "auto" }}>
+
+      {/* Hero */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.28 }}
+        style={{ marginBottom: "28px" }}
+      >
+        <div style={{ ...DATA, fontSize: "9px", color: "var(--accent-amber)", letterSpacing: "0.22em", marginBottom: "6px" }}>
+          WINNER — SMART INDIA HACKATHON 2022 · SOFTWARE EDITION
+        </div>
+        <div style={{ ...DISPLAY, fontSize: "22px", color: "var(--text-primary)", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "4px" }}>
+          Team Envision Alpha
+        </div>
+        <div style={{ ...BODY, fontSize: "12px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+          Ministry of Education · AICTE Problem Statement · 36-hour sprint
+        </div>
+      </motion.div>
+
+      {/* Main image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        style={{
+          borderRadius: "4px",
+          overflow: "hidden",
+          border: "1px solid var(--border-subtle)",
+          marginBottom: "28px",
+          background: "var(--bg-surface)",
+        }}
+      >
+        <img src={sihMain} alt="SIH" style={{ width: "100%", display: "block" }} />
+      </motion.div>
+
+      {/* Problem statement */}
+      <div style={{ marginBottom: "28px" }}>
+        <div style={{ ...LABEL, marginBottom: "10px" }}>PROBLEM_STATEMENT</div>
+        <div style={{
+          borderLeft: "2px solid var(--accent-amber)",
+          paddingLeft: "14px",
+          ...BODY, fontSize: "12px",
+          color: "var(--text-secondary)",
+          lineHeight: "1.7",
+        }}>
+          Currently in AICTE, Event/Activity Management happens manually — booking of meeting rooms,
+          communication via email/SMS, canteen arrangements, social media updates, and report generation.
+          This manual process causes delays. The goal was to build a unified portal to automate all
+          AICTE event workflows and increase operational efficiency.
+        </div>
+      </div>
+
+      {/* Solution */}
+      <div style={{ marginBottom: "28px", display: "flex", alignItems: "flex-start", gap: "18px" }}>
+        <img src={sihEA} alt="Envision Alpha" style={{ width: "72px", flexShrink: 0, opacity: 0.88 }} />
+        <div>
+          <div style={{ ...LABEL, marginBottom: "8px" }}>OUR_SOLUTION</div>
+          <div style={{ ...BODY, fontSize: "12px", color: "var(--text-secondary)", lineHeight: "1.65" }}>
+            Built a full-stack AICTE Event Management Portal — room booking, mass communication,
+            canteen automation, social media scheduler, and real-time reporting — all in one platform.
+            Stack: React, Node.js, MongoDB, AWS.
+          </div>
+        </div>
+      </div>
+
+      {/* Team */}
+      <div style={{ marginBottom: "28px" }}>
+        <div style={{ ...LABEL, marginBottom: "14px" }}>TEAM_MEMBERS</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          {SIH_TEAM.map((m) => (
+            <motion.div
+              key={m.name}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.22 }}
+              style={{
+                display: "flex", flexDirection: "column", alignItems: "center", gap: "6px",
+                width: "80px",
+              }}
+            >
+              <div style={{
+                width: "56px", height: "56px", borderRadius: "50%",
+                background: "var(--bg-overlay)",
+                border: "1px solid var(--border-subtle)",
+                overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <img src={m.img} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <span style={{ ...DATA, fontSize: "9px", color: "var(--text-secondary)", textAlign: "center", lineHeight: 1.3 }}>
+                {m.name}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Media */}
+      <div style={{ marginBottom: "28px" }}>
+        <div style={{ ...LABEL, marginBottom: "10px" }}>MEDIA_COVERAGE</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+          {[sihMedia1, sihMedia2].map((src, i) => (
+            <div key={i} style={{
+              borderRadius: "3px", overflow: "hidden",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--bg-surface)",
+            }}>
+              <img src={src} alt={`media-${i}`} style={{ width: "100%", display: "block" }} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Certificate */}
+      <div>
+        <div style={{ ...LABEL, marginBottom: "10px" }}>CERTIFICATE</div>
+        <div style={{
+          borderRadius: "4px", overflow: "hidden",
+          border: "1px solid var(--border-subtle)",
+          background: "var(--bg-surface)",
+        }}>
+          <img src={sihCert} alt="SIH Certificate" style={{ width: "100%", display: "block" }} />
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
 // ── Panel map ────────────────────────────────────────────────────────────────
 const PANELS = {
   about: AboutPanel, skills: SkillsPanel, experience: ExperiencePanel,
-  projects: ProjectsPanel, certs: CertsPanel,
+  projects: ProjectsPanel, certs: CertsPanel, sih: SIHPanel,
   contact: ContactPanel, social: SocialPanel,
 };
 

@@ -6,6 +6,8 @@ import {
   toggleTerminal,
   toggleBrowser,
   toggleStudio,
+  toggleSignal,
+  toggleResumeWin,
   setFocusedWindow,
   restoreWindow,
 } from "../Utility/state/action";
@@ -471,10 +473,23 @@ export default function Dock({ nowPlaying, playing, setPlayStatus, musicStop }) 
         mouseXPx={mouseXPx}
       />
       <TrayItem
+        icon={<SignalIcon />}
+        label="SIGNAL"
+        active={state.signal}
+        onClick={() => {
+          if (!state.signal) dispatch(setFocusedWindow("signal"));
+          dispatch(toggleSignal());
+        }}
+        mouseXPx={mouseXPx}
+      />
+      <TrayItem
         icon={<ResumeIcon />}
         label="RESUME"
-        active={false}
-        onClick={() => navigate("/resume")}
+        active={state.resumeWin}
+        onClick={() => {
+          if (!state.resumeWin) dispatch(setFocusedWindow("resumeWin"));
+          dispatch(toggleResumeWin());
+        }}
         mouseXPx={mouseXPx}
       />
 
@@ -548,6 +563,16 @@ function StudioIcon() {
       <line x1="11" y1="11" x2="11" y2="16" />
       <line x1="14" y1="5"  x2="14" y2="16" />
       <line x1="17" y1="9"  x2="17" y2="16" />
+    </svg>
+  );
+}
+
+function SignalIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 14c1.5-3 3.5-5 7-5s5.5 2 7 5" />
+      <path d="M5 11c1-1.5 2.2-2.5 4-2.5s3 1 4 2.5" />
+      <circle cx="9" cy="14.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }

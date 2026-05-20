@@ -15,6 +15,8 @@ import {
   TOGGLE_DOOM,
   TOGGLE_STUDIO,
   TOGGLE_ARENA,
+  TOGGLE_SIGNAL,
+  TOGGLE_RESUME_WIN,
 } from "./types";
 
 const toggleTheme = () => ({ type: TOGGLE_THEME });
@@ -32,6 +34,8 @@ const toggleBrowser    = () => ({ type: TOGGLE_BROWSER });
 const toggleDoom       = ()         => ({ type: TOGGLE_DOOM });
 const toggleStudio     = ()         => ({ type: TOGGLE_STUDIO });
 const toggleArena      = ()         => ({ type: TOGGLE_ARENA });
+const toggleSignal     = ()         => ({ type: TOGGLE_SIGNAL });
+const toggleResumeWin  = ()         => ({ type: TOGGLE_RESUME_WIN });
 const minimizeWindow   = (payload) => ({ type: MINIMIZE_WINDOW, payload });
 const restoreWindow    = (id)      => ({ type: RESTORE_WINDOW,  payload: id });
 
@@ -52,4 +56,6 @@ export {
   toggleDoom,
   toggleStudio,
   toggleArena,
+  toggleSignal,
+  toggleResumeWin,
 };

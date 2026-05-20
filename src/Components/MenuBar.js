@@ -156,7 +156,7 @@ function PanelEntry({ n }) {
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function MenuBar({ setLock }) {
+export default function MenuBar({ setLock, onShortcuts }) {
   const [notifications, setNotifs]  = useState([]);
   const [toasts, setToasts]         = useState([]);
   const [unread, setUnread]         = useState(0);
@@ -225,10 +225,12 @@ export default function MenuBar({ setLock }) {
             <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "rgba(62,255,139,0.55)", display: "inline-block" }} />
             <span style={{ fontFamily: "var(--font-data)", fontSize: "9px", color: "rgba(255,255,255,0.22)", letterSpacing: "0.09em" }}>online</span>
           </div>
-          {/* Lock */}
-          <div onClick={handleLock} style={{ cursor: "pointer", display: "flex", alignItems: "center" }} title="Lock system">
-            <LockIcon />
-          </div>
+          {/* Help / shortcuts */}
+          {onShortcuts && (
+            <div onClick={onShortcuts} style={{ cursor: "pointer", display: "flex", alignItems: "center" }} title="Keyboard shortcuts (?)">
+              <ShortcutsIcon />
+            </div>
+          )}
           {/* Bell */}
           <div ref={bellRef} onClick={handleBell} style={{ cursor: "pointer", position: "relative", display: "flex", alignItems: "center" }}>
             <motion.div
@@ -246,6 +248,10 @@ export default function MenuBar({ setLock }) {
                 />
               )}
             </AnimatePresence>
+          </div>
+          {/* Lock */}
+          <div onClick={handleLock} style={{ cursor: "pointer", display: "flex", alignItems: "center" }} title="Lock system">
+            <LockIcon />
           </div>
         </div>
       </div>
@@ -365,6 +371,20 @@ function BellIcon({ active }) {
     >
       <path d="M6.5 1.5a3.5 3.5 0 00-3.5 3.5v2.5l-1 1.5h9l-1-1.5V5a3.5 3.5 0 00-3.5-3.5z" />
       <path d="M5.2 9.5a1.3 1.3 0 002.6 0" />
+    </svg>
+  );
+}
+
+function ShortcutsIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+      stroke="var(--text-muted)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
+      style={{ transition: "stroke 150ms" }}
+      onMouseEnter={e => e.currentTarget.style.stroke = "var(--text-secondary)"}
+      onMouseLeave={e => e.currentTarget.style.stroke = "var(--text-muted)"}
+    >
+      <path d="M5 4.5a1.5 1.5 0 112.2 1.3C6.6 6.3 6.5 6.8 6.5 7.2" />
+      <circle cx="6.5" cy="9.5" r="0.6" fill="var(--text-muted)" stroke="none" />
     </svg>
   );
 }

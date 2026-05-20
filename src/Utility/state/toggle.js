@@ -15,6 +15,8 @@ import {
   TOGGLE_DOOM,
   TOGGLE_STUDIO,
   TOGGLE_ARENA,
+  TOGGLE_SIGNAL,
+  TOGGLE_RESUME_WIN,
 } from "./types";
 
 const initialState = {
@@ -30,6 +32,8 @@ const initialState = {
   doom:    false,
   studio:  false,
   arena:   false,
+  signal:  false,
+  resumeWin: false,
   focusedWindow: null,
   minimizedWindows: [],   // [{ id, title, type }]
 };
@@ -62,6 +66,10 @@ export default function Toggle(state = initialState, action) {
       return { ...state, studio: !state.studio };
     case TOGGLE_ARENA:
       return { ...state, arena: !state.arena };
+    case TOGGLE_SIGNAL:
+      return { ...state, signal: !state.signal };
+    case TOGGLE_RESUME_WIN:
+      return { ...state, resumeWin: !state.resumeWin };
     case SET_FOCUSED_WINDOW:
       return { ...state, focusedWindow: action.payload };
     case MINIMIZE_WINDOW:

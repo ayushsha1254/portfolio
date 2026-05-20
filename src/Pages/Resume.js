@@ -1,581 +1,367 @@
-import React from "react";
-import { CgClose } from "react-icons/cg";
-
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import icon from "../Assets/Player/icon.webp";
-import bg from "../Assets/Resume/bg.svg";
-import logo from "../Assets/Resume/logo.svg";
-import Fade from "react-reveal/Fade";
+import { motion } from "framer-motion";
 import data from "../Data/main.json";
-import {
-  IoMail,
-  IoCall,
-  IoLogoLinkedin,
-  IoLogoGithub,
-  IoLocation,
-} from "react-icons/io5";
-import { BsDot } from "react-icons/bs";
-import { GrDocumentText } from "react-icons/gr";
-import Menu, { Item as MenuItem } from "rc-menu";
-import "rc-dropdown/assets/index.css";
-import Dropdown from "rc-dropdown";
-import {
-  HiOutlineDocumentDownload,
-  HiOutlineDocumentAdd,
-  HiOutlineMail,
-} from "react-icons/hi";
-import {
-  FaTwitter,
-  FaFacebook,
-  FaReddit,
-  FaLinkedin,
-  FaWhatsapp,
-  FaTelegram,
-} from "react-icons/fa";
-import { IoCopyOutline } from "react-icons/io5";
-import { ToastContainer, toast } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
-const Resume = () => {
-  const navigate = useNavigate();
-  const [resumeData, setResumeData] = React.useState({});
-  const [downloadOpen, setDownloadOpen] = React.useState(false);
-  const [shareOpen, setShareOpen] = React.useState(false);
-  const link = window.location.href;
-  const text = "Hey! Check out Ayush Sharma's Resume at " + link;
+const r = data?.resume ?? {};
+const certs = data?.explorer?.certifications ?? [];
 
-  async function downloadUsingFetch(data) {
-    const image = await fetch(data);
-    const imageBlog = await image.blob();
-    const imageURL = URL.createObjectURL(imageBlog);
-
-    const anchor = document.createElement("a");
-    anchor.href = imageURL;
-    anchor.download = "Ayush";
-
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    URL.revokeObjectURL(imageURL);
-  }
-
-  React.useEffect(() => {
-    setResumeData(data?.resume);
-  }, [data]);
-  console.log(resumeData);
-  const menu = (
-    <Menu
-      style={{
-        width: 270,
-        height: 550,
-        background: "transparent",
-        border: "none",
-        boxShadow: "none",
-        overflow: "hidden",
-      }}
-      onOverlayClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setDownloadOpen(true);
-      }}
-    >
-      <div className=" transition-all w-[270px] justify-evenly bg-[#0f0f0f50] backdrop-blur-md rounded-md h-max text-white p-4 text-lg flex flex-row">
-        <div
-          className="flex flex-col justify-center place-items-center text-white hover:text-[#a4eca5] cursor-pointer transition-all"
-          onClick={() => {
-            downloadUsingFetch(resumeData?.thisresume);
-          }}
-        >
-          <div className="text-3xl">
-            <HiOutlineDocumentDownload />
-          </div>
-          <div className="text-sm">This Resume</div>
-        </div>
-        <div className="flex flex-col justify-center place-items-center text-white hover:text-[#a4eca5] cursor-pointer transition-all">
-          <div className="text-3xl">
-            <HiOutlineDocumentAdd />
-          </div>
-          <div className="text-sm">Basic Resume</div>
-        </div>
-      </div>
-    </Menu>
-  );
-  const share = (
-    <Menu
-      style={{
-        width: 300,
-        height: 550,
-        background: "transparent",
-        border: "none",
-        boxShadow: "none",
-        overflow: "hidden",
-      }}
-      onOverlayClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setShareOpen(true);
-      }}
-    >
-      <div className="text-center gap-y-5 transition-all w-[300px] bg-[#0f0f0f50] backdrop-blur-md rounded-md h-max text-white p-4 text-lg flex flex-col">
-        Share
-        <div className="flex flex-row justify-evenly text-2xl">
-          <div
-            className="cursor-pointer hover:text-[#128C7E] transition-all"
-            onClick={() => {
-              window.open(`https://wa.me/?text=${text}`);
-            }}
-          >
-            <FaWhatsapp />
-          </div>
-          <div
-            className="cursor-pointer hover:text-[#0077b5] transition-all"
-            onClick={() => {
-              window.open(
-                `https://www.linkedin.com/shareArticle?url=h${link}&title=Ayush Sharma's Resume&summary=Check out Ayush Sharma's Resume&source=LinkedIn`
-              );
-            }}
-          >
-            <FaLinkedin />
-          </div>
-
-          <div
-            className="cursor-pointer hover:text-[#afcbff] transition-all"
-            onClick={() => {
-              window.open(
-                `mailto:?subject=Ayush Sharma's Resume&body=${text}`
-              );
-            }}
-          >
-            <IoMail />
-          </div>
-          <div
-            className="cursor-pointer hover:text-[#00acee] transition-all"
-            onClick={() => {
-              window.open(`https://twitter.com/intent/tweet?text=${text}`);
-            }}
-          >
-            <FaTwitter />
-          </div>
-          <div
-            className="cursor-pointer hover:text-[#3b5998] transition-all"
-            onClick={() => {
-              //   create a window object and open the facebook share link with encoded url
-              window.open(
-                `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                  link
-                )}&quote=${text}`
-              );
-            }}
-          >
-            <FaFacebook />
-          </div>
-
-          <div
-            className="cursor-pointer hover:text-[#FF8700] transition-all"
-            onClick={() => {
-              window.open(
-                `https://www.reddit.com/submit?url=${text}&title=Check this out!`
-              );
-            }}
-          >
-            <FaReddit />
-          </div>
-
-          <div
-            className="cursor-pointer hover:text-[#2AABEE] transition-all"
-            onClick={() => {
-              //   create a window object and open the facebook share link with encoded url
-              window.open(`https://t.me/share/url?url=${link}&text=${text}`);
-            }}
-          >
-            <FaTelegram />
-          </div>
-        </div>
-        <div className="text-sm text-left">This Page</div>
-        <div className="flex flex-row justify-between">
-          <input value={link} disabled className="text-sm w-[90%] px-2" />
-          <div
-            className="cursor-pointer hover:text-[#ffffff80] transition-all"
-            onClick={() => {
-              navigator.clipboard.writeText(link);
-              toast.info("Copied To Clipboard!", {
-                position: "bottom-center",
-                autoClose: 1000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-              });
-            }}
-          >
-            <IoCopyOutline />
-          </div>
-        </div>
-        <div className="text-sm text-left">This Resume</div>
-        <div className="flex flex-row justify-between">
-          <input
-            value={resumeData?.thisresume}
-            disabled
-            className="text-sm w-[90%] px-2"
-          />
-          <div
-            className="cursor-pointer hover:text-[#ffffff80] transition-all"
-            onClick={() => {
-              navigator.clipboard.writeText(resumeData?.thisresume);
-              toast.info("Copied To Clipboard!", {
-                position: "bottom-center",
-                autoClose: 1000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-              });
-            }}
-          >
-            <IoCopyOutline />
-          </div>
-        </div>
-        <div className="text-sm text-left">Basic Resume</div>
-        <div className="flex flex-row justify-between">
-          <input value={link} disabled className="text-sm w-[90%] px-2" />
-          <div
-            className="cursor-pointer hover:text-[#ffffff80] transition-all"
-            onClick={() => {
-              navigator.clipboard.writeText(link);
-              toast.info("Copied To Clipboard!", {
-                position: "bottom-center",
-                autoClose: 1000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-              });
-            }}
-          >
-            <IoCopyOutline />
-          </div>
-        </div>
-      </div>
-    </Menu>
-  );
+// ── Helpers ────────────────────────────────────────────────────────────────────
+function Section({ label, children }) {
   return (
-    <div>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={1500}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      <div className="w-full h-[5vh] bg-[#b9b2ac] flex flex-row justify-between place-items-center px-3 py-1 font-[Consolas] fixed z-[100]">
-        <div className="flex flex-row place-items-center justify-center gap-x-2">
-          {/* <img src={icon} className="object-fit w-[30px]" /> */}
-          <GrDocumentText />
-          <div className=" font-[Modeseven]">
-            //host/var/www/bin/Resume.docx
-          </div>
+    <motion.section
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+      style={{ marginBottom: "48px" }}
+    >
+      <div style={{
+        display: "flex", alignItems: "center", gap: "12px",
+        marginBottom: "20px",
+      }}>
+        <span style={{
+          fontFamily: "var(--font-data)",
+          fontSize: "9px",
+          color: "var(--accent-red)",
+          letterSpacing: "0.22em",
+        }}>
+          {label}
+        </span>
+        <div style={{ flex: 1, height: "1px", background: "var(--border-hairline)" }} />
+      </div>
+      {children}
+    </motion.section>
+  );
+}
+
+function Entry({ title, sub, meta, description }) {
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "1fr auto",
+      gap: "2px 16px",
+      marginBottom: "24px",
+      paddingBottom: "24px",
+      borderBottom: "1px solid var(--border-hairline)",
+    }}>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--text-primary)", fontWeight: 500 }}>
+        {title}
+      </div>
+      <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)", textAlign: "right", whiteSpace: "nowrap" }}>
+        {meta}
+      </div>
+      {sub && (
+        <div style={{ fontFamily: "var(--font-data)", fontSize: "10px", color: "var(--accent-purple)", letterSpacing: "0.06em", gridColumn: "1" }}>
+          {sub}
         </div>
-        <div className="flex flex-row gap-x-2">
-          {/* <div
-            className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#5f5641] active:bg-[#947836] transition-all cursor-pointer"
-            onClick={() => {
-              navigate("/");
+      )}
+      {description && (
+        <div style={{
+          fontFamily: "var(--font-ui)", fontSize: "13px",
+          color: "var(--text-secondary)", lineHeight: "1.65",
+          marginTop: "8px", gridColumn: "1 / -1",
+        }}>
+          {description}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SkillChip({ label }) {
+  return (
+    <span style={{
+      fontFamily: "var(--font-mono)",
+      fontSize: "11px",
+      color: "var(--text-secondary)",
+      background: "var(--bg-overlay)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "3px",
+      padding: "3px 10px",
+      display: "inline-block",
+    }}>
+      {label}
+    </span>
+  );
+}
+
+// ── Download ───────────────────────────────────────────────────────────────────
+async function downloadResume() {
+  try {
+    const res  = await fetch(r.thisresume);
+    const blob = await res.blob();
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement("a");
+    a.href = url; a.download = "Ayush-Sharma-Resume.pdf";
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+  } catch {
+    window.open(r.thisresume, "_blank");
+  }
+}
+
+// ── Main ───────────────────────────────────────────────────────────────────────
+export default function Resume({ windowed = false }) {
+  const navigate = useNavigate();
+  const [downloading, setDownloading] = useState(false);
+
+  // Esc → back (only in route mode)
+  useEffect(() => {
+    if (windowed) return;
+    const h = (e) => { if (e.key === "Escape") navigate("/"); };
+    document.addEventListener("keydown", h);
+    return () => document.removeEventListener("keydown", h);
+  }, [navigate, windowed]);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    await downloadResume();
+    setTimeout(() => setDownloading(false), 1200);
+  };
+
+  return (
+    <div style={{
+      position: windowed ? "relative" : "fixed",
+      inset: windowed ? "auto" : 0,
+      width: "100%", height: "100%",
+      background: windowed ? "var(--bg-elevated)" : "var(--bg-base)",
+      display: "flex", flexDirection: "column",
+      overflow: "hidden",
+    }}>
+
+      {/* ── Top bar (route mode only) ── */}
+      {!windowed && (
+      <div style={{
+        height: "36px", flexShrink: 0,
+        background: "var(--bg-surface)",
+        borderBottom: "1px solid var(--border-hairline)",
+        display: "flex", alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 20px",
+        zIndex: 10,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)" }}>nocturne://</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-secondary)" }}>resume</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)" }}>/</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)" }}>ayush-sharma</span>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <motion.button
+            onClick={handleDownload}
+            whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            style={{
+              fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.08em",
+              color: downloading ? "var(--accent-green)" : "var(--text-secondary)",
+              background: "transparent",
+              border: `1px solid ${downloading ? "var(--accent-green)" : "var(--border-subtle)"}`,
+              borderRadius: "3px", padding: "4px 12px", cursor: "pointer",
+              transition: "color 0.2s, border-color 0.2s",
             }}
           >
-            <AiOutlineMinus />
-          </div> */}
-          <Dropdown
-            id="control"
-            trigger={["click"]}
-            overlay={menu}
-            animation="slide-up"
-            onOverlayClick={(e) => {
-              e.preventDefault();
-            }}
-            // alignPoint
-          >
-            <div
-              onClick={() => {
-                setDownloadOpen(true);
-              }}
-              className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#29432f] active:bg-[#217122] transition-all cursor-pointer"
-            >
-              {/* <span className="text-2xl mr-2">
-            <AiFillControl />
-          </span> */}
-              Download
-            </div>
-          </Dropdown>
-          {/* <div
-            className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#29432f] active:bg-[#217122] transition-all cursor-pointer"
-            onClick={() => {
-              navigate("/");
+            {downloading ? "DOWNLOADING_" : "↓ DOWNLOAD_"}
+          </motion.button>
+          <motion.button
+            onClick={() => navigate("/")}
+            whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}
+            style={{
+              fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)",
+              background: "transparent", border: "1px solid var(--border-hairline)",
+              borderRadius: "3px", padding: "4px 12px", cursor: "pointer",
             }}
           >
-            Download
-          </div> */}
-          <Dropdown
-            id="control2"
-            trigger={["click"]}
-            overlay={share}
-            animation="slide-up"
-            onOverlayClick={(e) => {
-              e.preventDefault();
-            }}
-            // alignPoint
-          >
-            <div
-              onClick={() => {
-                setShareOpen(true);
-              }}
-              className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#434329] active:bg-[#6a7121] transition-all cursor-pointer"
-            >
-              {/* <span className="text-2xl mr-2">
-            <AiFillControl />
-          </span> */}
-              Share
-            </div>
-          </Dropdown>
-          {/* <div
-            className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#434329] active:bg-[#6a7121] transition-all cursor-pointer"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Share
-          </div> */}
-          <div
-            className="p-1 bg-[#4f4f4f] rounded-lg text-white hover:bg-[#432929] active:bg-[#712121] transition-all cursor-pointer flex flex-row place-items-center justify-center gap-x-1"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            {/* <GrClose /> */}
-            <CgClose />
-          </div>
+            ← BACK_
+          </motion.button>
         </div>
       </div>
-      <div
-        className="min-h-[100vh] w-[100vw] bg-[#e8dfd7] flex flex-col pb-10 relative"
-        // style={{
-        //   backgroundImage: `url(${bg})`,
-        // }}
-      >
-        <img
-          src={bg}
-          className=" fixed top-0 bottom-0 z-[70] w-[100vw] h-[100vh] object-cover bg-blend-overlay"
-        />
-        <div className="flex flex-col relative pt-10 mt-5">
-          <Fade bottom>
-            <div className="flex flex-col relative">
-              <div className="font-fatface text-[100px] w-[92%] relative bg-[#bed1d9] pl-[390px] mx-auto flex flex-row">
-                <div className="w-[150px] h-[5px] bg-[black] absolute rotate-90 left-[200px] top-[20px]"></div>
-                <img
-                  src={logo}
-                  className="w-[150px] absolute left-[50px] bottom-0"
-                ></img>
-                {resumeData?.name?.split(" ")[0]}
-              </div>
-              <div className="font-fatface text-[100px] -mt-[37px] pl-[450px]">
-                {resumeData?.name?.split(" ")[1]}
-              </div>
-              <div
-                className="font-montserrat text-[50px] pl-[450px]"
+      )}
+
+      {/* ── Scrollable content ── */}
+      <div style={{
+        flex: 1,
+        overflowY: "auto",
+        padding: "48px 0 80px",
+      }}>
+        <div style={{ width: "min(760px, 90vw)", margin: "0 auto" }}>
+
+          {/* Windowed mode download strip */}
+          {windowed && (
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "24px" }}>
+              <motion.button
+                onClick={handleDownload}
+                whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                 style={{
-                  fontWeight: "500",
-                  lineHeight: "110.5%",
-                  letterSpacing: "4.12037px",
-                  color: "#969696",
+                  fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.08em",
+                  color: downloading ? "var(--accent-green)" : "var(--text-secondary)",
+                  background: "transparent",
+                  border: `1px solid ${downloading ? "var(--accent-green)" : "var(--border-subtle)"}`,
+                  borderRadius: "3px", padding: "4px 14px", cursor: "pointer",
+                  transition: "color 0.2s, border-color 0.2s",
                 }}
               >
-                {resumeData?.subheading}
-              </div>
+                {downloading ? "DOWNLOADING_" : "↓ DOWNLOAD_"}
+              </motion.button>
             </div>
-          </Fade>
-        </div>
-        <div className="flex flex-row justify-start w-[90%] mx-auto mt-24">
-          <Fade left cascade>
-            <div className="flex flex-col font-montserrat text-xl gap-y-4 border-[#969696] border-r-4 pr-5 z-[90]">
-              <div className="flex flex-row place-items-center gap-x-4 w-[375px]">
-                <div className="text-3xl">
-                  <IoMail />
-                </div>
-                <a href={`mailto:${resumeData?.email}`}>{resumeData?.email}</a>
-              </div>
-              <div className="flex flex-row place-items-center gap-x-4">
-                <div className="text-3xl">
-                  <IoCall />
-                </div>
-                <a href={`tel:${resumeData?.phone}`}>{resumeData?.phone}</a>
-              </div>
-              <div className="flex flex-row place-items-center gap-x-4">
-                <div className="text-3xl">
-                  <IoLocation />
-                </div>
-                {resumeData?.location}
-              </div>
-              <div className="flex flex-row place-items-center gap-x-4">
-                <div className="text-3xl">
-                  <IoLogoGithub />
-                </div>
-                <a href={resumeData?.github} target="_blank">
-                  {resumeData?.github?.split("//")[1]}
-                </a>
-              </div>
-              <div className="flex flex-row place-items-center gap-x-4">
-                <div className="text-3xl">
-                  <IoLogoLinkedin />
-                </div>
-                <a href={resumeData?.linkedin} target="_blank">
-                  {resumeData?.linkedin?.split("//")[1]}
-                </a>
-              </div>
-            </div>
-          </Fade>
-          {/* <Fade right cascade> */}
-          <div
-            className="font-montserrat p-5 text-justify text-xl max-w-[80%]"
-            style={{}}
+          )}
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
+            style={{ marginBottom: "48px" }}
           >
-            {resumeData?.description}
+            <div style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(32px, 5vw, 52px)",
+              color: "var(--text-primary)",
+              fontWeight: 500,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
+              marginBottom: "8px",
+            }}>
+              {r.name}
+            </div>
+            <div style={{
+              fontFamily: "var(--font-data)",
+              fontSize: "11px",
+              color: "var(--accent-purple)",
+              letterSpacing: "0.14em",
+              marginBottom: "20px",
+            }}>
+              {r.subheading?.toUpperCase()}
+            </div>
+
+            {/* Contact strip */}
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "6px 20px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              color: "var(--text-secondary)",
+              marginBottom: "24px",
+            }}>
+              {r.email    && <a href={`mailto:${r.email}`}    style={{ color: "inherit", textDecoration: "none" }}>✉ {r.email}</a>}
+              {r.phone    && <span>✆ {r.phone}</span>}
+              {r.location && <span>⌖ {r.location}</span>}
+              {r.github   && <a href={r.github}   target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none" }}>↗ {r.github.replace("https://","")}</a>}
+              {r.linkedin && <a href={r.linkedin} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none" }}>↗ {r.linkedin.replace("https://","")}</a>}
+            </div>
+
+            <div style={{ height: "1px", background: "var(--border-subtle)" }} />
+          </motion.div>
+
+          {/* About */}
+          {r.description && (
+            <Section label="ABOUT">
+              <p style={{
+                fontFamily: "var(--font-ui)",
+                fontSize: "14px",
+                color: "var(--text-secondary)",
+                lineHeight: "1.7",
+                margin: 0,
+              }}>
+                {r.description}
+              </p>
+            </Section>
+          )}
+
+          {/* Experience */}
+          {r.experience?.length > 0 && (
+            <Section label="EXPERIENCE">
+              {r.experience.map((exp, i) => (
+                <Entry
+                  key={i}
+                  title={exp.name}
+                  sub={exp.position}
+                  meta={exp.duration}
+                  description={exp.description}
+                />
+              ))}
+            </Section>
+          )}
+
+          {/* Education */}
+          {r.education?.length > 0 && (
+            <Section label="EDUCATION">
+              {r.education.map((ed, i) => (
+                <Entry
+                  key={i}
+                  title={ed.school || ed.name}
+                  sub={ed.degree}
+                  meta={ed.duration}
+                  description={ed.description}
+                />
+              ))}
+            </Section>
+          )}
+
+          {/* Skills */}
+          {r.skills?.length > 0 && (
+            <Section label="SKILLS">
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                {r.skills.map((s, i) => <SkillChip key={i} label={s.trim()} />)}
+              </div>
+            </Section>
+          )}
+
+          {/* Certifications */}
+          {certs.length > 0 && (
+            <Section label="CERTIFICATIONS">
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                {certs.map((c, i) => (
+                  <div key={i} style={{
+                    display: "flex", alignItems: "center", gap: "10px",
+                    fontFamily: "var(--font-ui)", fontSize: "13px", color: "var(--text-secondary)",
+                    borderBottom: "1px solid var(--border-hairline)", paddingBottom: "10px",
+                  }}>
+                    <span style={{ color: "var(--accent-green)", fontSize: "10px" }}>✓</span>
+                    {c.name}
+                  </div>
+                ))}
+              </div>
+            </Section>
+          )}
+
+          {/* Awards */}
+          {r.awards?.length > 0 && (
+            <Section label="AWARDS">
+              {r.awards.map((a, i) => (
+                <div key={i} style={{
+                  display: "flex", alignItems: "center", gap: "10px",
+                  fontFamily: "var(--font-ui)", fontSize: "13px", color: "var(--text-secondary)",
+                  marginBottom: "10px",
+                }}>
+                  <span style={{ color: "var(--accent-amber)", fontSize: "12px" }}>◆</span>
+                  {a}
+                </div>
+              ))}
+            </Section>
+          )}
+
+          {/* Languages + Soft Skills */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 48px" }}>
+            {r.languages?.length > 0 && (
+              <Section label="LANGUAGES">
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {r.languages.map((l, i) => <SkillChip key={i} label={l} />)}
+                </div>
+              </Section>
+            )}
+            {r.softskills?.length > 0 && (
+              <Section label="INTERESTS">
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {r.softskills.map((s, i) => <SkillChip key={i} label={s} />)}
+                </div>
+              </Section>
+            )}
           </div>
-          {/* </Fade> */}
-        </div>
-        <div className="flex flex-row justify-start w-[90%] mx-auto mt-24">
-          <Fade left cascade>
-            <div className="flex flex-col font-montserrat text-xl gap-y-2 border-[#969696] w-[400px] border-r-4 pr-5">
-              <div className="font-bold text-2xl">Skills</div>
-              {resumeData?.skills?.map((skill) => {
-                return (
-                  <div className="flex flex-row gap-x-5 text-lg place-items-center">
-                    <BsDot /> {skill}
-                  </div>
-                );
-              })}
-            </div>
-          </Fade>
-          <Fade right cascade>
-            <div className="px-5 font-montserrat max-w-[60%]">
-              <div className="font-bold text-2xl mb-5">Experience</div>
 
-              <div className="flex flex-col gap-y-16">
-                {resumeData?.experience?.map((exp) => {
-                  return (
-                    <div className="flex flex-row justify-start gap-x-5 text-left place-items-start font-montserrat ">
-                      <div className="text-3xl text-[#202020] flex flex-col justify-start place-items-start">
-                        <BsDot />
-                      </div>
-                      <div className="flex flex-col place-items-start justify-start">
-                        <div className="font-bold text-2xl">{exp?.name}</div>
-                        <div className="font-montserrat">{exp?.position}</div>
-                        <div>{exp?.duration}</div>
-                        <div className="text-xl text-justify">
-                          {exp?.description}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </Fade>
-        </div>
-        <div className="flex flex-row justify-start w-[90%] mx-auto mt-24">
-          <Fade left cascade>
-            <div className="flex flex-col font-montserrat text-xl gap-y-2 border-[#969696] w-[400px] border-r-4 pr-5">
-              <div className="font-bold text-2xl">Soft Skills</div>
-              {resumeData?.softskills?.map((skill) => {
-                return (
-                  <div className="flex flex-row gap-x-5 text-lg place-items-center">
-                    <BsDot /> {skill}
-                  </div>
-                );
-              })}
-              <div className="font-bold text-2xl mt-24">Awards</div>
-              {resumeData?.awards?.map((skill) => {
-                return (
-                  <div className="flex flex-row gap-x-5 text-lg place-items-center">
-                    <BsDot /> {skill}
-                  </div>
-                );
-              })}
-            </div>
-          </Fade>
-          <Fade right cascade>
-            <div className="px-5 font-montserrat max-w-[60%]">
-              <div className="font-bold text-2xl mb-5">Education</div>
-
-              <div className="flex flex-col gap-y-16">
-                {resumeData?.education?.map((exp) => {
-                  return (
-                    <div className="flex flex-row justify-start gap-x-5 text-left place-items-start font-montserrat ">
-                      <div className="text-3xl text-[#202020] flex flex-col justify-start place-items-start">
-                        <BsDot />
-                      </div>
-                      <div className="flex flex-col place-items-start justify-start">
-                        <div className="font-bold text-2xl">{exp?.degree}</div>
-                        <div className="font-montserrat">{exp?.school}</div>
-                        <div>{exp?.location}</div>
-
-                        <div>{exp?.duration}</div>
-                        <div className="text-xl text-justify">
-                          {exp?.description}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </Fade>
-        </div>
-        <div className="flex flex-row justify-start w-[90%] mx-auto mt-24">
-          <Fade left cascade>
-            <div className="flex flex-col font-montserrat text-xl gap-y-2 border-[#969696] w-[400px] border-r-4 pr-5">
-              <div className="font-bold text-2xl">Languages</div>
-              {resumeData?.languages?.map((skill) => {
-                return (
-                  <div className="flex flex-row gap-x-5 text-lg place-items-center">
-                    <BsDot /> {skill}
-                  </div>
-                );
-              })}
-            </div>
-          </Fade>
-          <Fade right cascade>
-            <div className="px-5 font-montserrat max-w-[60%]">
-              <div className="font-bold text-2xl mb-5">Certificates</div>
-              {/* <div className="font-bold text-2xl">Languages</div> */}
-
-              <div className="flex flex-col gap-y-2">
-                {data?.explorer?.certifications?.map((exp) => {
-                  return (
-                    <div className="flex flex-row justify-start gap-x-5 text-left place-items-start font-montserrat ">
-                      <div className="text-3xl text-[#202020] flex flex-col justify-start place-items-start">
-                        <BsDot />
-                      </div>
-                      <div className="text-lg">{exp.name}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </Fade>
         </div>
       </div>
     </div>
   );
-};
-
-export default Resume;
+}

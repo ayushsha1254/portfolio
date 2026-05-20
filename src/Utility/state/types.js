@@ -14,3 +14,5 @@ export const RESTORE_WINDOW    = "RESTORE_WINDOW";
 export const TOGGLE_DOOM       = "TOGGLE_DOOM";
 export const TOGGLE_STUDIO     = "TOGGLE_STUDIO";
 export const TOGGLE_ARENA      = "TOGGLE_ARENA";
+export const TOGGLE_SIGNAL     = "TOGGLE_SIGNAL";
+export const TOGGLE_RESUME_WIN = "TOGGLE_RESUME_WIN";

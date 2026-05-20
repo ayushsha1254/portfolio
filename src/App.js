@@ -1,387 +1,271 @@
-import React, { useState, useEffect, useCallback, Suspense } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { Provider } from "react-redux";
+import ReactHowler from "react-howler";
+import store from "./Utility/state/store";
+import { ActivityProvider } from "./Utility/ActivityContext";
+import axios from "./Utility/Axios/axios";
+
 import Menu from "./Components/Menu";
 import Globe from "./Pages/Globe";
 import Grain from "./Components/Grain";
 import Matrix from "./Components/Matrix";
 import Particles from "./Pages/Particles";
-import CircularProgress from "@mui/material/CircularProgress";
-import ReactHowler from "react-howler";
-import { Provider } from "react-redux";
-import store from "./Utility/state/store";
-import Browser from "./Pages/Browser";
-import Global from "./Pages/Global";
-import Tetris from "./Pages/Tetris";
-import Terminal from "./Pages/Terminal";
-import { ParallaxProvider } from "react-scroll-parallax";
 import Loader from "./Pages/Loader";
-import Loading from "./Pages/Loading";
 import Resume from "./Pages/Resume";
-import axios from "./Utility/Axios/axios";
-import { ActivityProvider } from "./Utility/ActivityContext";
+import ShortcutDrawer from "./Components/ShortcutDrawer";
 
 const Music = React.lazy(() => import("./Pages/Music"));
 
-function App() {
-  const [theme, setTheme] = React.useState(true);
-  const themedata = localStorage.getItem("color-theme") == "dark";
-  const [lock, setLock] = React.useState(true);
-  const [finder, setFinder] = React.useState(false);
-  const [help, setHelp] = React.useState(false);
-  const [playing, setPlaying] = React.useState(false);
-  const [nowPlaying, setNowPlaying] = React.useState(null);
-  const [duration, setDuration] = React.useState(0);
-  const ref = React.useRef();
-  const [progress, setProgress] = React.useState(0);
-  const [seek, setSeek] = React.useState(0);
-  const [playStatus, setPlayStatus] = React.useState("play");
-  const [musicStop, setMusicStop] = React.useState(true);
-  useEffect(() => {
-    if (!playing && progress == 0) {
-      setMusicStop(true);
-    } else {
-      setMusicStop(false);
-    }
-  }, [playing, progress]);
-  useEffect(() => {
-    setTheme(themedata);
-  }, [themedata]);
+const PageFallback = () => (
+  <div style={{ position: "fixed", inset: 0, background: "var(--bg-void)" }} />
+);
 
-  useEffect(() => {
-    // if (playing) {
-    const refreshTime = () => {
-      setProgress(ref.current.seek());
-    };
-    const timerId = setInterval(refreshTime, 1000);
-    return function cleanup() {
-      clearInterval(timerId);
-    };
-    // }
-  }, [ref]);
-  useEffect(() => {
-    ref.current.seek((seek / 100) * ref.current.duration());
-  }, [seek]);
-  useEffect(() => {
-    // window.location.reload();
-
-    if (
-      localStorage.getItem("color-theme") === "dark" ||
-      (!("color-theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    }
-  }, [theme]);
-
-  document.onkeydown = function (e) {
-    if (
-      (!e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) ||
-      e.key === "Meta" ||
-      e.key === "Shift" ||
-      e.key === "Control" ||
-      e.key === "alt" ||
-      e.key === "Option"
-    ) {
-      return;
-    }
-    if (
-      e.altKey + e.key.toLowerCase() === "truel" ||
-      e.metaKey + e.key.toLowerCase() === "trueL"
-    ) {
-      e.preventDefault();
-      // console.log(finder ? "Open" : "Close");
-      localStorage.removeItem("lastlogin");
-
-      setLock(true);
-    } else if (
-      e.altKey + e.key.toLowerCase() === "trues" ||
-      e.metaKey + e.key.toLowerCase() === "trueS"
-    ) {
-      e.preventDefault();
-      document.getElementById("finderIcon").click();
-    } else if (
-      e.altKey + e.key.toLowerCase() === "truee" ||
-      e.metaKey + e.key.toLowerCase() === "truee"
-    ) {
-      e.preventDefault();
-      // console.log(finder ? "Open" : "Close");
-      // document.getElementById("finderIcon").click();
-      document.getElementById("explorerIcon").click();
-    }
-
-  };
-  const [booted, setBooted] = useState(() => !!sessionStorage.getItem("nocturne_booted"));
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    if (window.innerWidth <= 1000) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }, [window && window.innerWidth]);
-  const [songs, setSongs] = useState([]);
-  const [notifications, setNotifications] = useState([]);
-  const [skills, setSkills] = useState([]);
-  // const [projects, setProjects] = useState([]);
-  const [certifications, setCertifications] = useState([]);
-  useEffect(() => {
-    const data = axios.get("/songs").then((res) => setSongs(res.data));
-  }, []);
-  useEffect(() => {
-    const data = axios
-      .get("/notifications")
-      .then((res) => setNotifications(res.data.data));
-
-    const skills = axios.get("/static/skills").then((res) => {
-      console.log(res.data);
-      setSkills(res.data);
-    });
-
-    const certifications = axios
-      .get("/static/certifications")
-      .then((res) => setCertifications(res.data));
-  }, []);
-  // console.log(skills, certifications);
-  const [loadingNow, setLoadingNow] = useState(true);
-  // useEffect(() => {
-  //   const check = localStorage.getItem("rs-login");
-  //   if (check) {
-  //     const lastLogin = new Date(check);
-  //     const now = new Date();
-  //     const diffTime = Math.abs(now - lastLogin);
-  //     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  //     if (diffDays > 1) {
-  //       localStorage.setItem("rs-login", new Date().toISOString());
-  //       setLoadingNow(true);
-  //     } else {
-  //       setLoadingNow(false);
-  //     }
-  //   } else {
-  //     setLoadingNow(true);
-  //     localStorage.setItem("rs-login", new Date().toISOString());
-  //   }
-  //   // console.log(check);
-  // }, []);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     // setCount('Timeout called!');
-  //     setLoadingNow(false);
-  //   }, 17000);
-  //   return () => clearTimeout(timer);
-  // }, [loadingNow]);
-
-  if (!mobile) {
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <ParallaxProvider>
-          <ActivityProvider>
-              <Grain />
-              {!booted && (
-                <Loader onDone={() => {
-                  sessionStorage.setItem("nocturne_booted", "1");
-                  setBooted(true);
-                }} />
-              )}
-              <Menu setLock={setLock} />
-              <div
-                id="music-stop"
-                className="hidden"
-                onClick={() => {
-                  ref.current.stop();
-                  setPlaying(false);
-                }}
-              ></div>
-              <div
-                id="music-pause"
-                className="hidden"
-                onClick={() => {
-                  ref.current.pause();
-                  setPlaying(false);
-                }}
-              ></div>
-              <div
-                id="music-play"
-                className="hidden"
-                onClick={() => {
-                  ref.current.play();
-                  setPlaying(true);
-                }}
-              ></div>
-              <ReactHowler
-                ref={ref}
-                playing={playing}
-                onLoad={() => {
-                  setDuration(ref.current.duration());
-                  ref.current.volume(0.5);
-                }}
-                loop={true}
-                src={
-                  nowPlaying
-                    ? nowPlaying.src
-                    : "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/sos-rs.mp3"
-                }
-              />
-              {/* {loadingNow ? (
-                // <React.Fragment>
-                <Loader />
-              ) : // </React.Fragment>
-              null} */}
-              <Routes>
-                {/* <Route
-            path="/"
-            element={
-              <Suspense
-                fallback={
-                  <div className="w-full h-full flex flex-row justify-center place-items-center">
-                    {" "}
-                    <CircularProgress />
-                  </div>
-                }
-              >
-                <Desktop
-                  theme={theme}
-                  setTheme={setTheme}
-                  lock={lock}
-                  setLock={setLock}
-                  finder={finder}
-                  setFinder={setFinder}
-                />
-              </Suspense>
-            }
-          /> */}
-                <Route
-                  path="/"
-                  element={
-                    <Suspense
-                      fallback={
-                        <div className="w-full h-full flex flex-row justify-center place-items-center">
-                          {" "}
-                          <CircularProgress />
-                        </div>
-                      }
-                    >
-                      <Global
-                        help={help}
-                        setHelp={setHelp}
-                      >
-                        <Globe
-                          theme={theme}
-                          setTheme={setTheme}
-                          lock={lock}
-                          setLock={setLock}
-                          finder={finder}
-                          setFinder={setFinder}
-                          help={help}
-                          setHelp={setHelp}
-                          nowPlaying={nowPlaying}
-                          playing={playing}
-                          setPlaying={setPlaying}
-                          setNowPlaying={setNowPlaying}
-                          setPlayStatus={setPlayStatus}
-                          musicStop={musicStop}
-                          notifications={notifications}
-                          progress={progress}
-                          setProgress={setProgress}
-                          seek={seek}
-                          setSeek={setSeek}
-                          songs={songs}
-                          duration={duration}
-                          setDuration={setDuration}
-                          howlerRef={ref}
-                        />
-                      </Global>
-                    </Suspense>
-                  }
-                />
-                <Route path="/particles" element={<Particles />} />
-
-                <Route path="/browser" element={<Browser />} />
-                <Route path="/tetris" element={<Tetris />} />
-
-                <Route path="/terminal" element={<Terminal />} />
-                <Route
-                  path="/music"
-                  element={
-                    <Suspense fallback={<Loading />}>
-                      <Music
-                        ref={ref}
-                        duration={duration}
-                        setDuration={setDuration}
-                        playing={playing}
-                        setPlaying={setPlaying}
-                        nowPlaying={nowPlaying}
-                        setNowPlaying={setNowPlaying}
-                        progress={progress}
-                        setProgress={setProgress}
-                        seek={seek}
-                        setSeek={setSeek}
-                        songs={songs}
-                      />
-                    </Suspense>
-                  }
-                />
-
-                <Route
-                  path="/music/:id"
-                  element={
-                    <Suspense fallback={<Loading />}>
-                      <Music
-                        ref={ref}
-                        duration={duration}
-                        setDuration={setDuration}
-                        playing={playing}
-                        setPlaying={setPlaying}
-                        nowPlaying={nowPlaying}
-                        setNowPlaying={setNowPlaying}
-                        progress={progress}
-                        setProgress={setProgress}
-                        seek={seek}
-                        setSeek={setSeek}
-                        songs={songs}
-                      />
-                    </Suspense>
-                  }
-                />
-
-                <Route path="/matrix" element={<Matrix />} />
-                <Route path="/loader" element={<Loader />} />
-                <Route path="/loading" element={<Loading />} />
-                <Route path="/resume" element={<Resume />} />
-                {/* <Route
-                  path="/blog"
-                  element={
-                    <Suspense fallback={<LoadingAnimation />}>
-                      <Blog />
-                    </Suspense>
-                  }
-                />
-                <Route path="loadingAnimation" element={<LoadingAnimation />} />
-                <Route
-                  path="/blog/:id"
-                  element={
-                    <Suspense fallback={<LoadingAnimation />}>
-                      <SingleBlog />
-                    </Suspense>
-                  }
-                /> */}
-
-                {/* <Route path="/blogeditor" element={<BlogEditor />} /> */}
-              </Routes>
-          </ActivityProvider>
-            </ParallaxProvider>
-        </BrowserRouter>
-      </Provider>
-    );
-  } else {
-    return null;
-  }
+// ── Route transition wrapper ───────────────────────────────────────────────────
+function RouteTransition({ children }) {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+        style={{ width: "100%", height: "100%" }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
-export default App;
+// ── Inner app (needs to be inside BrowserRouter) ───────────────────────────────
+function AppInner() {
+  const location = useLocation();
+
+  // ── Music state ─────────────────────────────────────────────────────────────
+  const ref            = useRef();
+  const [playing,    setPlaying]    = useState(false);
+  const [nowPlaying, setNowPlaying] = useState(null);
+  const [duration,   setDuration]   = useState(0);
+  const [progress,   setProgress]   = useState(0);
+  const [seek,       setSeek]       = useState(0);
+  const [songs,      setSongs]      = useState([]);
+  const [musicStop,  setMusicStop]  = useState(true);
+
+  // ── Other state ─────────────────────────────────────────────────────────────
+  const [lock,        setLock]        = useState(true);
+  const [finder,      setFinder]      = useState(false);
+  const [help,        setHelp]        = useState(false);
+  const [booted,      setBooted]      = useState(() => !!sessionStorage.getItem("nocturne_booted"));
+  const [mobile,      setMobile]      = useState(false);
+  const [shortcuts,   setShortcuts]   = useState(false);
+  const [notifications, setNotifications] = useState([]);
+
+  // ── Responsive ──────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth <= 1000);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // ── Music progress ticker (RAF — no layout thrash) ────────────────────────
+  useEffect(() => {
+    let raf;
+    const tick = () => {
+      if (ref.current) setProgress(ref.current.seek());
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  // ── Seek on change ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (ref.current) ref.current.seek((seek / 100) * ref.current.duration());
+  }, [seek]);
+
+  // ── musicStop helper ───────────────────────────────────────────────────────
+  useEffect(() => {
+    setMusicStop(!playing && progress === 0);
+  }, [playing, progress]);
+
+  // ── Data fetching ──────────────────────────────────────────────────────────
+  useEffect(() => {
+    axios.get("/songs").then(res => setSongs(res.data)).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    axios.get("/notifications").then(res => setNotifications(res.data?.data ?? [])).catch(() => {});
+  }, []);
+
+  // ── Global keyboard shortcuts ──────────────────────────────────────────────
+  useEffect(() => {
+    const handler = (e) => {
+      const tag = document.activeElement?.tagName;
+      const inInput = tag === "INPUT" || tag === "TEXTAREA";
+
+      // ? → shortcut drawer (only when not typing)
+      if (e.key === "?" && !inInput && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        setShortcuts(s => !s);
+        return;
+      }
+
+      // Esc → close shortcut drawer
+      if (e.key === "Escape") {
+        setShortcuts(false);
+        return;
+      }
+
+      // Alt/⌘ + L → lock
+      if ((e.altKey || e.metaKey) && e.key.toLowerCase() === "l") {
+        e.preventDefault();
+        localStorage.removeItem("lastlogin");
+        setLock(true);
+        return;
+      }
+
+      // Alt/⌘ + E → archive
+      if ((e.altKey || e.metaKey) && e.key.toLowerCase() === "e") {
+        e.preventDefault();
+        document.getElementById("explorerIcon")?.click();
+        return;
+      }
+
+      // Alt/⌘ + T → terminal
+      if ((e.altKey || e.metaKey) && e.key.toLowerCase() === "t") {
+        e.preventDefault();
+        document.getElementById("terminalIcon")?.click();
+        return;
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
+  if (mobile) return (
+    <div style={{
+      position: "fixed", inset: 0,
+      background: "var(--bg-void)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      fontFamily: "var(--font-mono)", fontSize: "12px",
+      color: "var(--text-secondary)", textAlign: "center",
+      padding: "24px",
+    }}>
+      NOCTURNE_OS requires a desktop viewport.
+    </div>
+  );
+
+  return (
+    <>
+      <Grain />
+      {!booted && (
+        <Loader onDone={() => {
+          sessionStorage.setItem("nocturne_booted", "1");
+          setBooted(true);
+        }} />
+      )}
+
+      <Menu setLock={setLock} />
+
+      {/* Hidden music event bus */}
+      <div id="music-stop"  className="hidden" onClick={() => { ref.current?.stop();  setPlaying(false); }} />
+      <div id="music-pause" className="hidden" onClick={() => { ref.current?.pause(); setPlaying(false); }} />
+      <div id="music-play"  className="hidden" onClick={() => { ref.current?.play();  setPlaying(true);  }} />
+
+      <ReactHowler
+        ref={ref}
+        playing={playing}
+        onLoad={() => { setDuration(ref.current.duration()); ref.current.volume(0.5); }}
+        loop
+        src={nowPlaying?.src ?? "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/sos-rs.mp3"}
+      />
+
+      <RouteTransition>
+        <Routes location={location}>
+          <Route
+            path="/"
+            element={
+              <Globe
+                lock={lock}
+                setLock={setLock}
+                finder={finder}
+                setFinder={setFinder}
+                help={help}
+                setHelp={setHelp}
+                nowPlaying={nowPlaying}
+                playing={playing}
+                setPlaying={setPlaying}
+                setNowPlaying={setNowPlaying}
+                setPlayStatus={() => {}}
+                musicStop={musicStop}
+                notifications={notifications}
+                progress={progress}
+                setProgress={setProgress}
+                seek={seek}
+                setSeek={setSeek}
+                songs={songs}
+                duration={duration}
+                setDuration={setDuration}
+                howlerRef={ref}
+                onShortcuts={() => setShortcuts(s => !s)}
+              />
+            }
+          />
+
+          <Route path="/resume"    element={<Resume />} />
+          <Route path="/particles" element={<Particles />} />
+          <Route path="/matrix"    element={<Matrix />} />
+          <Route
+            path="/music"
+            element={
+              <React.Suspense fallback={<PageFallback />}>
+                <Music ref={ref} duration={duration} setDuration={setDuration}
+                  playing={playing} setPlaying={setPlaying}
+                  nowPlaying={nowPlaying} setNowPlaying={setNowPlaying}
+                  progress={progress} setProgress={setProgress}
+                  seek={seek} setSeek={setSeek} songs={songs}
+                />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="/music/:id"
+            element={
+              <React.Suspense fallback={<PageFallback />}>
+                <Music ref={ref} duration={duration} setDuration={setDuration}
+                  playing={playing} setPlaying={setPlaying}
+                  nowPlaying={nowPlaying} setNowPlaying={setNowPlaying}
+                  progress={progress} setProgress={setProgress}
+                  seek={seek} setSeek={setSeek} songs={songs}
+                />
+              </React.Suspense>
+            }
+          />
+        </Routes>
+      </RouteTransition>
+
+      <ShortcutDrawer open={shortcuts} onClose={() => setShortcuts(false)} />
+    </>
+  );
+}
+
+// ── Root ───────────────────────────────────────────────────────────────────────
+export default function App() {
+  return (
+    <Provider store={store}>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter>
+          <ActivityProvider>
+            <AppInner />
+          </ActivityProvider>
+        </BrowserRouter>
+      </MotionConfig>
+    </Provider>
+  );
+}
