@@ -1,9 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { AnimatePresence, animate, motion, useDragControls, useAnimation, useMotionValue } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { minimizeWindow, restoreWindow, setFocusedWindow } from "../../Utility/state/action";
 import { useResize, RESIZE_HANDLES } from "../../Utility/useResize";
 import WindowControls from "./WindowControls";
+import ErrorBoundary from "../ErrorBoundary";
+
+const WindowFallback = () => (
+  <div style={{
+    width: "100%", height: "100%",
+    background: "var(--bg-elevated)",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    fontFamily: "var(--font-mono)", fontSize: "10px",
+    color: "var(--text-muted)", letterSpacing: "0.08em",
+  }}>
+    LOADING_
+  </div>
+);
 
 const PERSONALITY = {
   terminal: { border: "var(--accent-green)",  shadow: "0 0 0 1px rgba(62,255,139,0.15), 0 16px 48px rgba(0,0,0,0.7)"  },
@@ -221,7 +234,11 @@ export default function Window({
                 onPointerDown={(e) => e.stopPropagation()}
                 style={{ flex: 1, overflow: "auto", scrollbarWidth: "thin", minHeight: 0 }}
               >
-                {children}
+                <ErrorBoundary>
+                  <Suspense fallback={<WindowFallback />}>
+                    {children}
+                  </Suspense>
+                </ErrorBoundary>
               </div>
             </div>
           </motion.div>

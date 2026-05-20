@@ -15,7 +15,10 @@ import Matrix from "./Components/Matrix";
 import Particles from "./Pages/Particles";
 import Loader from "./Pages/Loader";
 import Resume from "./Pages/Resume";
+import NotFound from "./Pages/NotFound";
 import ShortcutDrawer from "./Components/ShortcutDrawer";
+
+const KONAMI = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
 
 const Music = React.lazy(() => import("./Pages/Music"));
 
@@ -63,7 +66,9 @@ function AppInner() {
   const [booted,      setBooted]      = useState(() => !!sessionStorage.getItem("nocturne_booted"));
   const [mobile,      setMobile]      = useState(false);
   const [shortcuts,   setShortcuts]   = useState(false);
+  const [glitch,      setGlitch]      = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const konamiBuffer = useRef([]);
 
   // ── Responsive ──────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -108,6 +113,21 @@ function AppInner() {
     const handler = (e) => {
       const tag = document.activeElement?.tagName;
       const inInput = tag === "INPUT" || tag === "TEXTAREA";
+
+      // Konami code tracking (works everywhere, even in inputs)
+      const buf = konamiBuffer.current;
+      buf.push(e.key);
+      if (buf.length > KONAMI.length) buf.shift();
+      if (buf.join(",") === KONAMI.join(",")) {
+        buf.length = 0;
+        document.body.classList.add("nocturne-glitch");
+        setGlitch(true);
+        setTimeout(() => {
+          document.body.classList.remove("nocturne-glitch");
+          setGlitch(false);
+        }, 1800);
+        return;
+      }
 
       // ? → shortcut drawer (only when not typing)
       if (e.key === "?" && !inInput && !e.metaKey && !e.ctrlKey) {
@@ -221,6 +241,7 @@ function AppInner() {
           <Route path="/resume"    element={<Resume />} />
           <Route path="/particles" element={<Particles />} />
           <Route path="/matrix"    element={<Matrix />} />
+          <Route path="*"          element={<NotFound />} />
           <Route
             path="/music"
             element={
@@ -251,6 +272,34 @@ function AppInner() {
       </RouteTransition>
 
       <ShortcutDrawer open={shortcuts} onClose={() => setShortcuts(false)} />
+
+      <AnimatePresence>
+        {glitch && (
+          <motion.div
+            key="konami"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.12 }}
+            style={{
+              position: "fixed", inset: 0, zIndex: 9999,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              pointerEvents: "none",
+            }}
+          >
+            <div style={{
+              fontFamily: "var(--font-mono)", fontSize: "11px",
+              color: "var(--accent-green)", letterSpacing: "0.1em",
+              textAlign: "center", lineHeight: 2,
+              textShadow: "0 0 12px rgba(62,255,139,0.6)",
+            }}>
+              <div style={{ color: "var(--accent-red)", marginBottom: "8px" }}>ACCESS_GRANTED</div>
+              <div>nocturne://root — welcome back, ayush</div>
+              <div style={{ color: "var(--text-muted)", fontSize: "10px", marginTop: "6px" }}>you found the backdoor</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

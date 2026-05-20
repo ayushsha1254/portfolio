@@ -227,12 +227,29 @@ export default function MenuBar({ setLock, onShortcuts }) {
           </div>
           {/* Help / shortcuts */}
           {onShortcuts && (
-            <div onClick={onShortcuts} style={{ cursor: "pointer", display: "flex", alignItems: "center" }} title="Keyboard shortcuts (?)">
+            <div
+              role="button"
+              tabIndex={0}
+              aria-label="Keyboard shortcuts"
+              onClick={onShortcuts}
+              onKeyDown={e => e.key === "Enter" && onShortcuts()}
+              style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+              title="Keyboard shortcuts (?)"
+            >
               <ShortcutsIcon />
             </div>
           )}
           {/* Bell */}
-          <div ref={bellRef} onClick={handleBell} style={{ cursor: "pointer", position: "relative", display: "flex", alignItems: "center" }}>
+          <div
+            ref={bellRef}
+            role="button"
+            tabIndex={0}
+            aria-label="Notifications"
+            aria-expanded={open}
+            onClick={handleBell}
+            onKeyDown={e => e.key === "Enter" && handleBell()}
+            style={{ cursor: "pointer", position: "relative", display: "flex", alignItems: "center" }}
+          >
             <motion.div
               animate={shake ? { rotate: [0, -14, 14, -9, 9, -4, 0] } : { rotate: 0 }}
               transition={{ duration: 0.55, ease: "easeInOut" }}
@@ -250,7 +267,15 @@ export default function MenuBar({ setLock, onShortcuts }) {
             </AnimatePresence>
           </div>
           {/* Lock */}
-          <div onClick={handleLock} style={{ cursor: "pointer", display: "flex", alignItems: "center" }} title="Lock system">
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="Lock system"
+            onClick={handleLock}
+            onKeyDown={e => e.key === "Enter" && handleLock()}
+            style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+            title="Lock system"
+          >
             <LockIcon />
           </div>
         </div>

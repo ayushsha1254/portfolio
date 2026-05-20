@@ -79,3 +79,45 @@ pre {
   -ms-user-select: text;
   user-select: text;
 }
+
+/* Keyboard focus rings */
+:focus-visible {
+  outline: 1.5px solid var(--accent-purple);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+button:focus-visible {
+  outline: 1.5px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+/* Hide focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Shared keyframes */
+@keyframes nocturne-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes nocturne-glitch {
+  0%   { transform: translate(0) skewX(0deg);    filter: none; }
+  8%   { transform: translate(-4px, 1px) skewX(-1deg);  filter: hue-rotate(90deg) brightness(1.4); }
+  16%  { transform: translate(4px, -2px) skewX(0.8deg); filter: hue-rotate(-90deg); }
+  24%  { transform: translate(-2px, 2px) skewX(0deg);   filter: none; }
+  32%  { transform: translate(3px, -1px) skewX(0.6deg); filter: hue-rotate(180deg) brightness(0.85); }
+  40%  { transform: translate(0) skewX(0deg);    filter: none; }
+  48%  { transform: translate(-3px, 1px) skewX(-0.5deg); filter: hue-rotate(60deg) brightness(1.2); }
+  56%  { transform: translate(2px, -2px) skewX(0deg);   filter: none; }
+  64%  { transform: translate(-1px, 2px) skewX(0.3deg); filter: hue-rotate(-60deg); }
+  72%  { transform: translate(1px, -1px) skewX(0deg);   filter: none; }
+  80%  { transform: translate(-2px, 0px) skewX(-0.2deg); filter: brightness(1.1); }
+  100% { transform: translate(0) skewX(0deg);    filter: none; }
+}
+
+body.nocturne-glitch {
+  animation: nocturne-glitch 0.35s ease-in-out 2;
+}
