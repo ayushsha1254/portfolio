@@ -17,6 +17,7 @@ import Loader from "./Pages/Loader";
 import Resume from "./Pages/Resume";
 import NotFound from "./Pages/NotFound";
 import ShortcutDrawer from "./Components/ShortcutDrawer";
+import MobileOS from "./Mobile/MobileOS";
 
 const KONAMI = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
 
@@ -169,16 +170,24 @@ function AppInner() {
   }, []);
 
   if (mobile) return (
-    <div style={{
-      position: "fixed", inset: 0,
-      background: "var(--bg-void)",
-      display: "flex", alignItems: "center", justifyContent: "center",
-      fontFamily: "var(--font-mono)", fontSize: "12px",
-      color: "var(--text-secondary)", textAlign: "center",
-      padding: "24px",
-    }}>
-      NOCTURNE_OS requires a desktop viewport.
-    </div>
+    <>
+      <ReactHowler
+        ref={ref}
+        playing={playing}
+        onLoad={() => { setDuration(ref.current.duration()); ref.current.volume(0.5); }}
+        loop
+        src={nowPlaying?.src ?? "https://rs-bucket-s3.s3.ap-south-1.amazonaws.com/music/sos-rs.mp3"}
+      />
+      <MobileOS
+        howlerRef={ref}
+        playing={playing}       setPlaying={setPlaying}
+        nowPlaying={nowPlaying} setNowPlaying={setNowPlaying}
+        progress={progress}     setProgress={setProgress}
+        seek={seek}             setSeek={setSeek}
+        songs={songs}
+        duration={duration}     setDuration={setDuration}
+      />
+    </>
   );
 
   return (
