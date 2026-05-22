@@ -85,7 +85,7 @@ export default function AppShell({ app, onBack, ...musicProps }) {
           aria-label="Go back"
           style={{
             background: "none", border: "none", cursor: "pointer",
-            color: "var(--accent-red)", fontSize: 20,
+            color: "var(--accent-red)", fontSize: 15,
             padding: "4px 8px 4px 0", lineHeight: 1,
           }}
         >
