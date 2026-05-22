@@ -17,11 +17,6 @@ import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="lg:block hidden">
-      <App />
-    </div>
-    <div className="lg:hidden block text-white font-mono text-sm p-8">
-      NOCTURNE_OS — desktop experience only. Please visit on a larger screen.
-    </div>
+    <App />
   </React.StrictMode>
 );
