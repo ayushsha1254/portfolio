@@ -30,7 +30,7 @@ function AppTile({ app, onLaunch }) {
         fontFamily: "var(--font-data)",
       }}
     >
-      <span style={{ fontSize: 8, color: "var(--text-secondary)", letterSpacing: "0.08em" }}>
+      <span style={{ fontSize: 8, color: "var(--text-muted)", letterSpacing: "0.08em" }}>
         {app.label}
       </span>
       <span style={{ fontSize: 7, color: "var(--text-muted)", letterSpacing: "0.06em", marginTop: 3 }}>
