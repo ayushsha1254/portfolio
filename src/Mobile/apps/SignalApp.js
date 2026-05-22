@@ -44,6 +44,7 @@ export default function SignalApp() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [extraPad, setExtraPad] = useState(0);
   const formRef = useRef(null);
+  const timerRef = useRef(null);
 
   // Keyboard avoidance via visualViewport
   useEffect(() => {
@@ -57,6 +58,8 @@ export default function SignalApp() {
     vv.addEventListener("scroll", handler);
     return () => { vv.removeEventListener("resize", handler); vv.removeEventListener("scroll", handler); };
   }, []);
+
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
 
   const handleChange = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }));
 
@@ -85,7 +88,7 @@ export default function SignalApp() {
     } catch {
       setStatus("error");
     }
-    setTimeout(() => setStatus("idle"), 4000);
+    timerRef.current = setTimeout(() => setStatus("idle"), 4000);
   };
 
   return (

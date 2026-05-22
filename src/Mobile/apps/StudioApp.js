@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 // ── PLAYER tab ────────────────────────────────────────────────────────────────
@@ -11,6 +11,7 @@ function PlayerTab({
   songs,
 }) {
   const trackRef = useRef(null);
+  const [volume, setVolume] = useState(0.5);
 
   const togglePlay = () => {
     if (!howlerRef.current) return;
@@ -30,6 +31,7 @@ function PlayerTab({
     setNowPlaying(next);
     setProgress(0);
     setSeek(0);
+    setDuration(0);
   };
 
   const skipPrev = () => {
@@ -39,6 +41,7 @@ function PlayerTab({
     setNowPlaying(prev);
     setProgress(0);
     setSeek(0);
+    setDuration(0);
   };
 
   const handleScrubberClick = (e) => {
@@ -159,8 +162,12 @@ function PlayerTab({
         }}>VOL</span>
         <input
           type="range" min="0" max="1" step="0.01"
-          defaultValue="0.5"
-          onChange={(e) => { if (howlerRef.current) howlerRef.current.volume(+e.target.value); }}
+          value={volume}
+          onChange={(e) => {
+            const val = parseFloat(e.target.value);
+            setVolume(val);
+            if (howlerRef.current) howlerRef.current.volume(val);
+          }}
           style={{
             flex: 1, accentColor: "var(--accent-purple)", cursor: "pointer",
             height: 3,
@@ -172,11 +179,12 @@ function PlayerTab({
 }
 
 // ── TRACKS tab ────────────────────────────────────────────────────────────────
-function TracksTab({ songs, nowPlaying, setNowPlaying, setPlaying, setProgress, setSeek }) {
+function TracksTab({ songs, nowPlaying, setNowPlaying, setPlaying, setProgress, setSeek, setDuration }) {
   const playTrack = (track) => {
     setNowPlaying(track);
     setProgress(0);
     setSeek(0);
+    setDuration(0);
     setPlaying(true);
   };
 

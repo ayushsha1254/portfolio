@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mainData from "../../Data/main.json";
 
-const { about, skills, projects, certifications } = mainData.explorer;
+const { about = {}, skills = [], projects = [], certifications = [] } = mainData?.explorer ?? {};
 
 const CAT_COLOR = {
   Frontend:      "var(--accent-purple)",

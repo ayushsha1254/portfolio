@@ -14,8 +14,8 @@ function formatUptime(ms) {
   return `${s}s`;
 }
 
-const PROJECTS_COUNT = mainData.explorer.projects.length;
-const SECTIONS_COUNT = Object.keys(mainData.explorer).length;
+const PROJECTS_COUNT = mainData?.explorer?.projects?.length ?? 0;
+const SECTIONS_COUNT = Object.keys(mainData?.explorer ?? {}).length;
 
 export default function AmbientHome({
   nowPlaying, playing, dimmed,
