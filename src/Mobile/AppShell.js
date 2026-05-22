@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Apps imported after each task completes — stubs for now
-// import ArchiveApp from "./apps/ArchiveApp";
+import ArchiveApp from "./apps/ArchiveApp";
 // import StudioApp  from "./apps/StudioApp";
 // import ArenaApp   from "./apps/ArenaApp";
 // import SignalApp  from "./apps/SignalApp";
@@ -45,8 +45,7 @@ export default function AppShell({ app, onBack, ...musicProps }) {
   };
 
   const renderApp = () => {
-    // Swap stubs for real imports after each task:
-    // if (app === "archive") return <ArchiveApp tab={activeTab} />;
+    if (app === "archive") return <ArchiveApp tab={activeTab} />;
     // if (app === "studio")  return <StudioApp  tab={activeTab} {...musicProps} />;
     // if (app === "arena")   return <ArenaApp   tab={activeTab} />;
     // if (app === "signal")  return <SignalApp />;
