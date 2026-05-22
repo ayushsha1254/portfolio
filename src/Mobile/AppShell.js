@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Apps imported after each task completes — stubs for now
 import ArchiveApp from "./apps/ArchiveApp";
 import StudioApp  from "./apps/StudioApp";
 import ArenaApp   from "./apps/ArenaApp";

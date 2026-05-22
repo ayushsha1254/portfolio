@@ -72,7 +72,7 @@ export default function ResumeApp() {
         </div>
       </div>
 
-      <div style={DIVIDER} />
+      {resume.experience?.length > 0 && <div style={DIVIDER} />}
 
       {/* Experience */}
       {resume.experience?.length > 0 && (
@@ -88,7 +88,7 @@ export default function ResumeApp() {
         </div>
       )}
 
-      <div style={DIVIDER} />
+      {resume.education?.length > 0 && <div style={DIVIDER} />}
 
       {/* Education */}
       {resume.education?.length > 0 && (
@@ -104,7 +104,7 @@ export default function ResumeApp() {
         </div>
       )}
 
-      <div style={DIVIDER} />
+      {resume.awards?.length > 0 && <div style={DIVIDER} />}
 
       {/* Awards */}
       {resume.awards?.length > 0 && (
@@ -123,7 +123,7 @@ export default function ResumeApp() {
         </div>
       )}
 
-      <div style={DIVIDER} />
+      {resume.skills?.length > 0 && <div style={DIVIDER} />}
 
       {/* Skills */}
       {resume.skills?.length > 0 && (
