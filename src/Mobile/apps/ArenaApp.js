@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mainData from "../../Data/main.json";
 
-const projects = mainData.explorer.projects;
+const projects = mainData?.explorer?.projects ?? [];
 
 function ProjectLinks({ project }) {
   return (
@@ -28,6 +28,7 @@ function ProjectLinks({ project }) {
 // ── FEATURED tab ──────────────────────────────────────────────────────────────
 function FeaturedTab() {
   const featured = projects[0];
+  if (!featured) return null;
   return (
     <div style={{ padding: "16px 16px 80px" }}>
       <div style={{
