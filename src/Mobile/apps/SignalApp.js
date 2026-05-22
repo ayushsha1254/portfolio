@@ -98,7 +98,7 @@ export default function SignalApp() {
         {/* Name */}
         <div style={{ marginBottom: 20 }}>
           <div style={FIELD_LABEL_STYLE}>
-            <span style={{ color: "var(--text-muted)" }}>&gt;</span>
+            <span style={{ color: "var(--accent-green)" }}>&gt;</span>
             <span>NAME</span>
           </div>
           <input
@@ -113,7 +113,7 @@ export default function SignalApp() {
         {/* Email */}
         <div style={{ marginBottom: 20 }}>
           <div style={FIELD_LABEL_STYLE}>
-            <span style={{ color: "var(--text-muted)" }}>&gt;</span>
+            <span style={{ color: "var(--accent-green)" }}>&gt;</span>
             <span>EMAIL</span>
           </div>
           <input
@@ -128,7 +128,7 @@ export default function SignalApp() {
         {/* Message */}
         <div style={{ marginBottom: 24 }}>
           <div style={FIELD_LABEL_STYLE}>
-            <span style={{ color: "var(--text-muted)" }}>&gt;</span>
+            <span style={{ color: "var(--accent-green)" }}>&gt;</span>
             <span>MESSAGE</span>
           </div>
           <textarea
@@ -153,7 +153,7 @@ export default function SignalApp() {
           style={{
             width: "100%",
             background: status === "sent"
-              ? "rgba(62,255,139,0.08)"
+              ? "var(--accent-green-8)"
               : "none",
             border: `1px solid ${
               status === "error" ? "var(--accent-red)"
