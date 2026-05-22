@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Apps imported after each task completes — stubs for now
 import ArchiveApp from "./apps/ArchiveApp";
 import StudioApp  from "./apps/StudioApp";
-// import ArenaApp   from "./apps/ArenaApp";
+import ArenaApp   from "./apps/ArenaApp";
 // import SignalApp  from "./apps/SignalApp";
 // import ResumeApp  from "./apps/ResumeApp";
 
@@ -47,7 +47,7 @@ export default function AppShell({ app, onBack, ...musicProps }) {
   const renderApp = () => {
     if (app === "archive") return <ArchiveApp tab={activeTab} />;
     if (app === "studio")  return <StudioApp  tab={activeTab} {...musicProps} />;
-    // if (app === "arena")   return <ArenaApp   tab={activeTab} />;
+    if (app === "arena")   return <ArenaApp   tab={activeTab} />;
     // if (app === "signal")  return <SignalApp />;
     // if (app === "resume")  return <ResumeApp />;
     return <AppStub app={app} tab={activeTab} />;
