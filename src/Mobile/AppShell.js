@@ -6,7 +6,7 @@ import ArchiveApp from "./apps/ArchiveApp";
 import StudioApp  from "./apps/StudioApp";
 import ArenaApp   from "./apps/ArenaApp";
 import SignalApp  from "./apps/SignalApp";
-// import ResumeApp  from "./apps/ResumeApp";
+import ResumeApp  from "./apps/ResumeApp";
 
 const APP_META = {
   archive: { label: "ARCHIVE", color: "#8A8A8A", tabs: ["ABOUT","SKILLS","PROJECTS","CERTS","SIH"] },
@@ -16,19 +16,6 @@ const APP_META = {
   resume:  { label: "RESUME",  color: "#8A8A8A", tabs: null },
 };
 
-function AppStub({ app, tab }) {
-  return (
-    <div style={{
-      padding: 24,
-      fontFamily: "var(--font-data)", fontSize: 10,
-      color: "var(--text-muted)", letterSpacing: "0.1em",
-    }}>
-      {app.toUpperCase()}
-      {tab && <span style={{ marginLeft: 8, color: "var(--border-default)" }}>/ {tab}</span>}
-      <div style={{ marginTop: 8, fontSize: 9, color: "var(--border-subtle)" }}>COMING SOON</div>
-    </div>
-  );
-}
 
 const shellVariants = {
   initial: { x: "100vw" },
@@ -49,8 +36,8 @@ export default function AppShell({ app, onBack, ...musicProps }) {
     if (app === "studio")  return <StudioApp  tab={activeTab} {...musicProps} />;
     if (app === "arena")   return <ArenaApp   tab={activeTab} />;
     if (app === "signal")  return <SignalApp />;
-    // if (app === "resume")  return <ResumeApp />;
-    return <AppStub app={app} tab={activeTab} />;
+    if (app === "resume")  return <ResumeApp />;
+    return null;
   };
 
   return (

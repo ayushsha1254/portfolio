@@ -121,3 +121,21 @@ button:focus-visible {
 body.nocturne-glitch {
   animation: nocturne-glitch 0.35s ease-in-out 2;
 }
+
+/* ── Mobile landscape rotation prompt ─────────────────────────── */
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  #root::before {
+    content: "ROTATE DEVICE";
+    position: fixed;
+    inset: 0;
+    background: var(--bg-void);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-data);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+  }
+}
